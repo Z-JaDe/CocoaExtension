@@ -32,35 +32,4 @@ extension String {
     public var trimmed:String {
         return self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
     }
-
-    ///将空格分隔符插入现在的mobile中
-    public var mobileHyphenText: String {
-        //处理后的结果字符串
-        var result = ""
-        //遍历每一个字符
-        for i in 0  ..< self.count {
-            //如果当前到了第4个、第8个数字，则先添加个分隔符
-            if i == 3 || i == 7 {
-                result.append(" ")
-                //如果添加分隔符位置在光标前面，光标则需向后移动一位
-            }
-            result.append(self[i])
-        }
-        return result
-    }
-    ///将空格分隔符插入现在的银行卡号中
-    public var bankCodeHyphenText: String {
-        //处理后的结果字符串
-        var result = ""
-        //遍历每一个字符
-        for i in 0  ..< self.count {
-            //如果当前到了第4个、第8个数字，则先添加个分隔符
-            if i == 4 || i == 8 || i == 12 {
-                result.append("   ")
-                //如果添加分隔符位置在光标前面，光标则需向后移动一位
-            }
-            result.append(self[i])
-        }
-        return result
-    }
 }
