@@ -73,6 +73,9 @@ extension UIViewController {
             return self.parentVC(UIViewController.self)?.findParentVC(T.self)
         }
     }
+    public func childVC<T: UIViewController>(_ vcType: T.Type) -> T? {
+        return self.children.first(where: {$0 is T}) as? T
+    }
     public func previousVC<T: UIViewController>(_ vcType: T.Type) -> T? {
         guard let navC = self.navigationController else {
             return nil
