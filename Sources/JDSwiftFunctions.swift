@@ -236,7 +236,7 @@ extension jd {
             closure?(false, "电话号码为空")
             return
         }
-        guard let url = URL(string: "tel: \(phone)") else {
+        guard let url = URL(string: "tel:\(phone)") else {
             closure?(false, "电话号码格式错误")
             return
         }
