@@ -10,7 +10,7 @@ import Foundation
 
 extension Array {
     public mutating func countIsEqual(
-        _ count: Int,
+        count: Int,
         append appendClosure: (Int) -> Element,
         remove removeClosure: (Element) -> Void
         ) {
@@ -36,7 +36,7 @@ extension Array {
         remove removeClosure: (Element) -> Void
         ) {
 
-        self.countIsEqual(otherArray.count, append: {appendClosure(otherArray[$0])}, remove: removeClosure)
+        self.countIsEqual(count: otherArray.count, append: {appendClosure(otherArray[$0])}, remove: removeClosure)
         self.enumerated().forEach { (offset, element) in
             bindClosure(element, otherArray[offset])
         }

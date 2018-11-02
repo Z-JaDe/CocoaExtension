@@ -12,12 +12,7 @@ extension UIViewController {
             navigationController?.pop(count: popCount, animated: animated)
         }
     }
-//    public func popToRootVC(animated: Bool = true) {
-//        _ = navigationController?.popToRootViewController(animated: animated)
-//    }
-//    public func presentVC(_ vc: UIViewController, animated: Bool = true) {
-//        present(vc, animated: animated, completion: nil)
-//    }
+
     public func dismissVC(animated: Bool = true, completion: (() -> Void)? = nil) {
         dismiss(animated: animated, completion: completion)
     }
