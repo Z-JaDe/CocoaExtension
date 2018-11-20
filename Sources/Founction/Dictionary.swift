@@ -11,6 +11,8 @@ extension NSDictionary {
         }
     }
 
+}
+extension Dictionary {
     /// ZJaDe: 字典转json
     public func formatJSON() -> String? {
         if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: []) {
