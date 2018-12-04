@@ -29,7 +29,7 @@ extension String {
         return self.trimmed.isEmpty
     }
     /// ZJaDe: 去除空格和转行符
-    public var trimmed:String {
+    public var trimmed: String {
         return self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
     }
 }

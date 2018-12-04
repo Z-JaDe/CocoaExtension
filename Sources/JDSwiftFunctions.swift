@@ -215,13 +215,8 @@ extension jd {
     }
 
     /// ZJaDe: 屏幕截图的时候回调
-    @discardableResult
-    public static func detectScreenShot(_ action: @escaping () -> Void) -> NSObjectProtocol {
-        let mainQueue = OperationQueue.main
-        let noti = UIApplication.userDidTakeScreenshotNotification
-        return NotificationCenter.default.addObserver(forName: noti, object: nil, queue: mainQueue) { _ in
-            action()
-        }
+    public static var detectScreenShotNotification: Notification.Name {
+        return UIApplication.userDidTakeScreenshotNotification
     }
 }
 
