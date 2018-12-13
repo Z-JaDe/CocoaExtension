@@ -29,16 +29,16 @@ extension Array {
         }
     }
 
-    public mutating func countIsEqual<T>(
-        _ otherArray: [T],
-        bind bindClosure: (Element, T) -> Void,
+    public mutating func countIsEqual<T,C>(
+        _ otherArray: C,
+        bind bindClosure: (Element, T, Int) -> Void,
         append appendClosure: (T) -> Element,
         remove removeClosure: (Element) -> Void
-        ) {
+        ) where C: Collection, C.Element == T, C.Index == Int {
 
         self.countIsEqual(count: otherArray.count, append: {appendClosure(otherArray[$0])}, remove: removeClosure)
-        self.enumerated().forEach { (offset, element) in
-            bindClosure(element, otherArray[offset])
+        self.lazy.enumerated().forEach { (arg) in
+            bindClosure(arg.element, otherArray[arg.offset], arg.offset)
         }
     }
 }
