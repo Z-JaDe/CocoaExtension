@@ -114,6 +114,53 @@ extension jd {
     }
 }
 extension jd {
+    public static func visibleVC(_ base: UIViewController?) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return visibleVC(nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return visibleVC(selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return visibleVC(presented)
+        }
+        return base ?? rootWindow.rootViewController
+    }
+    /// ZJaDe: 返回modal时最上层的控制器
+    public static var topPresentedVC: UIViewController? {
+        var presentedVC = rootWindow.rootViewController
+        while let pVC = presentedVC?.presentedViewController {
+            presentedVC = pVC
+        }
+        if presentedVC == nil {
+            print("Error: You don't have any views set. You may be calling them in viewDidLoad. Try viewDidAppear instead.")
+        }
+        return presentedVC
+    }
+    /// ZJaDe: 返回modal时 对应类型的控制器
+    public static func findPresentedVC<T: UIViewController>(_ vcType: T.Type) -> T? {
+        let presentedVC = rootWindow.rootViewController
+        while let resultVC = presentedVC?.presentedViewController as? T {
+            return resultVC
+        }
+        return nil
+    }
+}
+extension jd {
+    /// ZJaDe: horizontalSizeClass
+    public static var horizontalSizeClass: UIUserInterfaceSizeClass {
+        return self.topPresentedVC?.traitCollection.horizontalSizeClass ?? UIUserInterfaceSizeClass.unspecified
+    }
+
+    /// ZJaDe: verticalSizeClass
+    public static var verticalSizeClass: UIUserInterfaceSizeClass {
+        return self.topPresentedVC?.traitCollection.verticalSizeClass ?? UIUserInterfaceSizeClass.unspecified
+    }
+}
+
+extension jd {
     /** 震动、响音 */
     public static func remindAndVibrate() {
         vibrate()
