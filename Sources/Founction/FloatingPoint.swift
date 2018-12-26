@@ -5,20 +5,24 @@ extension FloatingPoint {
 //    public func abs () -> Self {
 //        return Foundation.fabs(self)
 //    }
+    /// ZJaDe: 去除负数
+    public var toPositiveNumber: Self {
+        return max(self, 0)
+    }
     /// ZJaDe: 平方根
-    public func sqrt () -> Self {
+    public func sqrt() -> Self {
         return Foundation.sqrt(self)
     }
     /// ZJaDe: 向下取整
-    public func floor () -> Self {
+    public func floor() -> Self {
         return Foundation.floor(self)
     }
     /// ZJaDe: 向上取整
-    public func ceil () -> Self {
+    public func ceil() -> Self {
         return Foundation.ceil(self)
     }
     /// ZJaDe: 四舍五入
-    public func round () -> Self {
+    public func round() -> Self {
         return Foundation.round(self)
     }
     /// ZJaDe: 根据increment 四舍五入
