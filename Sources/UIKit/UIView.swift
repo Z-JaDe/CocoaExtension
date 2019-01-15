@@ -124,7 +124,7 @@ extension UIView {
         get {return self.layer.cornerRadius}
         set {self.layer.cornerRadius = newValue}
     }
-    public func roundView() {
+    @objc open dynamic func roundView() {
         self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2
     }
 }
