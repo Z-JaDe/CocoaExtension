@@ -55,6 +55,10 @@ extension UIImage {
         }
         self.init(data: data)
     }
+    /// ZJaDe: 高除以宽
+    public var sizeScale: CGFloat {
+        return self.size.height / self.size.width
+    }
 }
 extension UIImage {
     public static func dataWithImage(_ image: UIImage) -> Data? {

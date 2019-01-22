@@ -25,10 +25,4 @@ extension UIImageView {
         frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: newWidth, height: newHeight)
     }
 
-    /// ZJaDe: 
-    public func roundSquareImage() {
-        self.clipsToBounds = true
-        self.layer.cornerRadius = self.frame.size.width / 2
-    }
-
 }
