@@ -15,12 +15,12 @@ extension UIView {
     }
 }
 extension UIView {
-    public func addTitleShadow(scale: Float = 1) {
-        self.addShadow(offset: CGSize(width: 0, height: 0), color: UIColor.black, opacity: 0.3 * scale, radius: 5)
-    }
-    public func addButtonShadow(color: UIColor = UIColor.black) {
-        self.addShadow(offset: CGSize(width: 0, height: 0), color: color, opacity: 0.5, radius: 5)
-    }
+//    public func addTitleShadow(scale: Float = 1) {
+//        self.addShadow(offset: CGSize(width: 0, height: 0), color: UIColor.black, opacity: 0.3 * scale, radius: 5)
+//    }
+//    public func addButtonShadow(color: UIColor = UIColor.black) {
+//        self.addShadow(offset: CGSize(width: 0, height: 0), color: color, opacity: 0.5, radius: 5)
+//    }
     public func addShadow(offset: CGSize, color: UIColor, opacity: Float, radius: CGFloat) {
         self.layer.addShadow(offset: offset, color: color, opacity: opacity, radius: radius)
     }
