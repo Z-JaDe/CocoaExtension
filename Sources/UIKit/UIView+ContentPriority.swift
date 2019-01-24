@@ -31,38 +31,19 @@ extension UIView {
     }
     // MARK: -
     public var contentHuggingHorizontalPriority: UILayoutPriority {
-        get {
-            return self.contentHuggingPriority(for: .horizontal)
-        }
-        set {
-            self.setContentHuggingPriority(newValue, for: .horizontal)
-        }
+        get { return self.contentHuggingPriority(for: .horizontal) }
+        set { self.setContentHuggingPriority(newValue, for: .horizontal) }
     }
-
     public var contentHuggingVerticalPriority: UILayoutPriority {
-        get {
-            return self.contentHuggingPriority(for: .vertical)
-        }
-        set {
-            self.setContentHuggingPriority(newValue, for: .vertical)
-        }
+        get { return self.contentHuggingPriority(for: .vertical) }
+        set { self.setContentHuggingPriority(newValue, for: .vertical) }
     }
-
     public var contentCompressionResistanceHorizontalPriority: UILayoutPriority {
-        get {
-            return self.contentCompressionResistancePriority(for: .horizontal)
-        }
-        set {
-            self.setContentCompressionResistancePriority(newValue, for: .horizontal)
-        }
+        get { return self.contentCompressionResistancePriority(for: .horizontal) }
+        set { self.setContentCompressionResistancePriority(newValue, for: .horizontal) }
     }
-
     public var contentCompressionResistanceVerticalPriority: UILayoutPriority {
-        get {
-            return self.contentCompressionResistancePriority(for: .vertical)
-        }
-        set {
-            self.setContentCompressionResistancePriority(newValue, for: .vertical)
-        }
+        get { return self.contentCompressionResistancePriority(for: .vertical) }
+        set { self.setContentCompressionResistancePriority(newValue, for: .vertical) }
     }
 }

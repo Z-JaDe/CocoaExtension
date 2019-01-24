@@ -25,4 +25,12 @@ extension UIImageView {
         frame = CGRect(x: frame.origin.x, y: frame.origin.y, width: newWidth, height: newHeight)
     }
 
+    func setAsyncImage(_ getImage: @escaping @autoclosure () -> UIImage?) {
+        DispatchQueue.global().async {
+            let image = getImage()
+            DispatchQueue.main.async {
+                self.image = image
+            }
+        }
+    }
 }

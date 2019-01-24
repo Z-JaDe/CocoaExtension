@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C913091021F95736003C304F /* GraphicsImageContext+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */; };
+		C913091221F958EC003C304F /* UIImage+Blend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913091121F958EC003C304F /* UIImage+Blend.swift */; };
+		C913091621F95A5B003C304F /* UIImage+GraphicsImageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913091521F95A5B003C304F /* UIImage+GraphicsImageContext.swift */; };
+		C913091821F95CFB003C304F /* ImageDrawer+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913091721F95CFB003C304F /* ImageDrawer+Image.swift */; };
 		C9DF82722179C3A00044334E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82712179C3A00044334E /* AppDelegate.swift */; };
 		C9DF82742179C3A00044334E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82732179C3A00044334E /* ViewController.swift */; };
 		C9DF82772179C3A00044334E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9DF82752179C3A00044334E /* Main.storyboard */; };
@@ -41,7 +45,7 @@
 		C9DF82D32179C45A0044334E /* UIImage+vImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C62179C45A0044334E /* UIImage+vImage.m */; };
 		C9DF82D42179C45A0044334E /* CIImageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C92179C45A0044334E /* CIImageFilter.swift */; };
 		C9DF82D52179C45A0044334E /* GraphicsImageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82CB2179C45A0044334E /* GraphicsImageContext.swift */; };
-		C9DF82D62179C45A0044334E /* SwiftyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82CD2179C45A0044334E /* SwiftyImage.swift */; };
+		C9DF82D62179C45A0044334E /* ImageDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82CD2179C45A0044334E /* ImageDrawer.swift */; };
 		C9DF83052179C6460044334E /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82F72179C6450044334E /* ErrorType.swift */; };
 		C9DF83062179C6460044334E /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82F82179C6450044334E /* URL.swift */; };
 		C9DF83072179C6460044334E /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82F92179C6460044334E /* Int.swift */; };
@@ -54,7 +58,6 @@
 		C9DF830E2179C6460044334E /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF83002179C6460044334E /* CGFloat.swift */; };
 		C9DF830F2179C6460044334E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF83012179C6460044334E /* Date.swift */; };
 		C9DF83102179C6460044334E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF83022179C6460044334E /* Character.swift */; };
-		C9DF83112179C6460044334E /* NSDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF83032179C6460044334E /* NSDictionary.swift */; };
 		C9DF83122179C6460044334E /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF83042179C6460044334E /* FloatingPoint.swift */; };
 		C9DF83142179C6F10044334E /* JDSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF83132179C6F10044334E /* JDSwiftFunctions.swift */; };
 		C9FB08742179C8CF00041EF1 /* CalendarMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB08732179C8CF00041EF1 /* CalendarMath.swift */; };
@@ -64,6 +67,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphicsImageContext+UIKit.swift"; sourceTree = "<group>"; };
+		C913091121F958EC003C304F /* UIImage+Blend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Blend.swift"; sourceTree = "<group>"; };
+		C913091521F95A5B003C304F /* UIImage+GraphicsImageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GraphicsImageContext.swift"; sourceTree = "<group>"; };
+		C913091721F95CFB003C304F /* ImageDrawer+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageDrawer+Image.swift"; sourceTree = "<group>"; };
+		C913091921F97627003C304F /* Image.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Image.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C9DF826E2179C3A00044334E /* CocoaExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DF82712179C3A00044334E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9DF82732179C3A00044334E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +111,7 @@
 		C9DF82C72179C45A0044334E /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		C9DF82C92179C45A0044334E /* CIImageFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageFilter.swift; sourceTree = "<group>"; };
 		C9DF82CB2179C45A0044334E /* GraphicsImageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsImageContext.swift; sourceTree = "<group>"; };
-		C9DF82CD2179C45A0044334E /* SwiftyImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyImage.swift; sourceTree = "<group>"; };
+		C9DF82CD2179C45A0044334E /* ImageDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDrawer.swift; sourceTree = "<group>"; };
 		C9DF82DA2179C5580044334E /* CocoaExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CocoaExtension-Bridging-Header.h"; sourceTree = "<group>"; };
 		C9DF82F72179C6450044334E /* ErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		C9DF82F82179C6450044334E /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -117,7 +125,6 @@
 		C9DF83002179C6460044334E /* CGFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		C9DF83012179C6460044334E /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		C9DF83022179C6460044334E /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		C9DF83032179C6460044334E /* NSDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionary.swift; sourceTree = "<group>"; };
 		C9DF83042179C6460044334E /* FloatingPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPoint.swift; sourceTree = "<group>"; };
 		C9DF83132179C6F10044334E /* JDSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JDSwiftFunctions.swift; sourceTree = "<group>"; };
 		C9FB08732179C8CF00041EF1 /* CalendarMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMath.swift; sourceTree = "<group>"; };
@@ -140,6 +147,7 @@
 		C9DF82652179C3A00044334E = {
 			isa = PBXGroup;
 			children = (
+				C913091921F97627003C304F /* Image.playground */,
 				C9DF82832179C3B00044334E /* Sources */,
 				C9DF82702179C3A00044334E /* CocoaExtension */,
 				C9DF826F2179C3A00044334E /* Products */,
@@ -197,7 +205,6 @@
 				C9DF82F72179C6450044334E /* ErrorType.swift */,
 				C9DF83042179C6460044334E /* FloatingPoint.swift */,
 				C9DF82F92179C6460044334E /* Int.swift */,
-				C9DF83032179C6460044334E /* NSDictionary.swift */,
 				C9DF82F82179C6450044334E /* URL.swift */,
 			);
 			path = Founction;
@@ -243,7 +250,7 @@
 			children = (
 				C9DF82C82179C45A0044334E /* CIImageFilter */,
 				C9DF82CA2179C45A0044334E /* GraphicsImageContext */,
-				C9DF82CC2179C45A0044334E /* SwiftyImage */,
+				C9DF82CC2179C45A0044334E /* ImageDrawer */,
 				C9DF82BE2179C45A0044334E /* UIImage */,
 			);
 			path = Image;
@@ -252,15 +259,15 @@
 		C9DF82BE2179C45A0044334E /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
-				C9DF82BF2179C45A0044334E /* UIImage+vImage.swift */,
-				C9DF82C02179C45A0044334E /* UIImage+ImageEffects.swift */,
-				C9DF82C12179C45A0044334E /* UIImage+ImageEffects.h */,
+				C9DF82C42179C45A0044334E /* UIImage.swift */,
+				C9DF82C72179C45A0044334E /* UIImage+GIF.h */,
 				C9DF82C22179C45A0044334E /* UIImage+GIF.m */,
 				C9DF82C32179C45A0044334E /* UIImage+vImage.h */,
-				C9DF82C42179C45A0044334E /* UIImage.swift */,
-				C9DF82C52179C45A0044334E /* UIImage+ImageEffects.m */,
 				C9DF82C62179C45A0044334E /* UIImage+vImage.m */,
-				C9DF82C72179C45A0044334E /* UIImage+GIF.h */,
+				C9DF82BF2179C45A0044334E /* UIImage+vImage.swift */,
+				C9DF82C12179C45A0044334E /* UIImage+ImageEffects.h */,
+				C9DF82C52179C45A0044334E /* UIImage+ImageEffects.m */,
+				C9DF82C02179C45A0044334E /* UIImage+ImageEffects.swift */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -277,16 +284,20 @@
 			isa = PBXGroup;
 			children = (
 				C9DF82CB2179C45A0044334E /* GraphicsImageContext.swift */,
+				C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */,
+				C913091121F958EC003C304F /* UIImage+Blend.swift */,
+				C913091521F95A5B003C304F /* UIImage+GraphicsImageContext.swift */,
 			);
 			path = GraphicsImageContext;
 			sourceTree = "<group>";
 		};
-		C9DF82CC2179C45A0044334E /* SwiftyImage */ = {
+		C9DF82CC2179C45A0044334E /* ImageDrawer */ = {
 			isa = PBXGroup;
 			children = (
-				C9DF82CD2179C45A0044334E /* SwiftyImage.swift */,
+				C913091721F95CFB003C304F /* ImageDrawer+Image.swift */,
+				C9DF82CD2179C45A0044334E /* ImageDrawer.swift */,
 			);
-			path = SwiftyImage;
+			path = ImageDrawer;
 			sourceTree = "<group>";
 		};
 		C9FB08722179C8CF00041EF1 /* CalendarMath */ = {
@@ -390,6 +401,7 @@
 				C9DF82CE2179C45A0044334E /* UIImage+vImage.swift in Sources */,
 				C9DF82AD2179C3EC0044334E /* UITextField.swift in Sources */,
 				C9DF83062179C6460044334E /* URL.swift in Sources */,
+				C913091621F95A5B003C304F /* UIImage+GraphicsImageContext.swift in Sources */,
 				C9DF82B82179C3EC0044334E /* UINavigationController.swift in Sources */,
 				C9DF83142179C6F10044334E /* JDSwiftFunctions.swift in Sources */,
 				C9DF82D02179C45A0044334E /* UIImage+GIF.m in Sources */,
@@ -400,15 +412,16 @@
 				C9DF82D52179C45A0044334E /* GraphicsImageContext.swift in Sources */,
 				C9DF830F2179C6460044334E /* Date.swift in Sources */,
 				C9DF82AA2179C3EC0044334E /* UINavigationItem.swift in Sources */,
-				C9DF82D62179C45A0044334E /* SwiftyImage.swift in Sources */,
+				C9DF82D62179C45A0044334E /* ImageDrawer.swift in Sources */,
+				C913091821F95CFB003C304F /* ImageDrawer+Image.swift in Sources */,
 				C9DF83072179C6460044334E /* Int.swift in Sources */,
 				C9DF82D22179C45A0044334E /* UIImage+ImageEffects.m in Sources */,
-				C9DF83112179C6460044334E /* NSDictionary.swift in Sources */,
 				C9DF83122179C6460044334E /* FloatingPoint.swift in Sources */,
 				C9DF83092179C6460044334E /* Array.swift in Sources */,
 				C9DF82B12179C3EC0044334E /* UIWindow.swift in Sources */,
 				C9DF82B72179C3EC0044334E /* UISlider.swift in Sources */,
 				C9DF82D32179C45A0044334E /* UIImage+vImage.m in Sources */,
+				C913091221F958EC003C304F /* UIImage+Blend.swift in Sources */,
 				C9DF82A62179C3EC0044334E /* UIScrollView.swift in Sources */,
 				C9DF82AB2179C3EC0044334E /* UIUserInterfaceSizeClass.swift in Sources */,
 				C9DF82742179C3A00044334E /* ViewController.swift in Sources */,
@@ -420,6 +433,7 @@
 				C9DF83102179C6460044334E /* Character.swift in Sources */,
 				C9FB087B2179C92000041EF1 /* String+Encrypt.swift in Sources */,
 				C9DF82D42179C45A0044334E /* CIImageFilter.swift in Sources */,
+				C913091021F95736003C304F /* GraphicsImageContext+UIKit.swift in Sources */,
 				C9DF830C2179C6460044334E /* Comparable.swift in Sources */,
 				C9FB087A2179C92000041EF1 /* String.swift in Sources */,
 				C9DF83052179C6460044334E /* ErrorType.swift in Sources */,

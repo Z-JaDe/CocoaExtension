@@ -124,10 +124,11 @@ extension UIView {
         get {return self.layer.cornerRadius}
         set {self.layer.cornerRadius = newValue}
     }
-    @objc open dynamic func roundView() {
+    @objc open func roundView() {
         self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2
     }
 }
+
 extension UIView {
     public func rootView() -> UIView {
         guard let parentView = superview else {
