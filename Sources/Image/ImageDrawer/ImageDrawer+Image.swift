@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public extension UIImage {
     public class func create(width: CGFloat, height: CGFloat) -> ImageDrawer {
         return self.create(CGSize(width: width, height: height))
@@ -22,5 +21,11 @@ public extension UIImage {
         let drawer = ImageDrawer()
         drawer.size = .resizable
         return drawer
+    }
+    public class func create(color: UIColor?) -> UIImage {
+        return createResizable().color(color).image
+    }
+    public class func create(color: UIColor?, _ size: CGSize) -> UIImage {
+        return create(size).color(color).image
     }
 }
