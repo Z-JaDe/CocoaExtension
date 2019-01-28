@@ -32,7 +32,7 @@ extension String {
     private static func _random(source: String, count: Int) -> String {
         var result: String = ""
         (0..<count).forEach { (_) in
-            result.append(source[Int(arc4random()) % source.count])
+            result.append(source[Int(arc4random() % UInt32(source.count))])
         }
         return result
     }
