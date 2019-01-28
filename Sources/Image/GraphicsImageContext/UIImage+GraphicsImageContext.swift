@@ -5,7 +5,7 @@
 //  Created by 郑军铎 on 2019/1/24.
 //
 
-import Foundation
+import UIKit
 // MARK: - color
 extension UIImage {
     /// ZJaDe: 根据透明度返回图片
@@ -15,12 +15,12 @@ extension UIImage {
             }.createImage()
     }
     /// ZJaDe: 根据颜色返回图片
-    public func change(color: UIColor) -> UIImage {
+    public func change(color: UIColor, blendMode: CGBlendMode = .destinationIn) -> UIImage {
         return imageContext.draw { (context) in
             color.setFill()
             let drawRect = CGRect(origin: .zero, size: size)
             context.fill(drawRect)
-            self.draw(at: CGPoint.zero, blendMode: .destinationIn, alpha: 1)
+            self.draw(at: CGPoint.zero, blendMode: blendMode, alpha: 1)
         }.createImage()
     }
     /// ZJaDe: 根据颜色返回图片2
