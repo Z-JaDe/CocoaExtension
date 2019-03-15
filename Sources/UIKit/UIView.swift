@@ -131,22 +131,15 @@ extension UIView {
 
 extension UIView {
     public func rootView() -> UIView {
-        guard let parentView = superview else {
-            return self
-        }
-        return parentView.rootView()
+        return superView(UIView.self) ?? self
     }
     public func superView<T: UIView>(_ viewType: T.Type) -> T? {
-        var responder: UIResponder? = self
-        repeat {
-            if responder is T {
-                return responder as? T
-            }
-            responder = responder?.next
-        }while (responder != nil)
-        return nil
+        return responder(viewType)
     }
     public func viewController<T: UIViewController>(_ vcType: T.Type) -> T? {
+        return responder(vcType)
+    }
+    private func responder<T: UIResponder>(_ type: T.Type) -> T? {
         var responder: UIResponder? = self
         repeat {
             if responder is T {
@@ -175,5 +168,40 @@ extension UIView {
             viewCon = parentVC
         } while (viewCon.parent != nil)
         return nil
+    }
+}
+extension UIView {
+    public func searchVisualEffectsSubview() -> UIVisualEffectView? {
+        if let visualEffectView = self as? UIVisualEffectView {
+            return visualEffectView
+        } else {
+            for subview in subviews {
+                if let found = subview.searchVisualEffectsSubview() {
+                    return found
+                }
+            }
+        }
+        return nil
+    }
+    public func subViews<T : UIView>(type : T.Type) -> [T] {
+        var all = [T]()
+        for view in self.subviews {
+            if let aView = view as? T{
+                all.append(aView)
+            }
+        }
+        return all
+    }
+    public func allSubViewsOf<T : UIView>(type : T.Type) -> [T] {
+        var all = [T]()
+        func getSubview(view: UIView) {
+            if let aView = view as? T {
+                all.append(aView)
+            }
+            guard view.subviews.count > 0 else { return }
+            view.subviews.forEach { getSubview(view: $0) }
+        }
+        getSubview(view: self)
+        return all
     }
 }
