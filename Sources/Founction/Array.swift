@@ -54,7 +54,7 @@ extension Array {
 extension Array where Element: Equatable {
     @discardableResult
     public mutating func remove(_ element: Element) -> Int? {
-        if let index = self.index(of: element) {
+        if let index = self.firstIndex(of: element) {
             self.remove(at: index)
             return index
         } else {

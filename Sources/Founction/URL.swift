@@ -22,7 +22,7 @@ extension URL {
             return
         }
         var queryItems: [URLQueryItem] = urlComponents.queryItems ?? [URLQueryItem]()
-        if let index = queryItems.index(where: {$0.name == name}) {
+        if let index = queryItems.firstIndex(where: {$0.name == name}) {
             queryItems[index].value = value
         } else {
             queryItems.append(URLQueryItem(name: name, value: value))

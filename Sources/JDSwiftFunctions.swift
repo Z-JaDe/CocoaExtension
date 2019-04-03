@@ -363,7 +363,7 @@ extension jd {
         var index = 0
         var minUnitIndex: Int?
         if let minUnit = minUnit {
-            minUnitIndex = unitArr.index(of: minUnit)
+            minUnitIndex = unitArr.firstIndex(of: minUnit)
         }
         while size > 1024.0 {
             if index >= unitArr.count - 1 {

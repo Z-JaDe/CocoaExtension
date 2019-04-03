@@ -20,6 +20,8 @@ extension UIImage {
             return true
         case .none, .noneSkipFirst, .noneSkipLast:
             return false
+        @unknown default:
+            fatalError()
         }
     }
 

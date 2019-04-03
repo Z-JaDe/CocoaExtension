@@ -75,7 +75,7 @@ extension UIViewController {
         guard let navC = self.navigationController else {
             return nil
         }
-        if let index = navC.viewControllers.index(of: self), index >= 1 {
+        if let index = navC.viewControllers.firstIndex(of: self), index >= 1 {
             if let viewCon = navC.viewControllers[index-1] as? T {
                 return viewCon
             } else {
