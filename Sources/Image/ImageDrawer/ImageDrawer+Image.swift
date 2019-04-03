@@ -9,23 +9,23 @@
 import Foundation
 
 public extension UIImage {
-    public static func create(width: CGFloat, height: CGFloat) -> ImageDrawer {
+    static func create(width: CGFloat, height: CGFloat) -> ImageDrawer {
         return self.create(CGSize(width: width, height: height))
     }
-    public static func create(_ size: CGSize) -> ImageDrawer {
+    static func create(_ size: CGSize) -> ImageDrawer {
         let drawer = ImageDrawer()
         drawer.size = .fixed(size)
         return drawer
     }
-    public static func createResizable() -> ImageDrawer {
+    static func createResizable() -> ImageDrawer {
         let drawer = ImageDrawer()
         drawer.size = .resizable
         return drawer
     }
-    public static func create(color: UIColor?) -> UIImage {
+    static func create(color: UIColor?) -> UIImage {
         return createResizable().color(color).image
     }
-    public static func create(color: UIColor?, _ size: CGSize) -> UIImage {
+    static func create(color: UIColor?, _ size: CGSize) -> UIImage {
         return create(size).color(color).image
     }
 }

@@ -12,7 +12,10 @@
 
 @implementation UIImage (ImageEffects)
 
-- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage {
+- (UIImage* _Nullable)applyBlurWithRadius:(CGFloat)blurRadius
+                               tintColor:(UIColor* _Nullable)tintColor
+                   saturationDeltaFactor:(CGFloat)saturationDeltaFactor
+                               maskImage:(UIImage* _Nullable)maskImage {
     
     // Check pre-conditions.
     if (self.size.width < 1 || self.size.height < 1) {

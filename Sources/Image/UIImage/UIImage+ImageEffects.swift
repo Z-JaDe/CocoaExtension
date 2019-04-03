@@ -29,7 +29,7 @@ public enum ImageEffect {
     case tintEffect(UIColor)
 }
 extension UIImage {
-    public func applyEffect(_ effect: ImageEffect) -> UIImage {
+    public func applyEffect(_ effect: ImageEffect) -> UIImage? {
         let tintColor: UIColor
         switch effect {
         case .light:
@@ -48,7 +48,7 @@ extension UIImage {
     }
 }
 extension UIImage {
-    public func blurImage(radius: CGFloat = 5, tintColor: UIColor = UIColor.clear, maskImage: UIImage? = nil) -> UIImage {
+    public func blurImage(radius: CGFloat = 5, tintColor: UIColor = UIColor.clear, maskImage: UIImage? = nil) -> UIImage? {
         return self.applyBlur(withRadius: radius, tintColor: tintColor, saturationDeltaFactor: 1.4, maskImage: maskImage)
     }
     public func blurImage(at frame: CGRect) -> UIImage {

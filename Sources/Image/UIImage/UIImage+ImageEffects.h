@@ -10,12 +10,12 @@
 
 @interface UIImage (ImageEffects)
 
-- (UIColor * _Nullable)averageColor;
+- (UIColor* _Nullable)averageColor;
 
-- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius
-                       tintColor:(UIColor *)tintColor
-           saturationDeltaFactor:(CGFloat)saturationDeltaFactor
-                       maskImage:(UIImage *)maskImage;
+- (UIImage* _Nullable)applyBlurWithRadius:(CGFloat)blurRadius
+                                 tintColor:(UIColor* _Nullable)tintColor
+                     saturationDeltaFactor:(CGFloat)saturationDeltaFactor
+                                 maskImage:(UIImage* _Nullable)maskImage;
 
 - (UIColor* _Nullable)mostColor;
 @end
