@@ -29,7 +29,7 @@ extension Array {
         }
     }
 
-    public mutating func countIsEqual<T,C>(
+    public mutating func countIsEqual<T, C>(
         _ otherArray: C,
         bind bindClosure: (Element, T, Int) -> Void,
         append appendClosure: (T) -> Element,

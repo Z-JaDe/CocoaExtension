@@ -34,6 +34,7 @@ extension CGSize {
         return left
     }
     public static func += (left: inout CGSize, right: UIEdgeInsets) {
+        // swiftlint:disable shorthand_operator
         left = left + right
     }
     public static func + (left: CGSize, right: CGSize) -> CGSize {

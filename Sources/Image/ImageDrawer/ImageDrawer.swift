@@ -127,6 +127,7 @@ extension ImageDrawer {
         }
         context.restoreGState()
     }
+    // swiftlint:disable function_body_length
     func getPath(_ rect: CGRect, _ imageSize: CGSize) -> UIBezierPath {
         guard self.cornerRadiusDict.values.max() ?? 0 > 0 else {
             return UIBezierPath(rect: rect)
@@ -174,7 +175,7 @@ extension ImageDrawer {
             mutablePath.addLine(to: bottomRightCenter)
         }
         if bottomLeft > 0 {
-            mutablePath.addArc( withCenter: bottomLeftCenter, radius: bottomLeft, startAngle: 2.5 * startAngle, endAngle: 3 * startAngle, clockwise: true)
+            mutablePath.addArc(withCenter: bottomLeftCenter, radius: bottomLeft, startAngle: 2.5 * startAngle, endAngle: 3 * startAngle, clockwise: true)
         } else {
             mutablePath.addLine(to: bottomLeftCenter)
         }
