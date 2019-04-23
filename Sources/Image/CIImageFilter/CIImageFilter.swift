@@ -49,7 +49,7 @@ public class CIImageFilter {
 }
 import Accelerate
 extension UIImage {
-    @available(*, unavailable, message: "存在性能问题，可以使用gaussianBlur或者blurImage")
+    @available(*, deprecated, message: "存在性能问题，可以使用gaussianBlur或者blurImage")
     public func gaussianBlurImage(_ blur: CGFloat = 10) -> UIImage {
         guard blur > 0 else {
             return self
