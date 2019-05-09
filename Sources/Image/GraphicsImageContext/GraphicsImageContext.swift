@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@available(iOS, deprecated: 10.0, message: "可以使用 UIGraphicsImageRenderer")
 public struct GraphicsImageContext {
     public init(_ size: CGSize, _ opaque: Bool = false, _ scale: CGFloat = 0) {
         UIGraphicsBeginImageContextWithOptions(size, opaque, scale)
@@ -39,7 +39,15 @@ public struct GraphicsImageContext {
     }
 }
 extension UIImage {
+    @available(iOS, deprecated: 10.0, message: "可以使用 UIGraphicsImageRenderer")
     public var imageContext: GraphicsImageContext {
         return GraphicsImageContext(self.size, false, self.scale)
+    }
+    public func imageRenderer(format: UIGraphicsImageRendererFormat? = nil) -> UIGraphicsImageRenderer {
+        if let format = format {
+            return UIGraphicsImageRenderer(size: self.size, format: format)
+        } else {
+            return UIGraphicsImageRenderer(size: self.size)
+        }
     }
 }

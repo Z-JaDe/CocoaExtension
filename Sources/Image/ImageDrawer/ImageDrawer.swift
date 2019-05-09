@@ -69,12 +69,12 @@ extension ImageDrawer {
     }
     private func createImage(size: CGSize) -> UIImage {
         let (rect, imageSize) = calculateImageRect(size)
-
-        return GraphicsImageContext(imageSize).draw { (context) in
+        return UIGraphicsImageRenderer(size: imageSize).image(actions: { (context) in
+            let context = context.cgContext
             let path = getPath(rect, imageSize)
             drawFill(context, path, imageSize)
             drawStroke(context, path, imageSize)
-        }.createImage()
+        })
     }
     func drawFill(_ context: CGContext, _ path: UIBezierPath, _ imageSize: CGSize) {
         context.saveGState()
