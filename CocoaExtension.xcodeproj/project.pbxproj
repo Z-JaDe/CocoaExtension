@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18FF9D66229D7100003C5EA7 /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D65229D7100003C5EA7 /* String+Hex.swift */; };
+		18FF9D68229D715B003C5EA7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D67229D715B003C5EA7 /* Dictionary.swift */; };
 		C913091021F95736003C304F /* GraphicsImageContext+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */; };
 		C913091221F958EC003C304F /* UIImage+Blend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913091121F958EC003C304F /* UIImage+Blend.swift */; };
 		C913091621F95A5B003C304F /* UIImage+GraphicsImageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913091521F95A5B003C304F /* UIImage+GraphicsImageContext.swift */; };
@@ -67,6 +69,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18FF9D65229D7100003C5EA7 /* String+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
+		18FF9D67229D715B003C5EA7 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphicsImageContext+UIKit.swift"; sourceTree = "<group>"; };
 		C913091121F958EC003C304F /* UIImage+Blend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Blend.swift"; sourceTree = "<group>"; };
 		C913091521F95A5B003C304F /* UIImage+GraphicsImageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GraphicsImageContext.swift"; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				C9DF82FB2179C6460044334E /* Array.swift */,
 				C9DF82FD2179C6460044334E /* Bool.swift */,
 				C9DF82FC2179C6460044334E /* Bundle.swift */,
+				18FF9D67229D715B003C5EA7 /* Dictionary.swift */,
 				C9DF83002179C6460044334E /* CGFloat.swift */,
 				C9DF82FF2179C6460044334E /* CGRect.swift */,
 				C9DF83022179C6460044334E /* Character.swift */,
@@ -313,6 +318,7 @@
 			children = (
 				C9FB08772179C92000041EF1 /* String.swift */,
 				C9FB08762179C92000041EF1 /* String+Random.swift */,
+				18FF9D65229D7100003C5EA7 /* String+Hex.swift */,
 				C9FB08782179C92000041EF1 /* String+Encrypt.swift */,
 			);
 			path = String;
@@ -401,6 +407,7 @@
 				C9DF82CE2179C45A0044334E /* UIImage+vImage.swift in Sources */,
 				C9DF82AD2179C3EC0044334E /* UITextField.swift in Sources */,
 				C9DF83062179C6460044334E /* URL.swift in Sources */,
+				18FF9D66229D7100003C5EA7 /* String+Hex.swift in Sources */,
 				C913091621F95A5B003C304F /* UIImage+GraphicsImageContext.swift in Sources */,
 				C9DF82B82179C3EC0044334E /* UINavigationController.swift in Sources */,
 				C9DF83142179C6F10044334E /* JDSwiftFunctions.swift in Sources */,
@@ -413,6 +420,7 @@
 				C9DF830F2179C6460044334E /* Date.swift in Sources */,
 				C9DF82AA2179C3EC0044334E /* UINavigationItem.swift in Sources */,
 				C9DF82D62179C45A0044334E /* ImageDrawer.swift in Sources */,
+				18FF9D68229D715B003C5EA7 /* Dictionary.swift in Sources */,
 				C913091821F95CFB003C304F /* ImageDrawer+Image.swift in Sources */,
 				C9DF83072179C6460044334E /* Int.swift in Sources */,
 				C9DF82D22179C45A0044334E /* UIImage+ImageEffects.m in Sources */,
