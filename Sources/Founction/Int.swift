@@ -33,9 +33,10 @@ extension Int {
 //            return -1; //out of bound
         }
     }
-
+}
+extension FixedWidthInteger {
     /// ZJaDe: 返回随机数
-    public static func random(min: Int = 0, max: Int = 50) -> Int {
-        return Int(Double.random(min: Double(min), max: Double(max)))
+    public static func random(min: Self = 0, max: Self = 50) -> Self {
+        return random(in: min...max)
     }
 }
