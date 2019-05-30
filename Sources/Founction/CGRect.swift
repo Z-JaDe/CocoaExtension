@@ -43,7 +43,6 @@ extension CGSize {
     public static func += (left: inout CGSize, right: CGSize) {
         left = CGSize(width: left.width + right.width, height: left.height + right.height)
     }
-
 }
 extension CGPoint {
     public func offsetBy(dx: CGFloat, dy: CGFloat) -> CGPoint {
