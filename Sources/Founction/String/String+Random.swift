@@ -9,14 +9,14 @@
 import Foundation
 
 extension String {
-    public static var uppercaseLetters: String = "ABCDEFGHIGKLMNOPQRSTUVWXYZ"
-    public static var lowercaseLetters: String = "abcdefghigklmnopqrstuvwxyz"
-    public static var decimalDigits: String = "0123456789"
+    public static let uppercaseLetters: String = "ABCDEFGHIGKLMNOPQRSTUVWXYZ"
+    public static let lowercaseLetters: String = "abcdefghigklmnopqrstuvwxyz"
+    public static let decimalDigits: String = "0123456789"
 
     public static func random(min: Int, max: Int) -> String {
-        guard max > min else {return ""}
-        guard min > 0 else {return ""}
-        let count = Int.random(min: min, max: max)
+        guard max >= min else {return ""}
+        guard min >= 0 else {return ""}
+        let count = Int.random(in: min...max)
         return self.random(count: count)
     }
     /// ZJaDe: 随机数字加字母
@@ -32,7 +32,7 @@ extension String {
     private static func _random(source: String, count: Int) -> String {
         var result: String = ""
         (0..<count).forEach { (_) in
-            result.append(source[Int(arc4random() % UInt32(source.count))])
+            result.append(source[Int.random(in: 0..<source.count)])
         }
         return result
     }
