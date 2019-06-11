@@ -42,7 +42,7 @@ extension FloatingPoint {
     }
 
 }
-extension BinaryFloatingPoint where Self.RawSignificand : FixedWidthInteger {
+extension BinaryFloatingPoint where Self.RawSignificand: FixedWidthInteger {
     /// ZJaDe: 返回随机数
     public static func random(min: Self = 0, max: Self = 1) -> Self {
         return random(in: min...max)
