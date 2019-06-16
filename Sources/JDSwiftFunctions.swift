@@ -275,7 +275,7 @@ extension jd {
     }
     /// ZJaDe: 打电话
     public static func callPhone(_ phone: String?, closure: ((Bool, String) -> Void)?) {
-        guard let phone = phone, phone.count > 0 else {
+        guard let phone = phone, phone.isEmpty == false else {
             closure?(false, "电话号码为空")
             return
         }
