@@ -14,18 +14,14 @@ extension Array {
         append appendClosure: (Int) -> Element,
         remove removeClosure: (Element) -> Void
         ) {
-        var result = self
-        if result.count < count {
-            for offset in result.count..<count {
-                result.append(appendClosure(offset))
+        if self.count < count {
+            for offset in self.count..<count {
+                append(appendClosure(offset))
             }
         } else {
-            while result.count > count {
-                removeClosure(result.removeLast())
+            while self.count > count {
+                removeClosure(removeLast())
             }
-        }
-        if result.count != self.count {
-            self = result
         }
     }
 
