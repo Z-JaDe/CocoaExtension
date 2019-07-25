@@ -1,6 +1,6 @@
 
 language: swift
 osx_image: xcode10.2
-xcode_xcodeproj: CocoaExtension.xcodeproj
+xcode_project: CocoaExtension.xcodeproj
 xcode_scheme: CocoaExtension
 xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X
