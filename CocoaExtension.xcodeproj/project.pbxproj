@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180A050222EA943400AC7D19 /* CocoaExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A050122EA943400AC7D19 /* CocoaExtensionTests.swift */; };
 		18FF9D66229D7100003C5EA7 /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D65229D7100003C5EA7 /* String+Hex.swift */; };
 		18FF9D68229D715B003C5EA7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D67229D715B003C5EA7 /* Dictionary.swift */; };
 		C913091021F95736003C304F /* GraphicsImageContext+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */; };
@@ -68,7 +69,20 @@
 		C9FB087B2179C92000041EF1 /* String+Encrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB08782179C92000041EF1 /* String+Encrypt.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		180A050422EA943400AC7D19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9DF82662179C3A00044334E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9DF826D2179C3A00044334E;
+			remoteInfo = CocoaExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		180A04FF22EA943300AC7D19 /* CocoaExtensionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaExtensionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		180A050122EA943400AC7D19 /* CocoaExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaExtensionTests.swift; sourceTree = "<group>"; };
+		180A050322EA943400AC7D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18FF9D65229D7100003C5EA7 /* String+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
 		18FF9D67229D715B003C5EA7 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphicsImageContext+UIKit.swift"; sourceTree = "<group>"; };
@@ -138,6 +152,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		180A04FC22EA943300AC7D19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9DF826B2179C3A00044334E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,12 +169,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180A050022EA943400AC7D19 /* CocoaExtensionTests */ = {
+			isa = PBXGroup;
+			children = (
+				180A050122EA943400AC7D19 /* CocoaExtensionTests.swift */,
+				180A050322EA943400AC7D19 /* Info.plist */,
+			);
+			path = CocoaExtensionTests;
+			sourceTree = "<group>";
+		};
 		C9DF82652179C3A00044334E = {
 			isa = PBXGroup;
 			children = (
 				C913091921F97627003C304F /* Image.playground */,
 				C9DF82832179C3B00044334E /* Sources */,
 				C9DF82702179C3A00044334E /* CocoaExtension */,
+				180A050022EA943400AC7D19 /* CocoaExtensionTests */,
 				C9DF826F2179C3A00044334E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -162,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				C9DF826E2179C3A00044334E /* CocoaExtension.app */,
+				180A04FF22EA943300AC7D19 /* CocoaExtensionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -327,6 +359,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		180A04FE22EA943300AC7D19 /* CocoaExtensionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 180A050822EA943400AC7D19 /* Build configuration list for PBXNativeTarget "CocoaExtensionTests" */;
+			buildPhases = (
+				180A04FB22EA943300AC7D19 /* Sources */,
+				180A04FC22EA943300AC7D19 /* Frameworks */,
+				180A04FD22EA943300AC7D19 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				180A050522EA943400AC7D19 /* PBXTargetDependency */,
+			);
+			name = CocoaExtensionTests;
+			productName = CocoaExtensionTests;
+			productReference = 180A04FF22EA943300AC7D19 /* CocoaExtensionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C9DF826D2179C3A00044334E /* CocoaExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9DF82802179C3A00044334E /* Build configuration list for PBXNativeTarget "CocoaExtension" */;
@@ -350,10 +400,14 @@
 		C9DF82662179C3A00044334E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = zjade;
 				TargetAttributes = {
+					180A04FE22EA943300AC7D19 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = C9DF826D2179C3A00044334E;
+					};
 					C9DF826D2179C3A00044334E = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -373,11 +427,19 @@
 			projectRoot = "";
 			targets = (
 				C9DF826D2179C3A00044334E /* CocoaExtension */,
+				180A04FE22EA943300AC7D19 /* CocoaExtensionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		180A04FD22EA943300AC7D19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9DF826C2179C3A00044334E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,6 +453,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		180A04FB22EA943300AC7D19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				180A050222EA943400AC7D19 /* CocoaExtensionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9DF826A2179C3A00044334E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,6 +526,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		180A050522EA943400AC7D19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9DF826D2179C3A00044334E /* CocoaExtension */;
+			targetProxy = 180A050422EA943400AC7D19 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C9DF82752179C3A00044334E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -476,6 +554,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		180A050622EA943400AC7D19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CocoaExtensionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjade.CocoaExtensionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CocoaExtension.app/CocoaExtension";
+			};
+			name = Debug;
+		};
+		180A050722EA943400AC7D19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CocoaExtensionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zjade.CocoaExtensionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CocoaExtension.app/CocoaExtension";
+			};
+			name = Release;
+		};
 		C9DF827E2179C3A00044334E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -635,6 +753,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		180A050822EA943400AC7D19 /* Build configuration list for PBXNativeTarget "CocoaExtensionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				180A050622EA943400AC7D19 /* Debug */,
+				180A050722EA943400AC7D19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C9DF82692179C3A00044334E /* Build configuration list for PBXProject "CocoaExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

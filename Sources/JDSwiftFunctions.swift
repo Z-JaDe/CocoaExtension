@@ -328,8 +328,12 @@ extension jd {
             guard let device: AVCaptureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
                 return
             }
+            let torchMode: AVCaptureDevice.TorchMode = newValue ? .on : .off
+            guard device.hasTorch && device.isTorchModeSupported(torchMode) else {
+                return
+            }
             try? device.lockForConfiguration()
-            device.torchMode = newValue ? .on : .off
+            device.torchMode = torchMode
             device.unlockForConfiguration()
         }
     }
