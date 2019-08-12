@@ -40,10 +40,10 @@ extension Array {
 }
 extension Array {
     public func indexCanBound(_ index: Int) -> Bool {
-        return index < self.endIndex && index >= self.startIndex
+        return (startIndex..<endIndex).contains(index)
     }
     public func indexCanInsert(_ index: Int) -> Bool {
-        return index <= self.endIndex && index >= self.startIndex
+        return (startIndex...endIndex).contains(index)
     }
 }
 

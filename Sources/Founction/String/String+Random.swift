@@ -14,8 +14,7 @@ extension String {
     public static let decimalDigits: String = "0123456789"
 
     public static func random(min: Int, max: Int) -> String {
-        guard max >= min else {return ""}
-        guard min >= 0 else {return ""}
+        guard max >= min && min >= 0 else {return ""}
         let count = Int.random(in: min...max)
         return self.random(count: count)
     }
