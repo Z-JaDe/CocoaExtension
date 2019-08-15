@@ -72,6 +72,23 @@ extension UIView {
         return currentHeight
     }
 }
+extension UIView {
+    /// 根据宽度 计算高度 自动布局
+    public func calculateAutoLayoutHeight(_ targetWidth: CGFloat) -> CGFloat {
+        return calculateAutoLayoutHeight(CGSize(width: targetWidth, height: 0), withHorizontalFittingPriority: UILayoutPriority(rawValue: 999.1)).height
+    }
+    /// 根据尺寸 计算高度 自动布局
+    public func calculateAutoLayoutHeight(_ targetSize: CGSize,
+                                          withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority = .fittingSizeLevel,
+                                          verticalFittingPriority: UILayoutPriority = .fittingSizeLevel) -> CGSize {
+        let _translates = self.translatesAutoresizingMaskIntoConstraints
+        self.translatesAutoresizingMaskIntoConstraints = false
+        defer {
+            self.translatesAutoresizingMaskIntoConstraints = _translates
+        }
+        return systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
+    }
+}
 // MARK: Layer Extensions
 extension UIView {
     public func drawCircle(fillColor: UIColor, strokeColor: UIColor, strokeWidth: CGFloat) {
