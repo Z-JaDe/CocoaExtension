@@ -29,11 +29,9 @@ extension String {
         return _random(source: source, count: count)
     }
     private static func _random(source: String, count: Int) -> String {
-        var result: String = ""
-        (0..<count).forEach { (_) in
-            result.append(source[Int.random(in: 0..<source.count)])
+        return (0..<count).reduce(into: "") { (result, _) in
+            result.append(source.randomElement()!)
         }
-        return result
     }
 
 }
