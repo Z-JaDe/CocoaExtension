@@ -1,5 +1,5 @@
 import Foundation
 
 extension Character {
-    public var toString: String { return String(self) }
+    public var toString: String { String(self) }
 }

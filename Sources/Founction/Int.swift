@@ -2,19 +2,19 @@ import UIKit
 
 extension Int {
     /// ZJaDe: Checks if the integer is even.
-    public var isEven: Bool { return (self % 2 == 0) }
+    public var isEven: Bool { (self % 2 == 0) }
 
     /// ZJaDe: Checks if the integer is odd.
-    public var isOdd: Bool { return (self % 2 != 0) }
+    public var isOdd: Bool { (self % 2 != 0) }
 
     /// ZJaDe: Checks if the integer is positive.
-    public var isPositive: Bool { return (self > 0) }
+    public var isPositive: Bool { (self > 0) }
 
     /// ZJaDe: Checks if the integer is negative.
-    public var isNegative: Bool { return (self < 0) }
+    public var isNegative: Bool { (self < 0) }
 
     /// ZJaDe: Converts integer value to a 0..<Int range. Useful in for loops.
-    public var range: CountableRange<Int> { return 0..<self }
+    public var range: CountableRange<Int> { 0..<self }
 
     public var toChinese: String {
         let number = NSNumber(value: self)
@@ -37,6 +37,6 @@ extension Int {
 extension FixedWidthInteger {
     /// ZJaDe: 返回随机数
     public static func random(min: Self = 0, max: Self = 50) -> Self {
-        return random(in: min...max)
+        random(in: min...max)
     }
 }
