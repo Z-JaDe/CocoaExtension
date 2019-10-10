@@ -48,7 +48,7 @@ extension UIImage {
     }
     /// ZJaDe: 根据高度等比例缩放图片
     public func resizeWithHeight(_ height: CGFloat) -> UIImage {
-        let aspectSize = CGSize (width: aspectWidthForHeight(height), height: height)
+        let aspectSize = CGSize(width: aspectWidthForHeight(height), height: height)
         return UIGraphicsImageRenderer(size: aspectSize).image(actions: { (_) in
             self.draw(in: CGRect(origin: CGPoint.zero, size: aspectSize))
         })
