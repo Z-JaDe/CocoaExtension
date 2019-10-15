@@ -2,7 +2,7 @@
 //  UIImage+vImage.h
 //  Alamofire
 //
-//  Created by 郑军铎 on 2018/6/20.
+//  Created by ZJaDe on 2018/6/20.
 //
 
 #import <UIKit/UIKit.h>

@@ -2,7 +2,7 @@
 //  JDSwiftFunctions.swift
 //  AppExtension
 //
-//  Created by 郑军铎 on 2018/6/11.
+//  Created by ZJaDe on 2018/6/11.
 //  Copyright © 2018年 ZJaDe. All rights reserved.
 //
 
@@ -13,7 +13,6 @@ public struct jd {
 extension jd {
     /// ZJaDe: 返回命名空间
     public static var mainNamespace: String {
-
         return getNamespace(bundle: Bundle.main)!
     }
     public static func getNamespace(bundle: Bundle) -> String? {
