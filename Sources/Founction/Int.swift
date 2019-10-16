@@ -1,6 +1,18 @@
 import UIKit
 
 extension Int {
+    public init?(any: Any?) {
+        switch any {
+        case let value as String:
+            if let intValue = Int(value) {
+                self = intValue
+            }
+        case let value as Int:
+            self = value
+        default: break
+        }
+        return nil
+    }
     /// ZJaDe: Checks if the integer is even.
     public var isEven: Bool { (self % 2 == 0) }
 

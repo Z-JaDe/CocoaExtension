@@ -7,9 +7,7 @@
 //
 
 import UIKit
-public struct jd {
-
-}
+public struct jd {}
 extension jd {
     /// ZJaDe: 返回命名空间
     public static var mainNamespace: String {
@@ -26,6 +24,15 @@ extension jd {
             return bundleName
         }
         return nil
+    }
+
+    /// ZJaDe: 返回app版本号
+    public static var bundleId: String {
+        guard let appVersion = Bundle.main.bundleIdentifier else {
+            assertionFailure("获取不到bundleId")
+            return ""
+        }
+        return appVersion
     }
 
     /// ZJaDe: 返回app版本号
