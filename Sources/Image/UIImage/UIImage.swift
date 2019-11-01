@@ -63,34 +63,23 @@ extension UIImage {
     }
 }
 extension UIImage {
-    public static func dataWithImage(_ image: UIImage) -> Data? {
+    public static func dataWithImage(_ image: UIImage, expectedSize: Int = 1024 * 1024) -> Data? {
         var scale: CGFloat = 1.0
-        var data: Data? = {
-            var data: Data?
-            repeat {
-                if let tempData = image.scaleData(scale) {
-                    data = tempData
-                } else {
-                    return data
-                }
-                scale -= 0.3
-            } while (data?.count ?? 0) > 1024 * 1024  && scale >= 0
-            return data
-        }()
-        if data == nil {
-            data = image.pngData()
-        }
-        return data
+        var data: Data?
+        repeat {
+            guard let tempData = image.scaleData(scale) else {
+                break
+            }
+            data = tempData
+            scale -= 0.3
+        } while (data?.count ?? 0) > expectedSize && scale >= 0
+        return data ?? image.pngData()
     }
     public func scaleData(_ scale: CGFloat) -> Data? {
         //        if let tempData = UIImageHEICRepresentation(self, scale) {
         //            return tempData
         //        } else
-        if let tempData = self.jpegData(compressionQuality: scale) {
-            return tempData
-        } else {
-            return nil
-        }
+        jpegData(compressionQuality: scale)
     }
 }
 

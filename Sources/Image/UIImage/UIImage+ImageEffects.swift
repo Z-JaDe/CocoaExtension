@@ -111,6 +111,7 @@ extension UIImage {
                     guard a > 0 else {
                         continue
                     }
+                    ///不是纯色时或者允许解析纯色时
                     guard !(r == g && g == b) || parsePureColor else {
                         continue
                     }
