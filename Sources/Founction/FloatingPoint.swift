@@ -1,5 +1,5 @@
 import Foundation
-
+import Darwin
 extension FloatingPoint {
     /// ZJaDe: 绝对值
 //    public func abs () -> Self {
@@ -11,19 +11,19 @@ extension FloatingPoint {
     }
     /// ZJaDe: 平方根
     public func sqrt() -> Self {
-        return Foundation.sqrt(self)
+        return Darwin.sqrt(self)
     }
     /// ZJaDe: 向下取整
     public func floor() -> Self {
-        return Foundation.floor(self)
+        return Darwin.floor(self)
     }
     /// ZJaDe: 向上取整
     public func ceil() -> Self {
-        return Foundation.ceil(self)
+        return Darwin.ceil(self)
     }
     /// ZJaDe: 四舍五入
     public func round() -> Self {
-        return Foundation.round(self)
+        return Darwin.round(self)
     }
     /// ZJaDe: 根据increment 四舍五入
     public func roundToNearest(increment: Self) -> Self {

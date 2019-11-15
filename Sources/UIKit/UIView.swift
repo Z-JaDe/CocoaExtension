@@ -131,24 +131,28 @@ extension UIView {
 
 extension UIView {
     /// ZJaDe:  [.topLeft, .topRight]
-    public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+    @objc open func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         self.layer.mask = mask
     }
+    @objc open func roundView() {
+        self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2
+    }
     public var cornerRadius: CGFloat {
         get {return self.layer.cornerRadius}
         set {self.layer.cornerRadius = newValue}
-    }
-    @objc open func roundView() {
-        self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2
     }
 }
 
 extension UIView {
     public func rootView() -> UIView {
-        return superView(UIView.self) ?? self
+        if let superview = self.superview {
+            return superview.rootView()
+        } else {
+            return self
+        }
     }
     public func superView<T: UIView>(_ viewType: T.Type) -> T? {
         return responder(viewType)
@@ -173,17 +177,14 @@ extension UIView {
         guard let navC = viewCon.navigationController else {
             return nil
         }
-        repeat {
-            guard let parentVC = viewCon.parent else {
-                return nil
-            }
+        while let parentVC = viewCon.parent {
             if parentVC == navC {
                 return viewCon as? T
             } else if parentVC == viewCon.tabBarController {
                 return viewCon as? T
             }
             viewCon = parentVC
-        } while (viewCon.parent != nil)
+        }
         return nil
     }
 }

@@ -61,13 +61,9 @@ extension Frameable {
 }
 // MARK: - center
 extension Frameable where Self: UIView {
-//    public var center: CGPoint {
-//        get {return CGPoint(x: self.left + self.width / 2, y: self.top + self.height / 2)}
-//        set {
-//            self.left = newValue.x - self.width / 2
-//            self.top = newValue.y - self.height / 2
-//        }
-//    }
+    public var innerCenter: CGPoint {
+        CGPoint(x: self.width / 2, y: self.height / 2)
+    }
     public var centerX: CGFloat {
         get {return self.center.x}
         set {self.center.x = newValue}
