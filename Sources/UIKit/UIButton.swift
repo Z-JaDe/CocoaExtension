@@ -10,7 +10,7 @@ extension UIButton {
         if let title = title {
             var attributes: [NSAttributedString.Key: Any] = [:]
             attributes[.foregroundColor] = color
-            attributes[.font] = color
+            attributes[.font] = font
             self.setAttributedTitle(NSAttributedString(string: title, attributes: attributes), for: state)
         } else {
             self.setAttributedTitle(nil, for: state)
