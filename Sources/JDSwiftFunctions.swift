@@ -110,7 +110,11 @@ extension jd {
 }
 extension jd {
     public static var keyWindow: UIWindow? {
-        return UIApplication.shared.windows.first(where: {$0.isKeyWindow})
+        if #available(iOS 13.0, macCatalyst 13.0, *) {
+            return UIApplication.shared.windows.first(where: { $0.isKeyWindow && $0.windowScene?.activationState == .foregroundActive})
+        } else {
+            return UIApplication.shared.keyWindow
+        }
     }
     public static var rootWindow: UIWindow {
         return UIApplication.shared.delegate!.window!!
