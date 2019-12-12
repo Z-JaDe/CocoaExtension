@@ -7,5 +7,4 @@
 //
 
 #import "UIImage+GIF.h"
-#import "UIImage+vImage.h"
 #import "UIImage+ImageEffects.h"

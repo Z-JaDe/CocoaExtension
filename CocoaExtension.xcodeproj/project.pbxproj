@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		180A050222EA943400AC7D19 /* CocoaExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A050122EA943400AC7D19 /* CocoaExtensionTests.swift */; };
+		1889022323A27845000DB171 /* UIImage+vImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1889022223A27845000DB171 /* UIImage+vImage.swift */; };
 		18FF9D66229D7100003C5EA7 /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D65229D7100003C5EA7 /* String+Hex.swift */; };
 		18FF9D68229D715B003C5EA7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D67229D715B003C5EA7 /* Dictionary.swift */; };
 		C913091021F95736003C304F /* GraphicsImageContext+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */; };
@@ -40,12 +41,11 @@
 		C9DF82B82179C3EC0044334E /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF829E2179C3EC0044334E /* UINavigationController.swift */; };
 		C9DF82B92179C3EC0044334E /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF829F2179C3EC0044334E /* UIStoryboard.swift */; };
 		C9DF82BC2179C4140044334E /* Frameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82BB2179C4140044334E /* Frameable.swift */; };
-		C9DF82CE2179C45A0044334E /* UIImage+vImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82BF2179C45A0044334E /* UIImage+vImage.swift */; };
+		C9DF82CE2179C45A0044334E /* UIImage+vImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82BF2179C45A0044334E /* UIImage+vImages.swift */; };
 		C9DF82CF2179C45A0044334E /* UIImage+ImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C02179C45A0044334E /* UIImage+ImageEffects.swift */; };
 		C9DF82D02179C45A0044334E /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C22179C45A0044334E /* UIImage+GIF.m */; };
 		C9DF82D12179C45A0044334E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C42179C45A0044334E /* UIImage.swift */; };
 		C9DF82D22179C45A0044334E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C52179C45A0044334E /* UIImage+ImageEffects.m */; };
-		C9DF82D32179C45A0044334E /* UIImage+vImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C62179C45A0044334E /* UIImage+vImage.m */; };
 		C9DF82D42179C45A0044334E /* CIImageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C92179C45A0044334E /* CIImageFilter.swift */; };
 		C9DF82D52179C45A0044334E /* GraphicsImageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82CB2179C45A0044334E /* GraphicsImageContext.swift */; };
 		C9DF82D62179C45A0044334E /* ImageDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82CD2179C45A0044334E /* ImageDrawer.swift */; };
@@ -83,6 +83,7 @@
 		180A04FF22EA943300AC7D19 /* CocoaExtensionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaExtensionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		180A050122EA943400AC7D19 /* CocoaExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaExtensionTests.swift; sourceTree = "<group>"; };
 		180A050322EA943400AC7D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1889022223A27845000DB171 /* UIImage+vImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+vImage.swift"; sourceTree = "<group>"; };
 		18FF9D65229D7100003C5EA7 /* String+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
 		18FF9D67229D715B003C5EA7 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphicsImageContext+UIKit.swift"; sourceTree = "<group>"; };
@@ -118,14 +119,12 @@
 		C9DF829E2179C3EC0044334E /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		C9DF829F2179C3EC0044334E /* UIStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		C9DF82BB2179C4140044334E /* Frameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Frameable.swift; sourceTree = "<group>"; };
-		C9DF82BF2179C45A0044334E /* UIImage+vImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+vImage.swift"; sourceTree = "<group>"; };
+		C9DF82BF2179C45A0044334E /* UIImage+vImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+vImages.swift"; sourceTree = "<group>"; };
 		C9DF82C02179C45A0044334E /* UIImage+ImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageEffects.swift"; sourceTree = "<group>"; };
 		C9DF82C12179C45A0044334E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		C9DF82C22179C45A0044334E /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
-		C9DF82C32179C45A0044334E /* UIImage+vImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+vImage.h"; sourceTree = "<group>"; };
 		C9DF82C42179C45A0044334E /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		C9DF82C52179C45A0044334E /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		C9DF82C62179C45A0044334E /* UIImage+vImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+vImage.m"; sourceTree = "<group>"; };
 		C9DF82C72179C45A0044334E /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		C9DF82C92179C45A0044334E /* CIImageFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageFilter.swift; sourceTree = "<group>"; };
 		C9DF82CB2179C45A0044334E /* GraphicsImageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsImageContext.swift; sourceTree = "<group>"; };
@@ -299,9 +298,8 @@
 				C9DF82C42179C45A0044334E /* UIImage.swift */,
 				C9DF82C72179C45A0044334E /* UIImage+GIF.h */,
 				C9DF82C22179C45A0044334E /* UIImage+GIF.m */,
-				C9DF82C32179C45A0044334E /* UIImage+vImage.h */,
-				C9DF82C62179C45A0044334E /* UIImage+vImage.m */,
-				C9DF82BF2179C45A0044334E /* UIImage+vImage.swift */,
+				1889022223A27845000DB171 /* UIImage+vImage.swift */,
+				C9DF82BF2179C45A0044334E /* UIImage+vImages.swift */,
 				C9DF82C12179C45A0044334E /* UIImage+ImageEffects.h */,
 				C9DF82C52179C45A0044334E /* UIImage+ImageEffects.m */,
 				C9DF82C02179C45A0044334E /* UIImage+ImageEffects.swift */,
@@ -474,7 +472,7 @@
 				C9DF830A2179C6460044334E /* Bundle.swift in Sources */,
 				C9DF82B42179C3EC0044334E /* UIFont.swift in Sources */,
 				C9DF82B02179C3EC0044334E /* UIViewController.swift in Sources */,
-				C9DF82CE2179C45A0044334E /* UIImage+vImage.swift in Sources */,
+				C9DF82CE2179C45A0044334E /* UIImage+vImages.swift in Sources */,
 				C9DF82AD2179C3EC0044334E /* UITextField.swift in Sources */,
 				C9DF83062179C6460044334E /* URL.swift in Sources */,
 				18FF9D66229D7100003C5EA7 /* String+Hex.swift in Sources */,
@@ -498,10 +496,10 @@
 				C9DF83092179C6460044334E /* Array.swift in Sources */,
 				C9DF82B12179C3EC0044334E /* UIWindow.swift in Sources */,
 				C9DF82B72179C3EC0044334E /* UISlider.swift in Sources */,
-				C9DF82D32179C45A0044334E /* UIImage+vImage.m in Sources */,
 				C913091221F958EC003C304F /* UIImage+Blend.swift in Sources */,
 				C9DF82A62179C3EC0044334E /* UIScrollView.swift in Sources */,
 				C9DF82AB2179C3EC0044334E /* UIUserInterfaceSizeClass.swift in Sources */,
+				1889022323A27845000DB171 /* UIImage+vImage.swift in Sources */,
 				C9DF82742179C3A00044334E /* ViewController.swift in Sources */,
 				C9DF82AC2179C3EC0044334E /* UIDevice.swift in Sources */,
 				C9DF830E2179C6460044334E /* CGFloat.swift in Sources */,
@@ -717,7 +715,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MG2ZSL4NR6;
+				DEVELOPMENT_TEAM = 553C2VE52E;
 				INFOPLIST_FILE = CocoaExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -736,7 +734,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MG2ZSL4NR6;
+				DEVELOPMENT_TEAM = 553C2VE52E;
 				INFOPLIST_FILE = CocoaExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
