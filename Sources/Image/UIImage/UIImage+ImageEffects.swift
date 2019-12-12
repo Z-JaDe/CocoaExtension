@@ -57,7 +57,7 @@ extension UIImage {
 }
 extension UIImage {
     /// ZJaDe: 灰度图
-    func grayScale() -> UIImage? {
+    public func grayScale() -> UIImage? {
         let width: Int = Int(self.size.width)
         let height: Int = Int(self.size.height)
 
@@ -65,37 +65,30 @@ extension UIImage {
         guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: CGImageAlphaInfo.none.rawValue) else {
             return nil
         }
-
         context.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: width, height: height))
         let grayImage = context.makeImage()!
         return UIImage(cgImage: grayImage)
     }
 }
-
+extension UIImage {
+    public func averageColor() -> UIColor? {
+        guard let bitData = getBitData(1, 1) else { return nil }
+        let rgba = (0...3).map({(bitData + $0).pointee})
+        if rgba[3] > 0 {
+            let rgba: [CGFloat] = rgba.map(CGFloat.init)
+            let a = rgba[3] / 255.0
+            return UIColor(r: rgba[0] * a, g: rgba[1] * a, b: rgba[2] * a, alpha: a)
+        } else {
+            return mapColor(rgba)
+        }
+    }
+}
 extension UIImage {
     /// ZJaDe: 精度无损 略微耗时
     public func mainColor() -> UIColor? {
-        guard let cgImage = self.cgImage else {
-            return nil
-        }
-        let imgWidth = cgImage.width
-        let imgHeight = cgImage.height
-        guard let colorSpace = cgImage.colorSpace else {
-            return nil
-        }
-        //位图的大小＝图片宽＊图片高＊图片中每点包含的信息量
-        let bitmapByteCount = imgWidth * imgHeight * 4
-        guard let context = CGContext(data: nil, width: imgWidth, height: imgHeight, bitsPerComponent: 8, bytesPerRow: imgWidth * 4, space: colorSpace, bitmapInfo: cgImage.bitmapInfo.rawValue) else {
-            return nil
-        }
-        //将图片画到位图中
-        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(imgWidth), height: CGFloat(imgHeight)))
-        guard let contextData = context.data else {
-            return nil
-        }
-        //获取位图数据
-        let data = contextData.bindMemory(to: CUnsignedChar.self, capacity: bitmapByteCount)
-        let mapFunc = dataFliterMap(data, imgWidth: imgWidth, imgHeight: imgHeight)
+        guard let cgImage = self.cgImage else { return nil }
+        guard let bitData = getBitData(cgImage.width, cgImage.height) else { return nil }
+        let mapFunc = dataFliterMap(bitData, imgWidth: cgImage.width, imgHeight: cgImage.height)
         return mapFunc(false) ?? mapFunc(true)
     }
     private func dataFliterMap(_ data: UnsafeMutablePointer<CUnsignedChar>, imgWidth: Int, imgHeight: Int) -> (Bool) -> UIColor? {
@@ -108,19 +101,15 @@ extension UIImage {
                     let g = (data + offSet + 1).pointee
                     let b = (data + offSet + 2).pointee
                     let a = (data + offSet + 3).pointee
-                    guard a > 0 else {
-                        continue
-                    }
+                    guard a > 0 else { continue }
+//                    if r >= 240 && g >= 240 && b >= 240 { continue }
                     ///不是纯色时或者允许解析纯色时
-                    guard !(r == g && g == b) || parsePureColor else {
-                        continue
-                    }
-                    let values = [r, g, b, a].map({CGFloat($0)})
-                    colors.add(values)
+                    guard parsePureColor || !(r == g && g == b) else { continue }
+                    colors.add([r, g, b, a])
                 }
             }
             let orderFunc: (Any, Any) -> Bool = {colors.count(for: $0) < colors.count(for: $1)}
-            guard let maxCountColor = colors.max(by: orderFunc) as? [CGFloat] else {
+            guard let maxCountColor = colors.max(by: orderFunc) as? [CUnsignedChar] else {
                 return nil
             }
             //        logDebug("count-->\(colors.count(for: maxCountColor))")
@@ -128,7 +117,25 @@ extension UIImage {
             return self.mapColor(maxCountColor)
         }
     }
-    private func mapColor(_ array: [CGFloat]) -> UIColor {
-        return UIColor(r: array[0], g: array[1], b: array[2], a: array[3])
+    private func mapColor(_ rgba: [CUnsignedChar]) -> UIColor {
+        let rgba: [CGFloat] = rgba.map(CGFloat.init)
+        return UIColor(r: rgba[0], g: rgba[1], b: rgba[2], a: rgba[3])
+    }
+}
+extension UIImage {
+    ///会根据传入尺寸 缩放
+    private func getBitData(_ imgWidth: Int, _ imgHeight: Int) -> UnsafeMutablePointer<CUnsignedChar>? {
+        guard let cgImage = self.cgImage else { return nil }
+        guard let colorSpace = cgImage.colorSpace else { return nil }
+        //位图的大小＝图片宽＊图片高＊图片中每点包含的信息量
+        let bitmapByteCount = imgWidth * imgHeight * 4
+        guard let context = CGContext(data: nil, width: imgWidth, height: imgHeight, bitsPerComponent: 8, bytesPerRow: imgWidth * 4, space: colorSpace, bitmapInfo: cgImage.bitmapInfo.rawValue) else {
+            return nil
+        }
+        //将图片画到位图中
+        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: imgWidth, height: imgHeight))
+        guard let contextData = context.data else { return nil }
+        //获取位图数据
+        return contextData.bindMemory(to: CUnsignedChar.self, capacity: bitmapByteCount)
     }
 }

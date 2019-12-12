@@ -9,9 +9,12 @@
 import UIKit
 
 extension UIColor {
-    /// ZJaDe: rgb取值范围是 0到255 alpha是 0到1
     public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
-        self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: a)
+        self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: a / 255.0)
+    }
+    /// ZJaDe: rgb取值范围是 0到255 alpha是 0到1
+    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, alpha: CGFloat = 1) {
+        self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: alpha)
     }
 
     /// ZJaDe: init method with hex string and alpha(default: 1)
