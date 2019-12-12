@@ -40,17 +40,27 @@ let backgroundColorBlack: [UInt8] = [0, 0, 0, 0]
 let morphological_kernel: [CUnsignedChar] = [
     1, 1, 1,
     1, 1, 1,
-    1, 1, 1,
+    1, 1, 1
 ]
 //let morphological_kernel: CUnsignedChar = [
 //    0, 1, 1, 1, 0,
 //    1, 1, 1, 1, 1,
 //    1, 1, 1, 1, 1,
 //    1, 1, 1, 1, 1,
-//    0, 1, 1, 1, 0,
+//    0, 1, 1, 1, 0
 //]
 
 extension UIImage {
+    func accelerateBlurShort(blur: Int) -> UIImage? {
+        var boxSize = blur
+        if blur < 1 || blur > 100 {
+            boxSize = 25
+        }
+        boxSize = boxSize - (boxSize % 2) + 1;
+        return vImage_image { (src, dest) in
+            vImageBoxConvolve_ARGB8888(&src, &dest, nil, 0, 0, UInt32(boxSize), UInt32(boxSize), nil, vImage_Flags(kvImageEdgeExtend))
+        }
+    }
     // MARK: Convolution Oprations
     var gaussianBlur: UIImage? {
         vImage_image { (src, dest) in
