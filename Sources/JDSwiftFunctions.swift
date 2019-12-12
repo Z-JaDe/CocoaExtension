@@ -109,14 +109,11 @@ extension jd {
     }
 }
 extension jd {
-    public static var keyWindow: UIWindow {
-        return UIApplication.shared.keyWindow!
+    public static var keyWindow: UIWindow? {
+        return UIApplication.shared.windows.first(where: {$0.isKeyWindow})
     }
     public static var rootWindow: UIWindow {
         return UIApplication.shared.delegate!.window!!
-    }
-    public static func endEditing() {
-        self.keyWindow.endEditing(true)
     }
 }
 extension jd {
@@ -178,16 +175,6 @@ extension jd {
     }
 }
 extension jd {
-
-    #if os(iOS)
-
-    /// ZJaDe: 返回屏幕方向
-    public static var screenOrientation: UIInterfaceOrientation {
-        return UIApplication.shared.statusBarOrientation
-    }
-
-    #endif
-
     /// ZJaDe: 返回屏幕scale
     public static var screenScale: CGFloat {
         return UIScreen.main.scale
@@ -203,63 +190,20 @@ extension jd {
     }
     /// ZJaDe: 根据设备品种和方向，返回屏幕宽度
     public static let screenWidth: CGFloat = {
-
         #if os(iOS)
-
             return UIScreen.main.bounds.size.width
-//            if UIInterfaceOrientationIsPortrait(screenOrientation) {
-//            } else {
-//                return UIScreen.main.bounds.size.height
-//            }
-
         #elseif os(tvOS)
-
             return UIScreen.mainScreen().bounds.size.width
-
         #endif
     }()
     /// ZJaDe: 根据设备品种和方向，返回屏幕高度
     public static let screenHeight: CGFloat = {
-
         #if os(iOS)
-
             return UIScreen.main.bounds.size.height
-//            if UIInterfaceOrientationIsPortrait(screenOrientation) {
-//            } else {
-//                return UIScreen.main.bounds.size.width
-//            }
-
         #elseif os(tvOS)
-
             return UIScreen.mainScreen().bounds.size.height
-
         #endif
     }()
-
-    #if os(iOS)
-
-    /// ZJaDe: 返回状态栏的高度
-    public static var screenStatusBarHeight: CGFloat {
-        return UIApplication.shared.statusBarFrame.height
-    }
-    /// ZJaDe: 返回导航栏内容高度
-    public static var navBarContentHeight: CGFloat {
-        return 44
-    }
-    /// ZJaDe: 返回导航栏高度
-    public static var navBarHeight: CGFloat {
-        return self.screenStatusBarHeight + self.navBarContentHeight
-    }
-    /// ZJaDe: 返回状态栏下面的屏幕高度
-    public static var screenHeightWithoutStatusBar: CGFloat {
-        if screenOrientation.isPortrait {
-            return UIScreen.main.bounds.size.height - screenStatusBarHeight
-        } else {
-            return UIScreen.main.bounds.size.width - screenStatusBarHeight
-        }
-    }
-
-    #endif
 }
 extension jd {
     /// ZJaDe: 返回国家和地图的代码
