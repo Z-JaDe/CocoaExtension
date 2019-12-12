@@ -13,9 +13,11 @@ enum CIFilterName: String {
 }
 public class CIImageFilter {
     let ciContext: CIContext = {
-        let eaglContext: EAGLContext = EAGLContext(api: .openGLES3)!
-        let ciContext = CIContext(eaglContext: eaglContext, options: [.workingColorSpace: NSNull()])
-        return ciContext
+        if let mtlDevice = MTLCreateSystemDefaultDevice() {
+            return CIContext(mtlDevice: mtlDevice, options: nil)
+        } else {
+            return CIContext()
+        }
     }()
     let originImage: UIImage
     let originCIImage: CIImage
@@ -27,7 +29,7 @@ public class CIImageFilter {
         guard let outputImage = self.outputImage else {
             return originImage
         }
-        let cgImage: CGImage = self.ciContext.createCGImage(outputImage, from: originCIImage.extent)!
+        let cgImage: CGImage = ciContext.createCGImage(outputImage, from: originCIImage.extent)!
         return UIImage(cgImage: cgImage)
     }
     // MARK: -
@@ -47,9 +49,8 @@ public class CIImageFilter {
         self.outputImage = filter.outputImage
     }
 }
-import Accelerate
+
 extension UIImage {
-    @available(*, deprecated, message: "存在性能问题，可以使用gaussianBlur或者blurImage")
     public func gaussianBlurImage(_ blur: CGFloat = 10) -> UIImage {
         guard blur > 0 else {
             return self
