@@ -14,7 +14,7 @@
 		C913091021F95736003C304F /* GraphicsImageContext+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */; };
 		C913091221F958EC003C304F /* UIImage+Blend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913091121F958EC003C304F /* UIImage+Blend.swift */; };
 		C913091621F95A5B003C304F /* UIImage+GraphicsImageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913091521F95A5B003C304F /* UIImage+GraphicsImageContext.swift */; };
-		C913091821F95CFB003C304F /* ImageDrawer+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913091721F95CFB003C304F /* ImageDrawer+Image.swift */; };
+		C913091821F95CFB003C304F /* UIImage+ImageDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913091721F95CFB003C304F /* UIImage+ImageDrawer.swift */; };
 		C9DF82722179C3A00044334E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82712179C3A00044334E /* AppDelegate.swift */; };
 		C9DF82742179C3A00044334E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82732179C3A00044334E /* ViewController.swift */; };
 		C9DF82772179C3A00044334E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9DF82752179C3A00044334E /* Main.storyboard */; };
@@ -89,7 +89,7 @@
 		C913090F21F95736003C304F /* GraphicsImageContext+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GraphicsImageContext+UIKit.swift"; sourceTree = "<group>"; };
 		C913091121F958EC003C304F /* UIImage+Blend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Blend.swift"; sourceTree = "<group>"; };
 		C913091521F95A5B003C304F /* UIImage+GraphicsImageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GraphicsImageContext.swift"; sourceTree = "<group>"; };
-		C913091721F95CFB003C304F /* ImageDrawer+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageDrawer+Image.swift"; sourceTree = "<group>"; };
+		C913091721F95CFB003C304F /* UIImage+ImageDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageDrawer.swift"; sourceTree = "<group>"; };
 		C913091921F97627003C304F /* Image.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Image.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C9DF826E2179C3A00044334E /* CocoaExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DF82712179C3A00044334E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 		C9DF82CC2179C45A0044334E /* ImageDrawer */ = {
 			isa = PBXGroup;
 			children = (
-				C913091721F95CFB003C304F /* ImageDrawer+Image.swift */,
+				C913091721F95CFB003C304F /* UIImage+ImageDrawer.swift */,
 				C9DF82CD2179C45A0044334E /* ImageDrawer.swift */,
 			);
 			path = ImageDrawer;
@@ -489,7 +489,7 @@
 				C9DF82AA2179C3EC0044334E /* UINavigationItem.swift in Sources */,
 				C9DF82D62179C45A0044334E /* ImageDrawer.swift in Sources */,
 				18FF9D68229D715B003C5EA7 /* Dictionary.swift in Sources */,
-				C913091821F95CFB003C304F /* ImageDrawer+Image.swift in Sources */,
+				C913091821F95CFB003C304F /* UIImage+ImageDrawer.swift in Sources */,
 				C9DF83072179C6460044334E /* Int.swift in Sources */,
 				C9DF82D22179C45A0044334E /* UIImage+ImageEffects.m in Sources */,
 				C9DF83122179C6460044334E /* FloatingPoint.swift in Sources */,
