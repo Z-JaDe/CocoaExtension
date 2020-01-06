@@ -9,21 +9,25 @@
 import UIKit
 
 enum CIFilterName: String {
-    case gaussianBlur = "CIGaussianBlur" /// ZJaDe: 高斯模糊
+    /// ZJaDe: 高斯模糊 kCIInputImageKey
+    case gaussianBlur = "CIGaussianBlur"
+    /// ZJaDe: Blurs an image using a box-shaped convolution kernel.
+    case boxBlur = "CIBoxBlur"
+    /// ZJaDe: Blurs an image using a disc-shaped convolution kernel.
+    case discBlur = "CIDiscBlur"
+
+    /// ZJaDe: 调整饱和度，亮度和对比度值 kCIInputSaturationKey 饱和度 kCIInputBrightnessKey 亮度 kCIInputContrastKey 对比度
+    case colorControls = "CIColorControls"
+    /// ZJaDe: 曝光调整 kCIInputEVKey 曝光度
+    case exposureAdjust = "CIExposureAdjust"
 }
 public class CIImageFilter {
-    let ciContext: CIContext = {
-        if let mtlDevice = MTLCreateSystemDefaultDevice() {
-            return CIContext(mtlDevice: mtlDevice, options: nil)
-        } else {
-            return CIContext()
-        }
-    }()
+    let ciContext: CIContext = CIContext()
     let originImage: UIImage
     let originCIImage: CIImage
     public init(_ image: UIImage) {
         self.originImage = image
-        self.originCIImage = CIImage(cgImage: image.cgImage!)
+        self.originCIImage = image.ciImage!
     }
     public func createImage() -> UIImage {
         guard let outputImage = self.outputImage else {
@@ -34,7 +38,7 @@ public class CIImageFilter {
     }
     // MARK: -
     public func gaussianBlur(_ blur: CGFloat = 10) -> CIImageFilter {
-        filterConfig(.gaussianBlur) { (filter) in
+        addFilter(.gaussianBlur) { (filter) in
             filter.setValue(blur, forKey: kCIInputRadiusKey)
         }
         return self
@@ -42,8 +46,10 @@ public class CIImageFilter {
 
     // MARK: -
     private var outputImage: CIImage?
-    func filterConfig(_ name: CIFilterName, _ closure: (CIFilter) -> Void) {
-        let filter: CIFilter = CIFilter(name: name.rawValue)!
+    func addFilter(_ name: CIFilterName, _ closure: (CIFilter) -> Void) {
+        addFilter(CIFilter(name: name.rawValue)!, closure)
+    }
+    func addFilter(_ filter: CIFilter, _ closure: (CIFilter) -> Void) {
         filter.setValue(outputImage ?? originCIImage, forKey: kCIInputImageKey)
         closure(filter)
         self.outputImage = filter.outputImage
