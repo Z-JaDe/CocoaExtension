@@ -13,64 +13,78 @@ public protocol Frameable: class {
     var bounds: CGRect {get set}
 }
 extension Frameable {
+    @inlinable
     public var origin: CGPoint {
-        get {return self.frame.origin}
-        set {self.frame.origin = newValue}
+        get { frame.origin }
+        set { frame.origin = newValue }
     }
+    @inlinable
     public var size: CGSize {
-        get {return self.frame.size}
-        set {self.frame.size = newValue}
+        get { frame.size }
+        set { frame.size = newValue }
     }
 }
 extension Frameable {
+    @inlinable
     public var width: CGFloat {
-        get {return self.size.width}
-        set {self.size.width = newValue}
+        get { size.width }
+        set { size.width = newValue }
     }
+    @inlinable
     public var height: CGFloat {
-        get {return self.size.height}
-        set {self.size.height = newValue}
+        get { size.height }
+        set { size.height = newValue }
     }
 
+    @inlinable
     public var x: CGFloat {
-        get {return self.origin.x}
-        set {self.origin.x = newValue}
+        get { origin.x }
+        set { origin.x = newValue }
     }
+    @inlinable
     public var y: CGFloat {
-        get {return self.origin.y}
-        set {self.origin.y = newValue}
+        get { origin.y }
+        set { origin.y = newValue }
+    }
+
+    @inlinable
+    public var innerCenter: CGPoint {
+        CGPoint(x: width / 2, y: height / 2)
     }
 }
 extension Frameable {
+    @inlinable
     public var top: CGFloat {
-        get {return self.y}
-        set {self.y = newValue}
+        get { y }
+        set { y = newValue }
     }
+    @inlinable
     public var left: CGFloat {
-        get {return self.x}
-        set {self.x = newValue}
+        get { x }
+        set { x = newValue }
     }
+    @inlinable
     public var bottom: CGFloat {
-        get {return self.top + self.height}
-        set {self.top = newValue - self.height}
+        get { top + height }
+        set { top = newValue - height }
     }
+    @inlinable
     public var right: CGFloat {
-        get {return self.left + self.width}
-        set {self.left = newValue - self.width}
+        get { left + width }
+        set { left = newValue - width }
     }
 }
 // MARK: - center
 extension Frameable where Self: UIView {
-    public var innerCenter: CGPoint {
-        CGPoint(x: self.width / 2, y: self.height / 2)
-    }
+    @inlinable
     public var centerX: CGFloat {
-        get {return self.center.x}
-        set {self.center.x = newValue}
+        get { center.x }
+        set { center.x = newValue }
     }
+    @inlinable
     public var centerY: CGFloat {
-        get {return self.center.y}
-        set {self.center.y = newValue}
+        get { center.y }
+        set { center.y = newValue }
     }
 }
 extension UIView: Frameable {}

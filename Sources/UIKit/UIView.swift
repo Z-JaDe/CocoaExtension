@@ -90,26 +90,6 @@ extension UIView {
     }
 }
 // MARK: Layer Extensions
-extension UIView {
-    public func drawCircle(fillColor: UIColor, strokeColor: UIColor, strokeWidth: CGFloat) {
-        let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.width, height: self.width), cornerRadius: self.width/2)
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = fillColor.cgColor
-        shapeLayer.strokeColor = strokeColor.cgColor
-        shapeLayer.lineWidth = strokeWidth
-        self.layer.addSublayer(shapeLayer)
-    }
-    public func drawStroke(width: CGFloat, color: UIColor) {
-        let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.width, height: self.width), cornerRadius: self.width/2)
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = color.cgColor
-        shapeLayer.lineWidth = width
-        self.layer.addSublayer(shapeLayer)
-    }
-}
 
 extension UIView {
     public var backgroundColorAlpha: CGFloat {
@@ -141,8 +121,8 @@ extension UIView {
         self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2
     }
     public var cornerRadius: CGFloat {
-        get {return self.layer.cornerRadius}
-        set {self.layer.cornerRadius = newValue}
+        get { layer.cornerRadius }
+        set { layer.cornerRadius = newValue }
     }
 }
 
@@ -167,7 +147,7 @@ extension UIView {
                 return responder as? T
             }
             responder = responder?.next
-        }while (responder != nil)
+        } while (responder != nil)
         return nil
     }
     public func navItemVC<T: UIViewController>(_ vcType: T.Type) -> T? {
