@@ -208,6 +208,36 @@ extension jd {
             return UIScreen.mainScreen().bounds.size.height
         #endif
     }()
+    #if os(iOS)
+    /// ZJaDe: 返回屏幕方向
+    @available(iOS, deprecated: 13.0)
+    public static var screenOrientation: UIInterfaceOrientation {
+        return UIApplication.shared.statusBarOrientation
+    }
+    /// ZJaDe: 返回状态栏的高度
+    @available(iOS, deprecated: 13.0)
+    public static var screenStatusBarHeight: CGFloat {
+        return UIApplication.shared.statusBarFrame.height
+    }
+    /// ZJaDe: 返回导航栏内容高度
+    public static var navBarContentHeight: CGFloat {
+        return 44
+    }
+    /// ZJaDe: 返回导航栏高度
+    @available(iOS, deprecated: 13.0)
+    public static var navBarHeight: CGFloat {
+        return self.screenStatusBarHeight + self.navBarContentHeight
+    }
+    /// ZJaDe: 返回状态栏下面的屏幕高度
+    @available(iOS, deprecated: 13.0)
+    public static var screenHeightWithoutStatusBar: CGFloat {
+        if screenOrientation.isPortrait {
+            return UIScreen.main.bounds.size.height - screenStatusBarHeight
+        } else {
+            return UIScreen.main.bounds.size.width - screenStatusBarHeight
+        }
+    }
+    #endif
 }
 extension jd {
     /// ZJaDe: 返回国家和地图的代码
