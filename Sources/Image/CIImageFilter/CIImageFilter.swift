@@ -23,18 +23,19 @@ enum CIFilterName: String {
 }
 public class CIImageFilter {
     let ciContext: CIContext = CIContext()
-    let originImage: UIImage
-    let originCIImage: CIImage
-    public init(_ image: UIImage) {
+    let originImage: UIImage?
+    let originCIImage: CIImage?
+    public init(_ image: UIImage? = nil) {
         self.originImage = image
-        self.originCIImage = image.ciImage!
+        self.originCIImage = image?.ciImage
     }
-    public func createImage() -> UIImage {
-        guard let outputImage = self.outputImage else {
-            return originImage
-        }
-        let cgImage: CGImage = ciContext.createCGImage(outputImage, from: originCIImage.extent)!
+    public func createImage() -> UIImage? {
+        guard let cgImage = self.createCGImage() else { return nil }
         return UIImage(cgImage: cgImage)
+    }
+    public func createCGImage() -> CGImage? {
+        guard let outputImage = self.outputImage else { return nil }
+        return ciContext.createCGImage(outputImage, from: outputImage.extent)!
     }
     // MARK: -
     public func gaussianBlur(_ blur: CGFloat = 10) -> CIImageFilter {
@@ -49,8 +50,15 @@ public class CIImageFilter {
     func addFilter(_ name: CIFilterName, _ closure: (CIFilter) -> Void) {
         addFilter(CIFilter(name: name.rawValue)!, closure)
     }
+    func addFilter(_ filterName: String, _ closure: (CIFilter) -> Void) {
+        if let filter = CIFilter(name: filterName) {
+            addFilter(filter, closure)            
+        }
+    }
     func addFilter(_ filter: CIFilter, _ closure: (CIFilter) -> Void) {
-        filter.setValue(outputImage ?? originCIImage, forKey: kCIInputImageKey)
+        if let image = outputImage ?? originCIImage {
+            filter.setValue(image, forKey: kCIInputImageKey)
+        }
         closure(filter)
         self.outputImage = filter.outputImage
     }
@@ -61,6 +69,6 @@ extension UIImage {
         guard blur > 0 else {
             return self
         }
-        return CIImageFilter(self).gaussianBlur(blur).createImage()
+        return CIImageFilter(self).gaussianBlur(blur).createImage()!
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		180A050222EA943400AC7D19 /* CocoaExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A050122EA943400AC7D19 /* CocoaExtensionTests.swift */; };
+		18703C9623C732FF003A305F /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18703C9523C732FF003A305F /* QRCode.swift */; };
 		1889022323A27845000DB171 /* UIImage+vImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1889022223A27845000DB171 /* UIImage+vImage.swift */; };
 		18FF9D66229D7100003C5EA7 /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D65229D7100003C5EA7 /* String+Hex.swift */; };
 		18FF9D68229D715B003C5EA7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D67229D715B003C5EA7 /* Dictionary.swift */; };
@@ -83,6 +84,7 @@
 		180A04FF22EA943300AC7D19 /* CocoaExtensionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocoaExtensionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		180A050122EA943400AC7D19 /* CocoaExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaExtensionTests.swift; sourceTree = "<group>"; };
 		180A050322EA943400AC7D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18703C9523C732FF003A305F /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		1889022223A27845000DB171 /* UIImage+vImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+vImage.swift"; sourceTree = "<group>"; };
 		18FF9D65229D7100003C5EA7 /* String+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
 		18FF9D67229D715B003C5EA7 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
@@ -175,6 +177,14 @@
 				180A050322EA943400AC7D19 /* Info.plist */,
 			);
 			path = CocoaExtensionTests;
+			sourceTree = "<group>";
+		};
+		18703C9423C732EB003A305F /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				18703C9523C732FF003A305F /* QRCode.swift */,
+			);
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 		C9DF82652179C3A00044334E = {
@@ -284,6 +294,7 @@
 		C9DF82BD2179C43B0044334E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				18703C9423C732EB003A305F /* QRCode */,
 				C9DF82C82179C45A0044334E /* CIImageFilter */,
 				C9DF82CA2179C45A0044334E /* GraphicsImageContext */,
 				C9DF82CC2179C45A0044334E /* ImageDrawer */,
@@ -480,6 +491,7 @@
 				C9DF82B82179C3EC0044334E /* UINavigationController.swift in Sources */,
 				C9DF83142179C6F10044334E /* JDSwiftFunctions.swift in Sources */,
 				C9DF82D02179C45A0044334E /* UIImage+GIF.m in Sources */,
+				18703C9623C732FF003A305F /* QRCode.swift in Sources */,
 				C9DF82B62179C3EC0044334E /* UITextView.swift in Sources */,
 				C9DF82D12179C45A0044334E /* UIImage.swift in Sources */,
 				C9DF82B32179C3EC0044334E /* UIImageView.swift in Sources */,
