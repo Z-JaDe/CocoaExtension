@@ -34,7 +34,6 @@ public struct QRCode {
             context.draw(cgImage, in: context.boundingBoxOfClipPath)
         })
 
-        
 //        UIGraphicsBeginImageContext(imgSize)
 //        guard let context = UIGraphicsGetCurrentContext() else { return nil }
 //        let codeImage = UIGraphicsGetImageFromCurrentImageContext()

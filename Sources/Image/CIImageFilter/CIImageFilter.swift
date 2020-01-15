@@ -52,7 +52,7 @@ public class CIImageFilter {
     }
     func addFilter(_ filterName: String, _ closure: (CIFilter) -> Void) {
         if let filter = CIFilter(name: filterName) {
-            addFilter(filter, closure)            
+            addFilter(filter, closure)
         }
     }
     func addFilter(_ filter: CIFilter, _ closure: (CIFilter) -> Void) {
