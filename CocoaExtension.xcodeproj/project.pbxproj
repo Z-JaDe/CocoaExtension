@@ -13,6 +13,7 @@
 		187D50CF23D15BDD00FFFBBD /* CGImageSourceOptionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D50CE23D15BDD00FFFBBD /* CGImageSourceOptionKeys.swift */; };
 		187D50D823D17B4400FFFBBD /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D50D723D17B4400FFFBBD /* UIImage+GIF.swift */; };
 		187D50DA23D189A800FFFBBD /* timg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 187D50D923D189A800FFFBBD /* timg.gif */; };
+		187D50DC23D19E4E00FFFBBD /* FileNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D50DB23D19E4E00FFFBBD /* FileNameExtension.swift */; };
 		1889022323A27845000DB171 /* UIImage+vImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1889022223A27845000DB171 /* UIImage+vImage.swift */; };
 		18FF9D66229D7100003C5EA7 /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D65229D7100003C5EA7 /* String+Hex.swift */; };
 		18FF9D68229D715B003C5EA7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D67229D715B003C5EA7 /* Dictionary.swift */; };
@@ -92,6 +93,7 @@
 		187D50CE23D15BDD00FFFBBD /* CGImageSourceOptionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageSourceOptionKeys.swift; sourceTree = "<group>"; };
 		187D50D723D17B4400FFFBBD /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
 		187D50D923D189A800FFFBBD /* timg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = timg.gif; sourceTree = "<group>"; };
+		187D50DB23D19E4E00FFFBBD /* FileNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNameExtension.swift; sourceTree = "<group>"; };
 		1889022223A27845000DB171 /* UIImage+vImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+vImage.swift"; sourceTree = "<group>"; };
 		18FF9D65229D7100003C5EA7 /* String+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
 		18FF9D67229D715B003C5EA7 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				C9FB08752179C92000041EF1 /* String */,
 				C9DF82FB2179C6460044334E /* Array.swift */,
 				C9DF82FD2179C6460044334E /* Bool.swift */,
+				187D50DB23D19E4E00FFFBBD /* FileNameExtension.swift */,
 				C9DF82FC2179C6460044334E /* Bundle.swift */,
 				18FF9D67229D715B003C5EA7 /* Dictionary.swift */,
 				C9DF83002179C6460044334E /* CGFloat.swift */,
@@ -526,6 +529,7 @@
 				C9DF82AA2179C3EC0044334E /* UINavigationItem.swift in Sources */,
 				C9DF82D62179C45A0044334E /* ImageDrawer.swift in Sources */,
 				18FF9D68229D715B003C5EA7 /* Dictionary.swift in Sources */,
+				187D50DC23D19E4E00FFFBBD /* FileNameExtension.swift in Sources */,
 				C913091821F95CFB003C304F /* UIImage+ImageDrawer.swift in Sources */,
 				C9DF83072179C6460044334E /* Int.swift in Sources */,
 				C9DF82D22179C45A0044334E /* UIImage+ImageEffects.m in Sources */,

@@ -30,30 +30,8 @@ public extension UIImage {
         return UIImage.animatedImage(with: result.images, duration: result.duration)
     }
     static func animatedGIF(withName name: String) -> UIImage? {
-        let imageExtension: String
-        let imageName: String
-        if let point = name.lastIndex(of: ".") {
-            imageExtension = String(name.suffix(from: name.index(after: point)))
-            imageName = String(name.prefix(upTo: point))
-        } else {
-            imageExtension = ""
-            imageName = name
-        }
-        func getData(name: String) -> Data? {
-            guard let path = Bundle.main.path(forResource: name, ofType: imageExtension.isEmpty ? "gif" : imageExtension) else {
-                return nil
-            }
-            return try? Data(contentsOf: URL(fileURLWithPath: path))
-        }
-        let scale = UIScreen.main.scale
-        if scale > 1.0 {
-            if let data = getData(name: "\(imageName)@2x") {
-                return animatedGIF(withData: data)
-            } else if let data = getData(name: "\(imageName)@3x") {
-                return animatedGIF(withData: data)
-            }
-        }
-        if let data = getData(name: imageName) {
+        let file = FileNameExtension(name: name, defaultExten: "gif")
+        if let data = file.getData(file.getImagePath()) {
             return animatedGIF(withData: data)
         }
         return UIImage(named: name)
