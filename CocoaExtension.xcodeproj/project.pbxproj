@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		180A050222EA943400AC7D19 /* CocoaExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A050122EA943400AC7D19 /* CocoaExtensionTests.swift */; };
 		18703C9623C732FF003A305F /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18703C9523C732FF003A305F /* QRCode.swift */; };
+		187D50CD23D1531A00FFFBBD /* CGImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D50CC23D1531A00FFFBBD /* CGImageSource.swift */; };
 		1889022323A27845000DB171 /* UIImage+vImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1889022223A27845000DB171 /* UIImage+vImage.swift */; };
 		18FF9D66229D7100003C5EA7 /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D65229D7100003C5EA7 /* String+Hex.swift */; };
 		18FF9D68229D715B003C5EA7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D67229D715B003C5EA7 /* Dictionary.swift */; };
@@ -85,6 +86,7 @@
 		180A050122EA943400AC7D19 /* CocoaExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaExtensionTests.swift; sourceTree = "<group>"; };
 		180A050322EA943400AC7D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18703C9523C732FF003A305F /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		187D50CC23D1531A00FFFBBD /* CGImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageSource.swift; sourceTree = "<group>"; };
 		1889022223A27845000DB171 /* UIImage+vImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+vImage.swift"; sourceTree = "<group>"; };
 		18FF9D65229D7100003C5EA7 /* String+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
 		18FF9D67229D715B003C5EA7 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
@@ -185,6 +187,24 @@
 				18703C9523C732FF003A305F /* QRCode.swift */,
 			);
 			path = QRCode;
+			sourceTree = "<group>";
+		};
+		187D50CA23D151E100FFFBBD /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				C9DF82C42179C45A0044334E /* UIImage.swift */,
+				C9DF82C72179C45A0044334E /* UIImage+GIF.h */,
+				C9DF82C22179C45A0044334E /* UIImage+GIF.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		187D50CB23D1530B00FFFBBD /* CGImageSource */ = {
+			isa = PBXGroup;
+			children = (
+				187D50CC23D1531A00FFFBBD /* CGImageSource.swift */,
+			);
+			path = CGImageSource;
 			sourceTree = "<group>";
 		};
 		C9DF82652179C3A00044334E = {
@@ -294,28 +314,27 @@
 		C9DF82BD2179C43B0044334E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				187D50CB23D1530B00FFFBBD /* CGImageSource */,
+				187D50CA23D151E100FFFBBD /* UIImage */,
 				18703C9423C732EB003A305F /* QRCode */,
 				C9DF82C82179C45A0044334E /* CIImageFilter */,
 				C9DF82CA2179C45A0044334E /* GraphicsImageContext */,
 				C9DF82CC2179C45A0044334E /* ImageDrawer */,
-				C9DF82BE2179C45A0044334E /* UIImage */,
+				C9DF82BE2179C45A0044334E /* vImage */,
 			);
 			path = Image;
 			sourceTree = "<group>";
 		};
-		C9DF82BE2179C45A0044334E /* UIImage */ = {
+		C9DF82BE2179C45A0044334E /* vImage */ = {
 			isa = PBXGroup;
 			children = (
-				C9DF82C42179C45A0044334E /* UIImage.swift */,
-				C9DF82C72179C45A0044334E /* UIImage+GIF.h */,
-				C9DF82C22179C45A0044334E /* UIImage+GIF.m */,
 				1889022223A27845000DB171 /* UIImage+vImage.swift */,
 				C9DF82BF2179C45A0044334E /* UIImage+vImages.swift */,
 				C9DF82C12179C45A0044334E /* UIImage+ImageEffects.h */,
 				C9DF82C52179C45A0044334E /* UIImage+ImageEffects.m */,
 				C9DF82C02179C45A0044334E /* UIImage+ImageEffects.swift */,
 			);
-			path = UIImage;
+			path = vImage;
 			sourceTree = "<group>";
 		};
 		C9DF82C82179C45A0044334E /* CIImageFilter */ = {
@@ -506,6 +525,7 @@
 				C9DF82D22179C45A0044334E /* UIImage+ImageEffects.m in Sources */,
 				C9DF83122179C6460044334E /* FloatingPoint.swift in Sources */,
 				C9DF83092179C6460044334E /* Array.swift in Sources */,
+				187D50CD23D1531A00FFFBBD /* CGImageSource.swift in Sources */,
 				C9DF82B12179C3EC0044334E /* UIWindow.swift in Sources */,
 				C9DF82B72179C3EC0044334E /* UISlider.swift in Sources */,
 				C913091221F958EC003C304F /* UIImage+Blend.swift in Sources */,
