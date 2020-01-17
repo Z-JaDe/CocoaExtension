@@ -13,62 +13,62 @@ public protocol Frameable: class {
     var bounds: CGRect {get set}
 }
 extension Frameable {
-    @inlinable
+    @inline(__always)
     public var origin: CGPoint {
         get { frame.origin }
         set { frame.origin = newValue }
     }
-    @inlinable
+    @inline(__always)
     public var size: CGSize {
         get { frame.size }
         set { frame.size = newValue }
     }
 }
 extension Frameable {
-    @inlinable
+    @inline(__always)
     public var width: CGFloat {
         get { size.width }
         set { size.width = newValue }
     }
-    @inlinable
+    @inline(__always)
     public var height: CGFloat {
         get { size.height }
         set { size.height = newValue }
     }
 
-    @inlinable
+    @inline(__always)
     public var x: CGFloat {
         get { origin.x }
         set { origin.x = newValue }
     }
-    @inlinable
+    @inline(__always)
     public var y: CGFloat {
         get { origin.y }
         set { origin.y = newValue }
     }
 
-    @inlinable
+    @inline(__always)
     public var innerCenter: CGPoint {
         CGPoint(x: width / 2, y: height / 2)
     }
 }
 extension Frameable {
-    @inlinable
+    @inline(__always)
     public var top: CGFloat {
         get { y }
         set { y = newValue }
     }
-    @inlinable
+    @inline(__always)
     public var left: CGFloat {
         get { x }
         set { x = newValue }
     }
-    @inlinable
+    @inline(__always)
     public var bottom: CGFloat {
         get { top + height }
         set { top = newValue - height }
     }
-    @inlinable
+    @inline(__always)
     public var right: CGFloat {
         get { left + width }
         set { left = newValue - width }
@@ -76,12 +76,12 @@ extension Frameable {
 }
 // MARK: - center
 extension Frameable where Self: UIView {
-    @inlinable
+    @inline(__always)
     public var centerX: CGFloat {
         get { center.x }
         set { center.x = newValue }
     }
-    @inlinable
+    @inline(__always)
     public var centerY: CGFloat {
         get { center.y }
         set { center.y = newValue }
