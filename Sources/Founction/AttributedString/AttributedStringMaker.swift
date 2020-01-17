@@ -7,7 +7,7 @@
 //
 
 import Foundation
-// TODO: AttributedStringMaker 与 Style结合封装
+// TODO: AttributedStringMaker 与 Style 结合模仿SwiftUI封装
 //为了防止链式写法不断写时拷贝，使用class
 public class AttributedStringMaker {
     var attrStr: AttributedString

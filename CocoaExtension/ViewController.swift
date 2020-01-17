@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         Go there to \("learn more about String Interpolation", .link("https://github.com/apple/swift-evolution/blob/master/proposals/0228-fix-expressiblebystringinterpolation.md"), .underline(.blue, .single))!
         """
         label.attributedText = attr.finalize()
+        label.numberOfLines = 0
     }
 
 
