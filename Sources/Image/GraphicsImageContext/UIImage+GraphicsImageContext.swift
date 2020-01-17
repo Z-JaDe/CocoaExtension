@@ -83,6 +83,7 @@ extension UIImage {
     }
     /// ZJaDe: 图片缩放
     public func scaleTo(_ scale: CGFloat) -> UIImage {
+        if scale == 1 { return self }
         let size = CGSize(width: self.size.width * scale, height: self.size.height * scale)
         return UIGraphicsImageRenderer(size: size).image(actions: { (_) in
             self.draw(in: CGRect(origin: CGPoint.zero, size: size))
