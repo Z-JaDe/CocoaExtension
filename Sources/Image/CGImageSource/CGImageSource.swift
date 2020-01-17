@@ -81,6 +81,26 @@ public extension CGImageSource {
     func copyProperties(atIndex index: Int, _ options: CFDictionary? = nil) -> CFDictionary? {
         CGImageSourceCopyPropertiesAtIndex(self, index, options)
     }
+    func frameDuration(atIndex index: Int) -> Double {
+        var frameDuration: Double = 0.1
+        if let frameProperties = self.copyProperties(atIndex: index) {
+            let frameProperties = frameProperties as NSDictionary
+            let gifProperties = frameProperties.object(forKey: kCGImagePropertyGIFDictionary) as? NSDictionary
+            if let delayTimeUnclampedProp = gifProperties?.object(forKey: kCGImagePropertyGIFUnclampedDelayTime) as? NSNumber {
+                frameDuration = delayTimeUnclampedProp.doubleValue
+            } else if let delayTimeProp = gifProperties?.object(forKey: kCGImagePropertyGIFDelayTime) as? NSNumber {
+                frameDuration = delayTimeProp.doubleValue
+            }
+        }
+        // Many annoying ads specify a 0 duration to make an image flash as quickly as possible.
+        // We follow Firefox's behavior and use a duration of 100 ms for any frames that specify
+        // a duration of <= 10 ms. See <rdar://problem/7689300> and <http://webkit.org/b/36082>
+        // for more information.
+        if frameDuration < 0.011 {
+            frameDuration = 0.1
+        }
+        return frameDuration
+    }
     ///
     @inline(__always)
     var status: CGImageSourceStatus {

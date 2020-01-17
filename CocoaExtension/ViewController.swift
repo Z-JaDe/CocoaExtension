@@ -12,7 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let imageView = UIImageView(image: UIImage.animatedGIF(withName: "timg"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+        ])
     }
 
 

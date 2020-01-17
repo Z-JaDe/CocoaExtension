@@ -10,6 +10,9 @@
 		180A050222EA943400AC7D19 /* CocoaExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A050122EA943400AC7D19 /* CocoaExtensionTests.swift */; };
 		18703C9623C732FF003A305F /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18703C9523C732FF003A305F /* QRCode.swift */; };
 		187D50CD23D1531A00FFFBBD /* CGImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D50CC23D1531A00FFFBBD /* CGImageSource.swift */; };
+		187D50CF23D15BDD00FFFBBD /* CGImageSourceOptionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D50CE23D15BDD00FFFBBD /* CGImageSourceOptionKeys.swift */; };
+		187D50D823D17B4400FFFBBD /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D50D723D17B4400FFFBBD /* UIImage+GIF.swift */; };
+		187D50DA23D189A800FFFBBD /* timg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 187D50D923D189A800FFFBBD /* timg.gif */; };
 		1889022323A27845000DB171 /* UIImage+vImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1889022223A27845000DB171 /* UIImage+vImage.swift */; };
 		18FF9D66229D7100003C5EA7 /* String+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D65229D7100003C5EA7 /* String+Hex.swift */; };
 		18FF9D68229D715B003C5EA7 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF9D67229D715B003C5EA7 /* Dictionary.swift */; };
@@ -45,7 +48,6 @@
 		C9DF82BC2179C4140044334E /* Frameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82BB2179C4140044334E /* Frameable.swift */; };
 		C9DF82CE2179C45A0044334E /* UIImage+vImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82BF2179C45A0044334E /* UIImage+vImages.swift */; };
 		C9DF82CF2179C45A0044334E /* UIImage+ImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C02179C45A0044334E /* UIImage+ImageEffects.swift */; };
-		C9DF82D02179C45A0044334E /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C22179C45A0044334E /* UIImage+GIF.m */; };
 		C9DF82D12179C45A0044334E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C42179C45A0044334E /* UIImage.swift */; };
 		C9DF82D22179C45A0044334E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C52179C45A0044334E /* UIImage+ImageEffects.m */; };
 		C9DF82D42179C45A0044334E /* CIImageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF82C92179C45A0044334E /* CIImageFilter.swift */; };
@@ -87,6 +89,9 @@
 		180A050322EA943400AC7D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18703C9523C732FF003A305F /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		187D50CC23D1531A00FFFBBD /* CGImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageSource.swift; sourceTree = "<group>"; };
+		187D50CE23D15BDD00FFFBBD /* CGImageSourceOptionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageSourceOptionKeys.swift; sourceTree = "<group>"; };
+		187D50D723D17B4400FFFBBD /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
+		187D50D923D189A800FFFBBD /* timg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = timg.gif; sourceTree = "<group>"; };
 		1889022223A27845000DB171 /* UIImage+vImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+vImage.swift"; sourceTree = "<group>"; };
 		18FF9D65229D7100003C5EA7 /* String+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Hex.swift"; sourceTree = "<group>"; };
 		18FF9D67229D715B003C5EA7 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
@@ -126,10 +131,8 @@
 		C9DF82BF2179C45A0044334E /* UIImage+vImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+vImages.swift"; sourceTree = "<group>"; };
 		C9DF82C02179C45A0044334E /* UIImage+ImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageEffects.swift"; sourceTree = "<group>"; };
 		C9DF82C12179C45A0044334E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		C9DF82C22179C45A0044334E /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
 		C9DF82C42179C45A0044334E /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		C9DF82C52179C45A0044334E /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		C9DF82C72179C45A0044334E /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		C9DF82C92179C45A0044334E /* CIImageFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageFilter.swift; sourceTree = "<group>"; };
 		C9DF82CB2179C45A0044334E /* GraphicsImageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicsImageContext.swift; sourceTree = "<group>"; };
 		C9DF82CD2179C45A0044334E /* ImageDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDrawer.swift; sourceTree = "<group>"; };
@@ -193,8 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				C9DF82C42179C45A0044334E /* UIImage.swift */,
-				C9DF82C72179C45A0044334E /* UIImage+GIF.h */,
-				C9DF82C22179C45A0044334E /* UIImage+GIF.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -203,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				187D50CC23D1531A00FFFBBD /* CGImageSource.swift */,
+				187D50CE23D15BDD00FFFBBD /* CGImageSourceOptionKeys.swift */,
+				187D50D723D17B4400FFFBBD /* UIImage+GIF.swift */,
 			);
 			path = CGImageSource;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				C9DF82712179C3A00044334E /* AppDelegate.swift */,
 				C9DF82732179C3A00044334E /* ViewController.swift */,
 				C9DF82DA2179C5580044334E /* CocoaExtension-Bridging-Header.h */,
+				187D50D923D189A800FFFBBD /* timg.gif */,
 				C9DF82752179C3A00044334E /* Main.storyboard */,
 				C9DF82782179C3A00044334E /* Assets.xcassets */,
 				C9DF827A2179C3A00044334E /* LaunchScreen.storyboard */,
@@ -473,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9DF827C2179C3A00044334E /* LaunchScreen.storyboard in Resources */,
+				187D50DA23D189A800FFFBBD /* timg.gif in Resources */,
 				C9DF82792179C3A00044334E /* Assets.xcassets in Resources */,
 				C9DF82772179C3A00044334E /* Main.storyboard in Resources */,
 			);
@@ -503,16 +508,17 @@
 				C9DF82B42179C3EC0044334E /* UIFont.swift in Sources */,
 				C9DF82B02179C3EC0044334E /* UIViewController.swift in Sources */,
 				C9DF82CE2179C45A0044334E /* UIImage+vImages.swift in Sources */,
+				187D50D823D17B4400FFFBBD /* UIImage+GIF.swift in Sources */,
 				C9DF82AD2179C3EC0044334E /* UITextField.swift in Sources */,
 				C9DF83062179C6460044334E /* URL.swift in Sources */,
 				18FF9D66229D7100003C5EA7 /* String+Hex.swift in Sources */,
 				C913091621F95A5B003C304F /* UIImage+GraphicsImageContext.swift in Sources */,
 				C9DF82B82179C3EC0044334E /* UINavigationController.swift in Sources */,
 				C9DF83142179C6F10044334E /* JDSwiftFunctions.swift in Sources */,
-				C9DF82D02179C45A0044334E /* UIImage+GIF.m in Sources */,
 				18703C9623C732FF003A305F /* QRCode.swift in Sources */,
 				C9DF82B62179C3EC0044334E /* UITextView.swift in Sources */,
 				C9DF82D12179C45A0044334E /* UIImage.swift in Sources */,
+				187D50CF23D15BDD00FFFBBD /* CGImageSourceOptionKeys.swift in Sources */,
 				C9DF82B32179C3EC0044334E /* UIImageView.swift in Sources */,
 				C9DF82B22179C3EC0044334E /* UISwitch.swift in Sources */,
 				C9DF82D52179C45A0044334E /* GraphicsImageContext.swift in Sources */,
