@@ -20,6 +20,7 @@ class ViewController: UIViewController {
             label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             label.leftAnchor.constraint(equalTo: self.view.leftAnchor),
         ])
+        // TODO: gif支持
         let center: AttributedString = """
             \(" Merry Xmas! ", .font(.systemFont(ofSize: 36)), .color(.red), .bgColor(.yellow))
             \(image: UIImage.animatedGIF(withName: "timg")!)
