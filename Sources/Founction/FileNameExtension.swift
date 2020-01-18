@@ -31,7 +31,6 @@ struct FileNameExtension {
     func getPath() -> String? {
         _getPath(name: name)
     }
-    @inline(__always)
     func getImagePath() -> String? {
         let scale = UIScreen.main.scale
         if scale > 1.0 {

@@ -9,22 +9,21 @@
 import Foundation
 
 // MARK: -
-public protocol _AttributedString: ExpressibleByStringLiteral, CustomStringConvertible, AttributedStringCreater {
+public protocol _AttributedString: CustomStringConvertible, AttributedStringCreater {
     typealias Style = AttributedStringStyle
     typealias V = NSMutableAttributedString
     var _value: V { get }
     init()
     init<T: AttributedStringCreater>(_ value: T?)
     mutating func append<T: AttributedStringCreater>(_ value: T)
+    func appending<T: AttributedStringCreater>(_ value: T) -> Self
+    mutating func setAttributes(_ attrs: [NSAttributedString.Key: Any], range: NSRange?)
 }
 public extension _AttributedString {
-    func createMutableAttributedString() -> NSMutableAttributedString {
-        self._value
-    }
-}
-public extension _AttributedString {
-    init(stringLiteral value: String) {
-        self.init(value)
+    func appending<T: AttributedStringCreater>(_ value: T) -> Self {
+        var result = self
+        result.append(value)
+        return result
     }
 }
 public extension _AttributedString {
@@ -39,6 +38,7 @@ public extension _AttributedString {
     }
     @inline(__always)
     func finalize() -> NSAttributedString {
+        // swiftlint:disable force_cast
         return _value.copy() as! NSAttributedString
     }
     @inline(__always)
