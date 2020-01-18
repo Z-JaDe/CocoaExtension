@@ -20,20 +20,18 @@ public extension AttributedStringMergeStyle {
         mergeStyle(style, range: range)
     }
 }
+public extension AttributedStringCreater where Self: AttributedStringMergeStyle {
+    func mergeStyle(_ style: [Style], range: NSRange? = nil) -> AttributedString {
+        AttributedString(self).mergeStyle(style, range: range)
+    }
+}
 extension AttributedString: AttributedStringMergeStyle {
-    @inline(__always)
-    public func mergeStyle(_ style: [Style], range: NSRange? = nil) -> Self {
+    public func mergeStyle(_ style: [Style], range: NSRange? = nil) -> AttributedString {
         var result = self
         let range = range ?? defaultRange
         let style = style.reduce(into: Style(), {$0.merge($1)})
         result.setAttributes(style.attributes, range: range)
         return result
-    }
-}
-public extension AttributedStringCreater where Self: AttributedStringMergeStyle {
-    @inline(__always)
-    func mergeStyle(_ style: [Style], range: NSRange? = nil) -> AttributedString {
-        AttributedString(self).mergeStyle(style, range: range)
     }
 }
 extension String: AttributedStringMergeStyle {}
