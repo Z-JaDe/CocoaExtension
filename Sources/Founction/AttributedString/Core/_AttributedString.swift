@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: -
 public protocol _AttributedString: CustomStringConvertible, AttributedStringCreater {
-    typealias Style = AttributedStringStyle
     typealias V = NSMutableAttributedString
     var _value: V { get }
     init()

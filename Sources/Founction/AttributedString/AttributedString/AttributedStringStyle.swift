@@ -7,11 +7,12 @@
 //
 
 import Foundation
-
-public struct AttributedStringStyle {
-    let attributes: [NSAttributedString.Key: Any]
+public extension AttributedString {
+    struct Style {
+        let attributes: [NSAttributedString.Key: Any]
+    }
 }
-public extension AttributedStringStyle {
+public extension AttributedString.Style {
     init(_ attributes: [NSAttributedString.Key: Any] = [:]) {
         self.attributes = attributes
     }
@@ -19,7 +20,7 @@ public extension AttributedStringStyle {
         self.attributes = [key: value]
     }
 }
-public extension AttributedStringStyle {
+public extension AttributedString.Style {
     @inline(__always)
     mutating func merge<V>(_ attributes: [NSAttributedString.Key: V]) {
         self = Self(self.attributes.merging(attributes, uniquingKeysWith: {$1}))
@@ -33,7 +34,7 @@ public extension AttributedStringStyle {
         merge([key: value])
     }
 }
-public extension AttributedStringStyle {
+public extension AttributedString.Style {
     @inline(__always)
     func merging<V>(_ attributes: [NSAttributedString.Key: V]) -> Self {
         Self(self.attributes.merging(attributes, uniquingKeysWith: {$1}))

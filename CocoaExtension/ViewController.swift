@@ -20,19 +20,19 @@ class ViewController: UIViewController {
             label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             label.leftAnchor.constraint(equalTo: self.view.leftAnchor),
         ])
-        // TODO: gif支持
         let center: AttributedString = """
-            \(" Merry Xmas! ", .font(.systemFont(ofSize: 36)), .color(.red), .bgColor(.yellow))
+        \(" Merry Xmas! ", .font(.systemFont(ofSize: 36)), .color(.red), .bgColor(.yellow))
             \(image: UIImage.animatedGIF(withName: "timg")!)
         """
-        let attr: AttributedString = """
-        Hello \("username", .color(.red)), isn't this \("cool", .color(.blue), .oblique, .underline(.purple, .single))?
-        
-        \(wrap: center.mergeStyle(.alignment(.center)))
-        
-        Go there to \("learn more about String Interpolation", .link("https://github.com/apple/swift-evolution/blob/master/proposals/0228-fix-expressiblebystringinterpolation.md"), .underline(.blue, .single))!
-        """
-        label.attributedText = attr.finalize()
+        label.attributedText = createAttrStr {
+            """
+            Hello \("username", .color(.red)), isn't this \("cool", .color(.blue), .oblique, .underline(.purple, .single))?
+            
+            \(wrap: center.mergeStyle(.alignment(.center)))
+            
+            Go there to \("learn more about String Interpolation", .link("https://github.com/apple/swift-evolution/blob/master/proposals/0228-fix-expressiblebystringinterpolation.md"), .underline(.blue, .single))!
+            """
+        }
         label.numberOfLines = 0
         
         // TODO: 出错

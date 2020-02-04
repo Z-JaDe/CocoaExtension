@@ -9,28 +9,34 @@
 import Foundation
 
 public protocol AttributedStringMergeStyle {
-    typealias Style = AttributedStringStyle
+    typealias Style = AttributedString.Style
     associatedtype AttrString: _AttributedString
-    func mergeStyle(_ style: Style..., range: NSRange?) -> AttrString
-    func mergeStyle(_ style: [Style], range: NSRange?) -> AttrString
+    func mergeStyle(_ style: Style...) -> AttrString
+    func mergeStyles(_ style: [Style]) -> AttrString
 }
 public extension AttributedStringMergeStyle {
     @inline(__always)
-    func mergeStyle(_ style: Style..., range: NSRange? = nil) -> AttrString {
-        mergeStyle(style, range: range)
+    func mergeStyle(_ style: Style...) -> AttrString {
+        mergeStyles(style)
     }
 }
 public extension AttributedStringCreater where Self: AttributedStringMergeStyle {
-    func mergeStyle(_ style: [Style], range: NSRange? = nil) -> AttributedString {
-        AttributedString(self).mergeStyle(style, range: range)
+    func mergeStyles(_ style: [Style]) -> AttributedString {
+        AttributedString(self).mergeStyles(style)
     }
 }
 extension AttributedString: AttributedStringMergeStyle {
-    public func mergeStyle(_ style: [Style], range: NSRange? = nil) -> AttributedString {
+    public func mergeStyles(_ style: [Style]) -> AttributedString {
         var result = self
-        let range = range ?? defaultRange
-        let style = style.reduce(into: Style(), {$0.merge($1)})
-        result.setAttributes(style.attributes, range: range)
+        switch style.count {
+        case 0:
+            return result
+        case 1:
+            result.setAttributes(style[0].attributes, range: defaultRange)
+        default:
+            let style = style.reduce(into: Style(), {$0.merge($1)})
+            result.setAttributes(style.attributes, range: defaultRange)
+        }
         return result
     }
 }

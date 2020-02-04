@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public extension AttributedStringStyle {
+public extension AttributedString.Style {
     @inline(__always)
     static func color(_ value: UIColor?) -> Self {
         Self().color(value)
@@ -33,7 +33,7 @@ public extension AttributedStringStyle {
         merging(key: .font, value: value)
     }
 }
-public extension AttributedStringStyle {
+public extension AttributedString.Style {
     @inline(__always)
     static var oblique: Self {
          Self().oblique
@@ -91,7 +91,7 @@ public extension AttributedStringStyle {
 }
 
 // MARK: paragraphStyle
-public extension AttributedStringStyle {
+public extension AttributedString.Style {
     @inline(__always)
     static func paragraphStyle(_ value: NSParagraphStyle?) -> Self {
         Self().paragraphStyle(value)
@@ -121,7 +121,7 @@ public extension AttributedStringStyle {
         return paragraphStyle(style)
     }
 }
-public extension AttributedStringStyle {
+public extension AttributedString.Style {
     @inline(__always)
     static func alignment(_ value: NSTextAlignment) -> Self {
         Self().alignment(value)

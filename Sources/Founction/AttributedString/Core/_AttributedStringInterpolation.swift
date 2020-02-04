@@ -19,7 +19,7 @@ extension AttributedString: ExpressibleByStringInterpolation {
 }
 
 public struct AttributedStringInterpolation: StringInterpolationProtocol {
-    public typealias Style = AttributedStringStyle
+    public typealias Style = AttributedString.Style
     let value: AttributedStringClass
 
     public init(literalCapacity: Int, interpolationCount: Int) {
@@ -29,13 +29,12 @@ public struct AttributedStringInterpolation: StringInterpolationProtocol {
         self.value.append(literal)
     }
     public func appendInterpolation(_ string: String, attributes: [NSAttributedString.Key: Any]) {
-        let astr = NSAttributedString(string: string, attributes: attributes)
-        self.value.append(astr)
+        self.value.append(NSAttributedString(string: string, attributes: attributes))
     }
 }
 extension AttributedStringInterpolation {
     public func appendInterpolation(_ string: String, _ style: Style...) {
-        self.value.append(string.mergeStyle(style))
+        self.value.append(string.mergeStyles(style))
     }
     public func appendInterpolation(image: UIImage, scale: CGFloat = 1.0) {
         self.value.append(image.scaleTo(scale))
