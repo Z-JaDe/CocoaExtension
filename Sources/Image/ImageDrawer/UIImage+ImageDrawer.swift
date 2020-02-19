@@ -61,7 +61,7 @@ extension UIImage {
         return gradient(.leftToRight, size, colors: colors)
     }
     public static func verticalGradient(_ size: CGSize? = nil, colors: UIColor...) -> UIImage {
-        return gradient(.leftToRight, size, colors: colors)
+        return gradient(.topToBottom, size, colors: colors)
     }
     public static func gradient(_ direction: GradientDirection, _ size: CGSize? = nil, colors: UIColor...) -> UIImage {
         return gradient(direction, size, colors: colors)
