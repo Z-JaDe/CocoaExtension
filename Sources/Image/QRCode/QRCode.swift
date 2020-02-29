@@ -33,12 +33,6 @@ public struct QRCode {
             context.scaleBy(x: 1.0, y: -1.0)
             context.draw(cgImage, in: context.boundingBoxOfClipPath)
         })
-
-//        UIGraphicsBeginImageContext(imgSize)
-//        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-//        let codeImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-
     }
     /// ZJaDe: 从图片中读取二维码
     public static func scan(qrImage: UIImage) -> String? {

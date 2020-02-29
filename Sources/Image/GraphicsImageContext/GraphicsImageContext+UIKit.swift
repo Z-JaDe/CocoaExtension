@@ -12,7 +12,9 @@ extension CALayer {
         var size = size ?? self.frame.size
         if size.width <= 0 {size.width = 1}
         if size.height <= 0 {size.height = 1}
-        return UIGraphicsImageRenderer(size: size).image(actions: { (context) in
+        let format = UIGraphicsImageRendererFormat()
+        format.opaque = self.isOpaque
+        return UIGraphicsImageRenderer(size: size, format: format).image(actions: { (context) in
             render(in: context.cgContext)
         })
     }

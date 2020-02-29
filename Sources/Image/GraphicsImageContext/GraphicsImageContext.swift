@@ -54,7 +54,8 @@ extension UIImage {
     public func imageContext(inverting: Bool = false) -> GraphicsImageContext {
         return GraphicsImageContext(size, scale: scale, inverting: inverting)
     }
-    public func imageRenderer(format: UIGraphicsImageRendererFormat? = nil) -> UIGraphicsImageRenderer {
+    public func imageRenderer(size: CGSize? = nil, format: UIGraphicsImageRendererFormat? = nil) -> UIGraphicsImageRenderer {
+        let size = size ?? self.size
         if let format = format {
             return UIGraphicsImageRenderer(size: size, format: format)
         } else {

@@ -42,14 +42,14 @@ extension UIImage {
     /// ZJaDe: 根据宽度等比例缩放图片
     public func resizeWithWidth(_ width: CGFloat) -> UIImage {
         let aspectSize = CGSize(width: width, height: aspectHeightForWidth(width))
-        return UIGraphicsImageRenderer(size: aspectSize).image(actions: { (_) in
+        return imageRenderer(size: aspectSize).image(actions: { (_) in
             self.draw(in: CGRect(origin: CGPoint.zero, size: aspectSize))
         })
     }
     /// ZJaDe: 根据高度等比例缩放图片
     public func resizeWithHeight(_ height: CGFloat) -> UIImage {
         let aspectSize = CGSize(width: aspectWidthForHeight(height), height: height)
-        return UIGraphicsImageRenderer(size: aspectSize).image(actions: { (_) in
+        return imageRenderer(size: aspectSize).image(actions: { (_) in
             self.draw(in: CGRect(origin: CGPoint.zero, size: aspectSize))
         })
     }
@@ -69,7 +69,7 @@ extension UIImage {
         var frame = frame
         frame.origin.x = -frame.origin.x
         frame.origin.y = -frame.origin.y
-        return UIGraphicsImageRenderer(size: frame.size).image(actions: { (_) in
+        return imageRenderer(size: frame.size).image(actions: { (_) in
             self.draw(at: frame.origin, blendMode: .copy, alpha: 1)
         })
     }
@@ -77,7 +77,7 @@ extension UIImage {
     public func addBlank(insets: UIEdgeInsets) -> UIImage {
         let size = self.size + insets
         let origin = CGPoint(x: insets.left, y: insets.top)
-        return UIGraphicsImageRenderer(size: size).image(actions: { (_) in
+        return imageRenderer(size: size).image(actions: { (_) in
             self.draw(in: CGRect(origin: origin, size: self.size))
         })
     }
@@ -85,7 +85,7 @@ extension UIImage {
     public func scaleTo(_ scale: CGFloat) -> UIImage {
         if scale == 1 { return self }
         let size = CGSize(width: self.size.width * scale, height: self.size.height * scale)
-        return UIGraphicsImageRenderer(size: size).image(actions: { (_) in
+        return imageRenderer(size: size).image(actions: { (_) in
             self.draw(in: CGRect(origin: CGPoint.zero, size: size))
         })
     }
@@ -93,7 +93,7 @@ extension UIImage {
     public func round(_ cornerRadius: CGFloat? = nil) -> UIImage {
         let size = self.size
         let rect = CGRect(origin: CGPoint.zero, size: size)
-        return UIGraphicsImageRenderer(size: size).image(actions: { (_) in
+        return imageRenderer(size: size).image(actions: { (_) in
             let cornerRadius = cornerRadius ?? min(size.width, size.height) / 2
             let path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
             path.addClip()
