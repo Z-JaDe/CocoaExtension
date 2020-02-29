@@ -50,15 +50,27 @@ let morphological_kernel: [CUnsignedChar] = [
 //    0, 1, 1, 1, 0
 //]
 
-extension UIImage {
-    func accelerateBlurShort(blur: Int) -> UIImage? {
-        var boxSize = blur
-        if blur < 1 || blur > 100 {
-            boxSize = 25
+public extension UIImage {
+    func accelerateBlurShort(withRadius radius: CGFloat) -> UIImage? {
+        if radius < 2 {
+            return self
         }
-        boxSize -= (boxSize % 2) - 1
+        // http://www.w3.org/TR/SVG/filters.html#feGaussianBlurElement
+        // let d = floor(s * 3*sqrt(2*pi)/4 + 0.5)
+        // if d is odd, use three box-blurs of size 'd', centered on the output pixel.
+        let s = max(radius, 2.0)
+        // We will do blur on a resized image (*0.5), so the blur radius could be half as well.
+
+        // Fix the slow compiling time for Swift 3.
+        // See https://github.com/onevcat/Kingfisher/issues/611
+        let pi2 = 2 * CGFloat.pi
+        let sqrtPi2 = sqrt(pi2)
+        var targetRadius = floor(s * 3.0 * sqrtPi2 / 4.0 + 0.5)
+
+        ///如果是偶数 +1
+        if targetRadius.truncatingRemainder(dividingBy: 2.0) == 0 { targetRadius += 1 }
         return vImage_image { (src, dest) in
-            vImageBoxConvolve_ARGB8888(&src, &dest, nil, 0, 0, UInt32(boxSize), UInt32(boxSize), nil, vImage_Flags(kvImageEdgeExtend))
+            vImageBoxConvolve_ARGB8888(&src, &dest, nil, 0, 0, UInt32(targetRadius), UInt32(targetRadius), nil, vImage_Flags(kvImageEdgeExtend))
         }
     }
     // MARK: Convolution Oprations
@@ -89,9 +101,6 @@ extension UIImage {
     }
     // MARK: Geometric Operations
     func rotate(inRadians radians: Float) -> UIImage? {
-//        if &vImageRotate_ARGB8888 == nil {
-//            return nil
-//        }
         vImage_image(mallocDestData: false) { (src, dest) in
             let bgColor: [UInt8] = [0, 0, 0, 0]
             vImageRotate_ARGB8888(&src, &dest, nil, radians, bgColor, vImage_Flags(kvImageBackgroundColorFill))
@@ -117,29 +126,27 @@ extension UIImage {
 }
 extension UIImage {
     func vImage_image(mallocDestData: Bool = true, _ closure: (_ src: inout vImage_Buffer, _ src: inout vImage_Buffer) -> Void) -> UIImage? {
-        let width: size_t = size_t(self.size.width)
-        let height: size_t = size_t(self.size.height)
-        let bytesPerRow: size_t = width * 4
-        guard let cgImage = self.cgImage else { return nil }
-        let space = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGImageByteOrderInfo.orderDefault.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue
-        guard let bmContext = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: space, bitmapInfo: bitmapInfo) else { return nil }
-        bmContext.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
-        guard let inData = bmContext.data else { return nil }
-        var src = vImage_Buffer(data: inData, height: vImagePixelCount(height), width: vImagePixelCount(width), rowBytes: bytesPerRow)
-        if mallocDestData {
-            let n = MemoryLayout<UInt8>.size * width * height * 4
-            let outData = malloc(n)
-            var dest = vImage_Buffer(data: outData, height: vImagePixelCount(height), width: vImagePixelCount(width), rowBytes: bytesPerRow)
-            closure(&src, &dest)
+        imageContext(inverting: true).draw { (context) in
+            guard let cgImage = cgImage else { return }
+            context.draw(cgImage, in: CGRect(origin: .zero, size: self.size))
+            guard let inData = context.data else { return }
+            var src = createEffectBuffer(context, inData)
 
-            memcpy(inData, outData, n)
-            free(outData)
-        } else {
-            var dest = vImage_Buffer(data: inData, height: vImagePixelCount(height), width: vImagePixelCount(width), rowBytes: bytesPerRow)
-            closure(&src, &dest)
+            if mallocDestData {
+                let n = MemoryLayout<UInt8>.size * context.bytesPerRow * context.height
+                let outData = malloc(n)
+                var dest = createEffectBuffer(context, outData)
+                closure(&src, &dest)
+
+                memcpy(inData, outData, n)
+                free(outData)
+            } else {
+                var dest = createEffectBuffer(context, inData)
+                closure(&src, &dest)
+            }
         }
-        guard let result_cgImage = bmContext.makeImage() else { return nil }
-        return UIImage(cgImage: result_cgImage)
+    }
+    func createEffectBuffer(_ context: CGContext, _ data: UnsafeMutableRawPointer?) -> vImage_Buffer {
+        return vImage_Buffer(data: data, height: vImagePixelCount(context.height), width: vImagePixelCount(context.width), rowBytes: context.bytesPerRow)
     }
 }

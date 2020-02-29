@@ -57,17 +57,10 @@ extension UIImage {
 }
 extension UIImage {
     /// ZJaDe: 灰度图
-    public func grayScale() -> UIImage? {
-        let width: Int = Int(self.size.width)
-        let height: Int = Int(self.size.height)
-
-        let colorSpace = CGColorSpaceCreateDeviceGray()
-        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: CGImageAlphaInfo.none.rawValue) else {
-            return nil
-        }
-        context.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: width, height: height))
-        let grayImage = context.makeImage()!
-        return UIImage(cgImage: grayImage)
+    public var grayImage: UIImage? {
+        guard let context = drawToContextGray() else { return nil }
+        guard let grayImage = context.makeImage() else { return nil }
+        return UIImage(cgImage: grayImage, scale: scale, orientation: imageOrientation)
     }
 }
 extension UIImage {
@@ -125,17 +118,9 @@ extension UIImage {
 extension UIImage {
     ///会根据传入尺寸 缩放
     private func getBitData(_ imgWidth: Int, _ imgHeight: Int) -> UnsafeMutablePointer<CUnsignedChar>? {
-        guard let cgImage = self.cgImage else { return nil }
-        guard let colorSpace = cgImage.colorSpace else { return nil }
-        //位图的大小＝图片宽＊图片高＊图片中每点包含的信息量
-        let bitmapByteCount = imgWidth * imgHeight * 4
-        guard let context = CGContext(data: nil, width: imgWidth, height: imgHeight, bitsPerComponent: 8, bytesPerRow: imgWidth * 4, space: colorSpace, bitmapInfo: cgImage.bitmapInfo.rawValue) else {
-            return nil
-        }
-        //将图片画到位图中
-        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: imgWidth, height: imgHeight))
+        guard let context = drawToContextRGBA(size: CGSize(width: imgWidth, height: imgHeight)) else { return nil }
         guard let contextData = context.data else { return nil }
-        //获取位图数据
-        return contextData.bindMemory(to: CUnsignedChar.self, capacity: bitmapByteCount)
+        //获取位图数据 位图的大小＝位图的每一行要使用的内存字节数＊图片高
+        return contextData.bindMemory(to: CUnsignedChar.self, capacity: context.bytesPerRow * imgHeight)
     }
 }
