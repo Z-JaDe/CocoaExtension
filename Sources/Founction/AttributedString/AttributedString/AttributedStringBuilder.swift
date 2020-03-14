@@ -27,6 +27,7 @@ extension AttributedString {
         }
     }
 }
+
 public func makeAttrStr(@AttributedString.Builder<AttributedString> content: () -> AttributedString) -> NSAttributedString {
     content().finalize()
 }

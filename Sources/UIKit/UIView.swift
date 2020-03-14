@@ -75,7 +75,7 @@ extension UIView {
 extension UIView {
     /// 根据宽度 计算高度 自动布局
     public func calculateAutoLayoutHeight(_ targetWidth: CGFloat) -> CGFloat {
-        return calculateAutoLayoutHeight(CGSize(width: targetWidth, height: 0), withHorizontalFittingPriority: UILayoutPriority(rawValue: 999.1)).height
+        return calculateAutoLayoutHeight(CGSize(width: targetWidth, height: UIView.noIntrinsicMetric), withHorizontalFittingPriority: UILayoutPriority(rawValue: 999.1)).height
     }
     /// 根据尺寸 计算高度 自动布局
     public func calculateAutoLayoutHeight(_ targetSize: CGSize,

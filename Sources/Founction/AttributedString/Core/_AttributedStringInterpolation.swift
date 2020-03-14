@@ -8,10 +8,6 @@
 
 import Foundation
 
-public func createAttrStr(_ closure: () -> AttributedString) -> NSAttributedString {
-    closure().finalize()
-}
-
 extension AttributedString: ExpressibleByStringInterpolation {
     public init(stringInterpolation: AttributedStringInterpolation) {
         self.init(stringInterpolation.value)
@@ -34,7 +30,7 @@ public struct AttributedStringInterpolation: StringInterpolationProtocol {
 }
 extension AttributedStringInterpolation {
     public func appendInterpolation(_ string: String, _ style: Style...) {
-        self.value.append(string.mergeStyles(style))
+        self.value.append(string.mergeStyle(style))
     }
     public func appendInterpolation(image: UIImage, scale: CGFloat = 1.0) {
         self.value.append(image.scaleTo(scale))

@@ -12,21 +12,21 @@ public protocol AttributedStringMergeStyle {
     typealias Style = AttributedString.Style
     associatedtype AttrString: _AttributedString
     func mergeStyle(_ style: Style...) -> AttrString
-    func mergeStyles(_ style: [Style]) -> AttrString
+    func mergeStyle(_ style: [Style]) -> AttrString
 }
 public extension AttributedStringMergeStyle {
     @inline(__always)
     func mergeStyle(_ style: Style...) -> AttrString {
-        mergeStyles(style)
+        mergeStyle(style)
     }
 }
 public extension AttributedStringCreater where Self: AttributedStringMergeStyle {
-    func mergeStyles(_ style: [Style]) -> AttributedString {
-        AttributedString(self).mergeStyles(style)
+    func mergeStyle(_ style: [Style]) -> AttributedString {
+        AttributedString(self).mergeStyle(style)
     }
 }
 extension AttributedString: AttributedStringMergeStyle {
-    public func mergeStyles(_ style: [Style]) -> AttributedString {
+    public func mergeStyle(_ style: [Style]) -> AttributedString {
         var result = self
         switch style.count {
         case 0:

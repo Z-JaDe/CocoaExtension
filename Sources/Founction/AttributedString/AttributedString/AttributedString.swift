@@ -42,7 +42,7 @@ extension AttributedString {
     public static func + (left: AttributedString, right: AttributedString) -> AttributedString {
         left.appending(right)
     }
-    public static func + (left: inout AttributedString, right: AttributedString) {
+    public static func += (left: inout AttributedString, right: AttributedString) {
         left.append(right)
     }
 }
