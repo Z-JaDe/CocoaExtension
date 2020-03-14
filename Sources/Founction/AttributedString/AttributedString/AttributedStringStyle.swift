@@ -16,8 +16,12 @@ public extension AttributedString.Style {
     init(_ attributes: [NSAttributedString.Key: Any] = [:]) {
         self.attributes = attributes
     }
-    init<V>(key: NSAttributedString.Key, value: V) {
-        self.attributes = [key: value]
+    init<V>(key: NSAttributedString.Key, value: V?) {
+        if let value = value {
+            self.attributes = [key: value]
+        } else {
+            self.attributes = [:]
+        }
     }
 }
 public extension AttributedString.Style {

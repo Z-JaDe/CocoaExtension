@@ -19,7 +19,7 @@ public extension AttributedStringClass {
     }
     @inline(__always)
     func setAttributes(_ attrs: [NSAttributedString.Key: Any], range: NSRange?) {
-        _value.addAttributes(attrs, range: range ?? defaultRange)
+        attrs.forEach({setAttribute($0.key, value: $0.value, range: range)})
     }
     @inline(__always)
     func paragraphStyle(_ style: NSParagraphStyle?, range: NSRange?) {

@@ -9,27 +9,27 @@
 import Foundation
 public extension AttributedString.Style {
     @inline(__always)
-    static func color(_ value: UIColor?) -> Self {
+    static func color(_ value: UIColor) -> Self {
         Self().color(value)
     }
     @inline(__always)
-    func color(_ value: UIColor?) -> Self {
+    func color(_ value: UIColor) -> Self {
         merging(key: .foregroundColor, value: value)
     }
     @inline(__always)
-    static func bgColor(_ value: UIColor?) -> Self {
+    static func bgColor(_ value: UIColor) -> Self {
         Self().bgColor(value)
     }
     @inline(__always)
-    func bgColor(_ value: UIColor?) -> Self {
+    func bgColor(_ value: UIColor) -> Self {
         merging(key: .backgroundColor, value: value)
     }
     @inline(__always)
-    static func font(_ value: UIFont?) -> Self {
+    static func font(_ value: UIFont) -> Self {
         Self().font(value)
     }
     @inline(__always)
-    func font(_ value: UIFont?) -> Self {
+    func font(_ value: UIFont) -> Self {
         merging(key: .font, value: value)
     }
 }
@@ -43,61 +43,61 @@ public extension AttributedString.Style {
         merging(key: .obliqueness, value: 0.1)
     }
     @inline(__always)
-    static func underLine(_ value: UIColor?, _ style: NSUnderlineStyle = .single) -> Self {
+    static func underLine(_ value: UIColor, _ style: NSUnderlineStyle = .single) -> Self {
         Self().underline(value, style)
     }
     @inline(__always)
-    func underline(_ value: UIColor?, _ style: NSUnderlineStyle = .single) -> Self {
+    func underline(_ value: UIColor, _ style: NSUnderlineStyle = .single) -> Self {
         merging([
             .underlineColor: value as Any,
             .underlineStyle: style.rawValue
         ])
     }
     @inline(__always)
-    static func underline(_ value: UIColor?, _ style: NSUnderlineStyle = .single) -> Self {
+    static func underline(_ value: UIColor, _ style: NSUnderlineStyle = .single) -> Self {
         Self().deleteLine(value, style)
     }
     @inline(__always)
-    func deleteLine(_ value: UIColor?, _ style: NSUnderlineStyle = .single) -> Self {
+    func deleteLine(_ value: UIColor, _ style: NSUnderlineStyle = .single) -> Self {
         merging([
             .strikethroughColor: value as Any,
             .strikethroughStyle: style.rawValue
         ])
     }
     @inline(__always)
-    static func kern(_ value: Double?) -> Self {
+    static func kern(_ value: Double) -> Self {
         Self().kern(value)
     }
     @inline(__always)
-    func kern(_ value: Double?) -> Self {
-        merging(key: .kern, value: value.map(NSNumber.init))
+    func kern(_ value: Double) -> Self {
+        merging(key: .kern, value: NSNumber(value: value))
     }
     @inline(__always)
-    static func link(_ value: URL?) -> Self {
+    static func link(_ value: URL) -> Self {
         Self().link(value)
     }
     @inline(__always)
-    func link(_ value: URL?) -> Self {
+    func link(_ value: URL) -> Self {
         merging(key: .link, value: value)
     }
     @inline(__always)
     static func link(_ value: String) -> Self {
-        link(URL(string: value))
+        Self().link(value)
     }
     @inline(__always)
     func link(_ value: String) -> Self {
-        link(URL(string: value))
+        URL(string: value).map({link($0)}) ?? self
     }
 }
 
 // MARK: paragraphStyle
 public extension AttributedString.Style {
     @inline(__always)
-    static func paragraphStyle(_ value: NSParagraphStyle?) -> Self {
+    static func paragraphStyle(_ value: NSParagraphStyle) -> Self {
         Self().paragraphStyle(value)
     }
     @inline(__always)
-    func paragraphStyle(_ value: NSParagraphStyle?) -> Self {
+    func paragraphStyle(_ value: NSParagraphStyle) -> Self {
         merging(key: .paragraphStyle, value: value)
     }
     static func paragraphStyleKeyPath<T: Equatable>(_ keyPath: ReferenceWritableKeyPath<NSMutableParagraphStyle, T>, _ value: T) -> Self {
