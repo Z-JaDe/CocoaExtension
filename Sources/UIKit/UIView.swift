@@ -135,19 +135,26 @@ extension UIView {
         }
     }
     public func superView<T: UIView>(_ viewType: T.Type) -> T? {
-        return responder(viewType)
+       var temp: UIView? = self
+        repeat {
+            if let _temp = temp as? T {
+                return _temp
+            }
+            temp = temp?.superview
+        } while (temp != nil)
+        return nil
     }
     public func viewController<T: UIViewController>(_ vcType: T.Type) -> T? {
         return responder(vcType)
     }
     private func responder<T: UIResponder>(_ type: T.Type) -> T? {
-        var responder: UIResponder? = self
+        var temp: UIResponder? = self
         repeat {
-            if responder is T {
-                return responder as? T
+            if let _temp = temp as? T {
+                return _temp
             }
-            responder = responder?.next
-        } while (responder != nil)
+            temp = temp?.next
+        } while (temp != nil)
         return nil
     }
     public func navItemVC<T: UIViewController>(_ vcType: T.Type) -> T? {
@@ -182,24 +189,13 @@ extension UIView {
         return nil
     }
     public func subViews<T: UIView>(type: T.Type) -> [T] {
-        var all = [T]()
-        for view in self.subviews {
-            if let aView = view as? T {
-                all.append(aView)
-            }
-        }
-        return all
+        return subviews.compactMap({$0 as? T})
     }
     public func allSubViewsOf<T: UIView>(type: T.Type) -> [T] {
-        var all = [T]()
-        func getSubview(view: UIView) {
-            if let aView = view as? T {
-                all.append(aView)
-            }
-            guard view.subviews.isEmpty == false else { return }
-            view.subviews.forEach { getSubview(view: $0) }
+        if let temp = self as? T {
+            return CollectionOfOne(temp) + subviews.flatMap({$0.allSubViewsOf(type: T.self)})
+        } else {
+            return subviews.flatMap({$0.allSubViewsOf(type: T.self)})
         }
-        getSubview(view: self)
-        return all
     }
 }
