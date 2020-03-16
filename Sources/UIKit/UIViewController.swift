@@ -48,7 +48,7 @@ extension UIViewController {
         childVC.didMove(toParent: self)
     }
     open func removeFromParentVC() {
-        /// ZJaDe: 当我们向我们的视图控制器容器中调用removeFromParentViewController方法时，必须要先调用该方法，且parent参数为nil：
+        // ZJaDe: 当我们向我们的视图控制器容器中调用removeFromParentViewController方法时，必须要先调用该方法，且parent参数为nil：
         self.willMove(toParent: nil)
         self.removeFromParent()
     }

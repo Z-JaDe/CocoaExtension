@@ -67,7 +67,7 @@ public extension UIImage {
         let sqrtPi2 = sqrt(pi2)
         var targetRadius = floor(s * 3.0 * sqrtPi2 / 4.0 + 0.5)
 
-        ///如果是偶数 +1
+        // 如果是偶数 +1
         if targetRadius.truncatingRemainder(dividingBy: 2.0) == 0 { targetRadius += 1 }
         return vImage_image { (src, dest) in
             vImageBoxConvolve_ARGB8888(&src, &dest, nil, 0, 0, UInt32(targetRadius), UInt32(targetRadius), nil, vImage_Flags(kvImageEdgeExtend))
