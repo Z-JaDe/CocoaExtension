@@ -7,32 +7,37 @@
 //
 
 import Foundation
-// TODO: 属性字符串 Builder
-extension AttributedString {
-    @_functionBuilder
-    public struct Builder<Element: _AttributedString> {
-        public static func buildBlock(_ content: Element...) -> Element {
-            content.reduce(into: Element()) { (result, attrStr) in
-                result.append(attrStr.appending("\n"))
-            }
+
+@_functionBuilder
+struct AttributedStringBuilder<Element: AttributedStringAppendable & AttributedStringCreater> {
+    static func buildBlock(_ content: Element...) -> Element {
+        content.reduce(into: Element()) { (result, attrStr) in
+            result.append(attrStr)
         }
-        public static func buildIf(_ content: Element?) -> Element {
-            content ?? Element()
-        }
-        public static func buildEither(first: Element) -> Element {
-            first
-        }
-        public static func buildEither(second: Element) -> Element {
-            second
-        }
+    }
+    static func buildIf(_ content: Element?) -> Element {
+        content ?? Element()
+    }
+    static func buildEither(first: Element) -> Element {
+        first
+    }
+    static func buildEither(second: Element) -> Element {
+        second
     }
 }
 
-public func makeAttrStr(@AttributedString.Builder<AttributedString> content: () -> AttributedString) -> NSAttributedString {
-    content().finalize()
-}
-extension UILabel {
-    public func makeAttrStr(@AttributedString.Builder<AttributedString> content: () -> AttributedString) {
-        self.attributedText = content().finalize()
-    }
-}
+//extension UILabel {
+//    func makeAttrStr(@AttributedStringBuilder<AttributedStringClass> content: () -> AttributedStringClass) {
+//        self.attributedText = content().finalize()
+//    }
+//}
+//extension NSAttributedString {
+//    static func build(@AttributedStringBuilder<AttributedStringClass> content: () -> AttributedStringClass) -> NSAttributedString {
+//        content().finalize()
+//    }
+//}
+//extension AttributedString {
+//    static func build(@AttributedStringBuilder<AttributedStringClass> content: () -> AttributedStringClass) -> AttributedString {
+//        AttributedString(value: content())
+//    }
+//}

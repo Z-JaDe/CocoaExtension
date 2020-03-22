@@ -7,48 +7,61 @@
 //
 
 import Foundation
-public extension AttributedString {
-    struct Style {
-        let attributes: [NSAttributedString.Key: Any]
+public extension AttributedStringCompatible {
+    @inline(__always)
+    func color(_ value: UIColor) -> Self {
+        merging(key: .foregroundColor, value: value)
+    }
+    @inline(__always)
+    func bgColor(_ value: UIColor) -> Self {
+        merging(key: .backgroundColor, value: value)
+    }
+    @inline(__always)
+    func font(_ value: UIFont) -> Self {
+        merging(key: .font, value: value)
     }
 }
-public extension AttributedString.Style {
-    init(_ attributes: [NSAttributedString.Key: Any] = [:]) {
-        self.attributes = attributes
+public extension AttributedStringCompatible {
+    @inline(__always)
+    var oblique: Self {
+        merging(key: .obliqueness, value: 0.1)
     }
-    init<V>(key: NSAttributedString.Key, value: V?) {
-        if let value = value {
-            self.attributes = [key: value]
-        } else {
-            self.attributes = [:]
-        }
+    @inline(__always)
+    func underline(_ value: UIColor, _ style: NSUnderlineStyle = .single) -> Self {
+        merging([
+            .underlineColor: value as Any,
+            .underlineStyle: style.rawValue
+        ])
+    }
+    @inline(__always)
+    func deleteLine(_ value: UIColor, _ style: NSUnderlineStyle = .single) -> Self {
+        merging([
+            .strikethroughColor: value as Any,
+            .strikethroughStyle: style.rawValue
+        ])
+    }
+    @inline(__always)
+    func kern(_ value: Double) -> Self {
+        merging(key: .kern, value: NSNumber(value: value))
+    }
+    @inline(__always)
+    func link(_ value: URL) -> Self {
+        merging(key: .link, value: value)
+    }
+    @inline(__always)
+    func link(_ value: String) -> Self {
+        URL(string: value).map({link($0)}) ?? self
     }
 }
-public extension AttributedString.Style {
+
+// MARK: paragraphStyle
+public extension AttributedStringCompatible {
     @inline(__always)
-    mutating func merge<V>(_ attributes: [NSAttributedString.Key: V]) {
-        self = Self(self.attributes.merging(attributes, uniquingKeysWith: {$1}))
+    func alignment(_ value: NSTextAlignment) -> Self {
+        mergingParagraphStyleKeyPath(\.alignment, value)
     }
     @inline(__always)
-    mutating func merge(_ style: Self) {
-        merge(style.attributes)
-    }
-    @inline(__always)
-    mutating func merge<V>(key: NSAttributedString.Key, value: V) {
-        merge([key: value])
-    }
-}
-public extension AttributedString.Style {
-    @inline(__always)
-    func merging<V>(_ attributes: [NSAttributedString.Key: V]) -> Self {
-        Self(self.attributes.merging(attributes, uniquingKeysWith: {$1}))
-    }
-    @inline(__always)
-    func merging(_ style: Self) -> Self {
-        merging(style.attributes)
-    }
-    @inline(__always)
-    func merging<V>(key: NSAttributedString.Key, value: V) -> Self {
-        merging([key: value])
+    func lineSpacing(_ value: CGFloat) -> Self {
+        mergingParagraphStyleKeyPath(\.lineSpacing, value)
     }
 }

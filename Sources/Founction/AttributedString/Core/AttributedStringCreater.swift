@@ -53,13 +53,3 @@ extension NSAttributedString: AttributedStringCreater {
         self
     }
 }
-public extension _AttributedString where Self: AttributedStringCreater {
-    @inline(__always)
-    func createMutableAttributedString() -> NSMutableAttributedString {
-        self._value.createMutableAttributedString()
-    }
-    @inline(__always)
-    func unsafeGetAttributedString() -> NSAttributedString {
-        self._value.unsafeGetAttributedString()
-    }
-}

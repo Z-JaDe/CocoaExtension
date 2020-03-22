@@ -1,5 +1,5 @@
 //
-//  _AttributedStringInterpolation.swift
+//  AttributedStringInterpolation.swift
 //  CocoaExtension
 //
 //  Created by Apple on 2020/1/17.
@@ -10,12 +10,11 @@ import Foundation
 
 extension AttributedString: ExpressibleByStringInterpolation {
     public init(stringInterpolation: AttributedStringInterpolation) {
-        self.init(stringInterpolation.value)
+        self.init(value: stringInterpolation.value)
     }
 }
 
 public struct AttributedStringInterpolation: StringInterpolationProtocol {
-    public typealias Style = AttributedString.Style
     let value: AttributedStringClass
 
     public init(literalCapacity: Int, interpolationCount: Int) {
@@ -29,9 +28,6 @@ public struct AttributedStringInterpolation: StringInterpolationProtocol {
     }
 }
 extension AttributedStringInterpolation {
-    public func appendInterpolation(_ string: String, _ style: Style...) {
-        self.value.append(string.mergeStyle(style))
-    }
     public func appendInterpolation(image: UIImage, scale: CGFloat = 1.0) {
         self.value.append(image.scaleTo(scale))
     }
