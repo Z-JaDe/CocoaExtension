@@ -17,7 +17,7 @@ public protocol AttributedStringCompatible {
 }
 
 extension AttributedStringClass: AttributedStringCompatible {
-    public func merging(_ attrs: [NSAttributedString.Key : Any]) -> Self {
+    public func merging(_ attrs: [NSAttributedString.Key: Any]) -> Self {
         setAttributes(attrs, range: nil)
         return self
     }
@@ -29,13 +29,13 @@ extension AttributedStringClass: AttributedStringCompatible {
         paragraphStyle(style, range: nil)
         return self
     }
-    public func mergingParagraphStyleKeyPath<T>(_ keyPath: ReferenceWritableKeyPath<NSMutableParagraphStyle, T>, _ value: T) -> Self where T : Equatable {
+    public func mergingParagraphStyleKeyPath<T>(_ keyPath: ReferenceWritableKeyPath<NSMutableParagraphStyle, T>, _ value: T) -> Self where T: Equatable {
         paragraphStyleKeyPath(keyPath, value, range: nil)
         return self
     }
 }
 extension AttributedString: AttributedStringCompatible {
-    public func merging(_ attrs: [NSAttributedString.Key : Any]) -> AttributedString {
+    public func merging(_ attrs: [NSAttributedString.Key: Any]) -> AttributedString {
         var result = self
         result.setAttributes(attrs, range: nil)
         return result
@@ -50,7 +50,7 @@ extension AttributedString: AttributedStringCompatible {
         result.paragraphStyle(style, range: nil)
         return result
     }
-    public func mergingParagraphStyleKeyPath<T>(_ keyPath: ReferenceWritableKeyPath<NSMutableParagraphStyle, T>, _ value: T) -> AttributedString where T : Equatable {
+    public func mergingParagraphStyleKeyPath<T>(_ keyPath: ReferenceWritableKeyPath<NSMutableParagraphStyle, T>, _ value: T) -> AttributedString where T: Equatable {
         var result = self
         result.paragraphStyleKeyPath(keyPath, value, range: nil)
         return result
