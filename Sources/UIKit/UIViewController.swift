@@ -72,9 +72,7 @@ extension UIViewController {
         return self.children.first(where: {$0 is T}) as? T
     }
     public func previousVC<T: UIViewController>(_ vcType: T.Type) -> T? {
-        guard let navC = self.navigationController else {
-            return nil
-        }
+        guard let navC = self.navigationController else { return nil }
         if let index = navC.viewControllers.firstIndex(of: self), index >= 1 {
             if let viewCon = navC.viewControllers[index-1] as? T {
                 return viewCon
