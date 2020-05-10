@@ -7,15 +7,15 @@
 
 import UIKit
 // MARK: - color
-extension UIImage {
+public extension UIImage {
     /// ZJaDe: 根据透明度返回图片
-    public func alpha(_ alpha: CGFloat) -> UIImage {
+    func alpha(_ alpha: CGFloat) -> UIImage {
         return imageRenderer().image(actions: { (_) in
             self.draw(at: CGPoint.zero, blendMode: .copy, alpha: alpha)
         })
     }
     /// ZJaDe: 根据颜色返回图片
-    public func change(color: UIColor, blendMode: CGBlendMode = .destinationIn) -> UIImage {
+    func change(color: UIColor, blendMode: CGBlendMode = .destinationIn) -> UIImage {
         return imageRenderer().image(actions: { (context) in
             color.setFill()
             let drawRect = CGRect(origin: .zero, size: size)
@@ -38,34 +38,34 @@ extension UIImage {
     }
 }
 // MARK: - size
-extension UIImage {
+public extension UIImage {
     /// ZJaDe: 根据宽度等比例缩放图片
-    public func resizeWithWidth(_ width: CGFloat) -> UIImage {
+    func resizeWithWidth(_ width: CGFloat) -> UIImage {
         let aspectSize = CGSize(width: width, height: aspectHeightForWidth(width))
         return imageRenderer(size: aspectSize).image(actions: { (_) in
             self.draw(in: CGRect(origin: CGPoint.zero, size: aspectSize))
         })
     }
     /// ZJaDe: 根据高度等比例缩放图片
-    public func resizeWithHeight(_ height: CGFloat) -> UIImage {
+    func resizeWithHeight(_ height: CGFloat) -> UIImage {
         let aspectSize = CGSize(width: aspectWidthForHeight(height), height: height)
         return imageRenderer(size: aspectSize).image(actions: { (_) in
             self.draw(in: CGRect(origin: CGPoint.zero, size: aspectSize))
         })
     }
     /// ZJaDe: aspectHeightForWidth
-    public func aspectHeightForWidth(_ width: CGFloat) -> CGFloat {
+    func aspectHeightForWidth(_ width: CGFloat) -> CGFloat {
         return (width * self.size.height) / self.size.width
     }
     /// ZJaDe: aspectWidthForHeight
-    public func aspectWidthForHeight(_ height: CGFloat) -> CGFloat {
+    func aspectWidthForHeight(_ height: CGFloat) -> CGFloat {
         return (height * self.size.width) / self.size.height
     }
 }
 
-extension UIImage {
+public extension UIImage {
     /// ZJaDe: 按照frame裁剪图片
-    public func cropped(at frame: CGRect) -> UIImage {
+    func cropped(at frame: CGRect) -> UIImage {
         var frame = frame
         frame.origin.x = -frame.origin.x
         frame.origin.y = -frame.origin.y
@@ -74,7 +74,7 @@ extension UIImage {
         })
     }
     /// ZJaDe: 扩大image大小，多余空间无色
-    public func addBlank(insets: UIEdgeInsets) -> UIImage {
+    func addBlank(insets: UIEdgeInsets) -> UIImage {
         let size = self.size + insets
         let origin = CGPoint(x: insets.left, y: insets.top)
         return imageRenderer(size: size).image(actions: { (_) in
@@ -82,7 +82,7 @@ extension UIImage {
         })
     }
     /// ZJaDe: 图片缩放
-    public func scaleTo(_ scale: CGFloat) -> UIImage {
+    func scaleTo(_ scale: CGFloat) -> UIImage {
         if scale == 1 { return self }
         let size = CGSize(width: self.size.width * scale, height: self.size.height * scale)
         return imageRenderer(size: size).image(actions: { (_) in
@@ -90,7 +90,7 @@ extension UIImage {
         })
     }
     /// ZJaDe: 图片圆角
-    public func round(_ cornerRadius: CGFloat? = nil) -> UIImage {
+    func round(_ cornerRadius: CGFloat? = nil) -> UIImage {
         let size = self.size
         let rect = CGRect(origin: CGPoint.zero, size: size)
         return imageRenderer(size: size).image(actions: { (_) in

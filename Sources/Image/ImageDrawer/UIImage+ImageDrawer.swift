@@ -30,8 +30,8 @@ public extension UIImage {
     }
 }
 // MARK: - gradient
-extension UIImage {
-    public enum GradientDirection {
+public extension UIImage {
+    enum GradientDirection {
         case topToBottom
         case bottomToTop
         case leftToRight
@@ -57,16 +57,16 @@ extension UIImage {
         return (startPoint, endPoint)
     }
     // MARK: -
-    public static func horizontalGradient(_ size: CGSize? = nil, colors: UIColor...) -> UIImage {
+    static func horizontalGradient(_ size: CGSize? = nil, colors: UIColor...) -> UIImage {
         return gradient(.leftToRight, size, colors: colors)
     }
-    public static func verticalGradient(_ size: CGSize? = nil, colors: UIColor...) -> UIImage {
+    static func verticalGradient(_ size: CGSize? = nil, colors: UIColor...) -> UIImage {
         return gradient(.topToBottom, size, colors: colors)
     }
-    public static func gradient(_ direction: GradientDirection, _ size: CGSize? = nil, colors: UIColor...) -> UIImage {
+    static func gradient(_ direction: GradientDirection, _ size: CGSize? = nil, colors: UIColor...) -> UIImage {
         return gradient(direction, size, colors: colors)
     }
-    public static func gradient(_ direction: GradientDirection, _ size: CGSize? = nil, colors: [UIColor]) -> UIImage {
+    static func gradient(_ direction: GradientDirection, _ size: CGSize? = nil, colors: [UIColor]) -> UIImage {
         let drawer: ImageDrawer
         if let size = size {
             drawer = create(size)

@@ -7,26 +7,26 @@
 //
 
 import UIKit
-extension UIView {
-    public convenience init(backgroundColor: UIColor, alpha: CGFloat = 1) {
+public extension UIView {
+    convenience init(backgroundColor: UIColor, alpha: CGFloat = 1) {
         self.init()
         self.backgroundColor = backgroundColor
         self.alpha = alpha
     }
 }
-extension UIView {
+public extension UIView {
 //    public func addTitleShadow(scale: Float = 1) {
 //        self.addShadow(offset: CGSize(width: 0, height: 0), color: UIColor.black, opacity: 0.3 * scale, radius: 5)
 //    }
 //    public func addButtonShadow(color: UIColor = UIColor.black) {
 //        self.addShadow(offset: CGSize(width: 0, height: 0), color: color, opacity: 0.5, radius: 5)
 //    }
-    public func addShadow(offset: CGSize, color: UIColor, opacity: Float, radius: CGFloat) {
+    func addShadow(offset: CGSize, color: UIColor, opacity: Float, radius: CGFloat) {
         self.layer.addShadow(offset: offset, color: color, opacity: opacity, radius: radius)
     }
 }
-extension CALayer {
-    public func addShadow(offset: CGSize, color: UIColor, opacity: Float, radius: CGFloat) {
+public extension CALayer {
+    func addShadow(offset: CGSize, color: UIColor, opacity: Float, radius: CGFloat) {
         self.shadowColor = color.cgColor
         self.shadowOpacity = opacity
 
@@ -34,8 +34,8 @@ extension CALayer {
         self.shadowRadius = radius
     }
 }
-extension UIView {
-    public func removeAllSubviews() {
+public extension UIView {
+    func removeAllSubviews() {
         for subview in subviews {
             if let stackView = self as? UIStackView {
                 stackView.removeArrangedSubview(subview)
@@ -44,8 +44,8 @@ extension UIView {
         }
     }
 }
-extension UIView {
-    public func resizeToFitSubviews(_ tagsToIgnore: [Int]) {
+public extension UIView {
+    func resizeToFitSubviews(_ tagsToIgnore: [Int]) {
         var width: CGFloat = 0
         var height: CGFloat = 0
         for someView in self.subviews {
@@ -59,7 +59,7 @@ extension UIView {
         }
         frame = CGRect(x: x, y: y, width: width, height: height)
     }
-    public func reorderSubViews(_ reorder: Bool = false, tagsToIgnore: [Int] = []) -> CGFloat {
+    func reorderSubViews(_ reorder: Bool = false, tagsToIgnore: [Int] = []) -> CGFloat {
         var currentHeight: CGFloat = 0
         for someView in subviews {
             if !tagsToIgnore.contains(someView.tag) && !(someView ).isHidden {
@@ -72,13 +72,13 @@ extension UIView {
         return currentHeight
     }
 }
-extension UIView {
+public extension UIView {
     /// 根据宽度 计算高度 自动布局
-    public func calculateAutoLayoutHeight(_ targetWidth: CGFloat) -> CGFloat {
+    func calculateAutoLayoutHeight(_ targetWidth: CGFloat) -> CGFloat {
         return calculateAutoLayoutHeight(CGSize(width: targetWidth, height: UIView.layoutFittingCompressedSize.height), withHorizontalFittingPriority: UILayoutPriority(rawValue: 999.1)).height
     }
     /// 根据尺寸 计算高度 自动布局
-    public func calculateAutoLayoutHeight(_ targetSize: CGSize,
+    func calculateAutoLayoutHeight(_ targetSize: CGSize,
                                           withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority = .fittingSizeLevel,
                                           verticalFittingPriority: UILayoutPriority = .fittingSizeLevel) -> CGSize {
         let _translates = self.translatesAutoresizingMaskIntoConstraints
@@ -91,8 +91,8 @@ extension UIView {
 }
 // MARK: Layer Extensions
 
-extension UIView {
-    public var backgroundColorAlpha: CGFloat {
+public extension UIView {
+    var backgroundColorAlpha: CGFloat {
         get {
             var a: CGFloat = 0
             self.backgroundColor?.getRed(nil, green: nil, blue: nil, alpha: &a)
@@ -103,7 +103,7 @@ extension UIView {
         }
     }
 
-    public func addBorder(width: CGFloat = jd.onePx, color: UIColor) {
+    func addBorder(width: CGFloat = jd.onePx, color: UIColor) {
         layer.borderWidth = width
         layer.borderColor = color.cgColor
     }
@@ -126,15 +126,15 @@ extension UIView {
     }
 }
 
-extension UIView {
-    public func rootView() -> UIView {
+public extension UIView {
+    func rootView() -> UIView {
         if let superview = self.superview {
             return superview.rootView()
         } else {
             return self
         }
     }
-    public func superView<T: UIView>(_ viewType: T.Type) -> T? {
+    func superView<T: UIView>(_ viewType: T.Type) -> T? {
        var temp: UIView? = self
         repeat {
             if let _temp = temp as? T {
@@ -144,7 +144,7 @@ extension UIView {
         } while (temp != nil)
         return nil
     }
-    public func viewController<T: UIViewController>(_ vcType: T.Type) -> T? {
+    func viewController<T: UIViewController>(_ vcType: T.Type) -> T? {
         return responder(vcType)
     }
     private func responder<T: UIResponder>(_ type: T.Type) -> T? {
@@ -157,7 +157,7 @@ extension UIView {
         } while (temp != nil)
         return nil
     }
-    public func navItemVC<T: UIViewController>(_ vcType: T.Type) -> T? {
+    func navItemVC<T: UIViewController>(_ vcType: T.Type) -> T? {
         guard var viewCon = self.viewController(UIViewController.self) else {
             return nil
         }
@@ -175,8 +175,8 @@ extension UIView {
         return nil
     }
 }
-extension UIView {
-    public func searchVisualEffectsSubview() -> UIVisualEffectView? {
+public extension UIView {
+    func searchVisualEffectsSubview() -> UIVisualEffectView? {
         if let visualEffectView = self as? UIVisualEffectView {
             return visualEffectView
         } else {
@@ -188,10 +188,10 @@ extension UIView {
         }
         return nil
     }
-    public func subViews<T: UIView>(type: T.Type) -> [T] {
+    func subViews<T: UIView>(type: T.Type) -> [T] {
         return subviews.compactMap({$0 as? T})
     }
-    public func allSubViewsOf<T: UIView>(type: T.Type) -> [T] {
+    func allSubViewsOf<T: UIView>(type: T.Type) -> [T] {
         if let temp = self as? T {
             return CollectionOfOne(temp) + subviews.flatMap({$0.allSubViewsOf(type: T.self)})
         } else {

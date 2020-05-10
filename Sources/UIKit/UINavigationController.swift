@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UINavigationController {
+public extension UINavigationController {
     @discardableResult
-    public func popTo<T: UIViewController>(_ VCType: T.Type, animated: Bool) -> Bool {
+    func popTo<T: UIViewController>(_ VCType: T.Type, animated: Bool) -> Bool {
         if let viewCon = self.viewControllers.first(where: {$0 is T}) {
             self.popToViewController(viewCon, animated: animated)
             return true
@@ -18,7 +18,7 @@ extension UINavigationController {
             return false
         }
     }
-    public func pop(count: Int, animated: Bool) {
+    func pop(count: Int, animated: Bool) {
         if count <= 0 { return }
         let viewConArr = self.viewControllers.dropLast(count)
         if viewConArr.isEmpty {
@@ -30,7 +30,7 @@ extension UINavigationController {
             self.setViewControllers(Array(viewConArr), animated: animated)
         }
     }
-    public func popAndPush(count: Int, pushVC: UIViewController, animated: Bool) {
+    func popAndPush(count: Int, pushVC: UIViewController, animated: Bool) {
         if count <= 0 {
             self.pushViewController(pushVC, animated: animated)
         } else {

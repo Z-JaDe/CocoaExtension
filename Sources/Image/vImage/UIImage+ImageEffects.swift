@@ -28,8 +28,8 @@ public enum ImageEffect {
     case dark
     case tintEffect(UIColor)
 }
-extension UIImage {
-    public func applyEffect(_ effect: ImageEffect) -> UIImage? {
+public extension UIImage {
+    func applyEffect(_ effect: ImageEffect) -> UIImage? {
         let tintColor: UIColor
         switch effect {
         case .light:
@@ -47,24 +47,24 @@ extension UIImage {
         }
     }
 }
-extension UIImage {
-    public func blurImage(radius: CGFloat = 5, tintColor: UIColor = UIColor.clear, maskImage: UIImage? = nil) -> UIImage? {
+public extension UIImage {
+    func blurImage(radius: CGFloat = 5, tintColor: UIColor = UIColor.clear, maskImage: UIImage? = nil) -> UIImage? {
         return self.applyBlur(withRadius: radius, tintColor: tintColor, saturationDeltaFactor: 1.4, maskImage: maskImage)
     }
-    public func blurImage(at frame: CGRect) -> UIImage {
+    func blurImage(at frame: CGRect) -> UIImage {
         return self.applyBlur(withRadius: 5, tintColor: UIColor.clear, saturationDeltaFactor: 1.4, maskImage: nil, atFrame: frame)
     }
 }
-extension UIImage {
+public extension UIImage {
     /// ZJaDe: 灰度图
-    public var grayImage: UIImage? {
+    var grayImage: UIImage? {
         guard let context = drawToContextGray() else { return nil }
         guard let grayImage = context.makeImage() else { return nil }
         return UIImage(cgImage: grayImage, scale: scale, orientation: imageOrientation)
     }
 }
-extension UIImage {
-    public func averageColor() -> UIColor? {
+public extension UIImage {
+    func averageColor() -> UIColor? {
         guard let bitData = getBitData(1, 1) else { return nil }
         let rgba = (0...3).map({(bitData + $0).pointee})
         if rgba[3] > 0 {

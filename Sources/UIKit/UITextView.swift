@@ -1,10 +1,10 @@
 import UIKit
 
-extension UITextView {
+public extension UITextView {
     #if os(iOS)
-
+    
     /// ZJaDe: Automatically adds a toolbar with a done button to the top of the keyboard. Tapping the button will dismiss the keyboard.
-    public func addDoneButton(_ barStyle: UIBarStyle = .default, title: String? = nil) {
+    func addDoneButton(_ barStyle: UIBarStyle = .default, title: String? = nil) {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.items = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
@@ -16,6 +16,6 @@ extension UITextView {
 
         inputAccessoryView = keyboardToolbar
     }
-
+    
     #endif
 }

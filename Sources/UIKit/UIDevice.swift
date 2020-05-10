@@ -28,54 +28,54 @@ private let DeviceList = [
     /* Simulator */       "x86_64": "Simulator", "i386": "Simulator"
 ]
 
-extension UIDevice {
+public extension UIDevice {
     /// ZJaDe: idForVendor
-    public class func idForVendor() -> String? {
-        return UIDevice.current.identifierForVendor?.uuidString
+    class func idForVendor() -> String? {
+        UIDevice.current.identifierForVendor?.uuidString
     }
 
     /// ZJaDe: systemName
-    public class func systemName() -> String {
-        return UIDevice.current.systemName
+    class func systemName() -> String {
+        UIDevice.current.systemName
     }
 
     /// ZJaDe: systemVersion
-    public class func systemVersion() -> String {
-        return UIDevice.current.systemVersion
+    class func systemVersion() -> String {
+        UIDevice.current.systemVersion
     }
 
     /// ZJaDe: systemFloatVersion
-    public class func systemFloatVersion() -> Float {
-        return (systemVersion() as NSString).floatValue
+    class func systemFloatVersion() -> Float {
+        (systemVersion() as NSString).floatValue
     }
 
     /// ZJaDe: deviceName
-    public class func deviceName() -> String {
-        return UIDevice.current.name
+    class func deviceName() -> String {
+        UIDevice.current.name
     }
 
     /// ZJaDe: deviceLanguage
-    public class func deviceLanguage() -> String {
-        return Bundle.main.preferredLocalizations[0]
+    class func deviceLanguage() -> String {
+        Bundle.main.preferredLocalizations[0]
     }
 
     /// ZJaDe: deviceModelReadable
-    public class func deviceModelReadable() -> String {
-        return DeviceList[deviceModel()] ?? deviceModel()
+    class func deviceModelReadable() -> String {
+        DeviceList[deviceModel()] ?? deviceModel()
     }
 
     /// ZJaDe: isPhone
-    public class func isPhone() -> Bool {
-        return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone
+    class func isPhone() -> Bool {
+        UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone
     }
 
     /// ZJaDe: isPad
-    public class func isPad() -> Bool {
-        return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
+    class func isPad() -> Bool {
+        UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
     }
 
     /// ZJaDe: deviceModel
-    public class func deviceModel() -> String {
+    class func deviceModel() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
 
@@ -96,7 +96,7 @@ extension UIDevice {
 
     // MARK: - Device Version Checks
 
-    public enum Versions: Float {
+    enum Versions: Float {
         case five = 5.0
         case six = 6.0
         case seven = 7.0
@@ -104,89 +104,89 @@ extension UIDevice {
         case nine = 9.0
     }
 
-    public class func isVersion(_ version: Versions) -> Bool {
-        return systemFloatVersion() >= version.rawValue && systemFloatVersion() < (version.rawValue + 1.0)
+    class func isVersion(_ version: Versions) -> Bool {
+        systemFloatVersion() >= version.rawValue && systemFloatVersion() < (version.rawValue + 1.0)
     }
 
-    public class func isVersionOrLater(_ version: Versions) -> Bool {
-        return systemFloatVersion() >= version.rawValue
+    class func isVersionOrLater(_ version: Versions) -> Bool {
+        systemFloatVersion() >= version.rawValue
     }
 
-    public class func isVersionOrEarlier(_ version: Versions) -> Bool {
-        return systemFloatVersion() < (version.rawValue + 1.0)
+    class func isVersionOrEarlier(_ version: Versions) -> Bool {
+        systemFloatVersion() < (version.rawValue + 1.0)
     }
 
-    public class var CURRENT_VERSION: String {
-        return "\(systemFloatVersion())"
+    class var CURRENT_VERSION: String {
+        "\(systemFloatVersion())"
     }
 
     // MARK: iOS 5 Checks
 
-    public class func IS_OS_5() -> Bool {
-        return isVersion(.five)
+    class func IS_OS_5() -> Bool {
+        isVersion(.five)
     }
 
-    public class func IS_OS_5_OR_LATER() -> Bool {
-        return isVersionOrLater(.five)
+    class func IS_OS_5_OR_LATER() -> Bool {
+        isVersionOrLater(.five)
     }
 
-    public class func IS_OS_5_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.five)
+    class func IS_OS_5_OR_EARLIER() -> Bool {
+        isVersionOrEarlier(.five)
     }
 
     // MARK: iOS 6 Checks
 
-    public class func IS_OS_6() -> Bool {
-        return isVersion(.six)
+    class func IS_OS_6() -> Bool {
+        isVersion(.six)
     }
 
-    public class func IS_OS_6_OR_LATER() -> Bool {
-        return isVersionOrLater(.six)
+    class func IS_OS_6_OR_LATER() -> Bool {
+        isVersionOrLater(.six)
     }
 
-    public class func IS_OS_6_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.six)
+    class func IS_OS_6_OR_EARLIER() -> Bool {
+        isVersionOrEarlier(.six)
     }
 
     // MARK: iOS 7 Checks
 
-    public class func IS_OS_7() -> Bool {
-        return isVersion(.seven)
+    class func IS_OS_7() -> Bool {
+        isVersion(.seven)
     }
 
-    public class func IS_OS_7_OR_LATER() -> Bool {
-        return isVersionOrLater(.seven)
+    class func IS_OS_7_OR_LATER() -> Bool {
+        isVersionOrLater(.seven)
     }
 
-    public class func IS_OS_7_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.seven)
+    class func IS_OS_7_OR_EARLIER() -> Bool {
+        isVersionOrEarlier(.seven)
     }
 
     // MARK: iOS 8 Checks
 
-    public class func IS_OS_8() -> Bool {
-        return isVersion(.eight)
+    class func IS_OS_8() -> Bool {
+        isVersion(.eight)
     }
 
-    public class func IS_OS_8_OR_LATER() -> Bool {
-        return isVersionOrLater(.eight)
+    class func IS_OS_8_OR_LATER() -> Bool {
+        isVersionOrLater(.eight)
     }
 
-    public class func IS_OS_8_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.eight)
+    class func IS_OS_8_OR_EARLIER() -> Bool {
+        isVersionOrEarlier(.eight)
     }
 
     // MARK: iOS 9 Checks
 
-    public class func IS_OS_9() -> Bool {
-        return isVersion(.nine)
+    class func IS_OS_9() -> Bool {
+        isVersion(.nine)
     }
 
-    public class func IS_OS_9_OR_LATER() -> Bool {
-        return isVersionOrLater(.nine)
+    class func IS_OS_9_OR_LATER() -> Bool {
+        isVersionOrLater(.nine)
     }
 
-    public class func IS_OS_9_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.nine)
+    class func IS_OS_9_OR_EARLIER() -> Bool {
+        isVersionOrEarlier(.nine)
     }
 }

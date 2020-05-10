@@ -6,8 +6,8 @@
 //  Copyright © 2016 Z_JaDe. All rights reserved.
 //
 
-extension Optional where Wrapped == Bool {
-    public var isNilOrTrue: Bool {
+public extension Optional where Wrapped == Bool {
+    var isNilOrTrue: Bool {
         switch self {
         case .none:
             return true
@@ -15,7 +15,7 @@ extension Optional where Wrapped == Bool {
             return value
         }
     }
-    public var isNilOrFalse: Bool {
+    var isNilOrFalse: Bool {
         switch self {
         case .none:
             return true

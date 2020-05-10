@@ -64,8 +64,8 @@ public class CIImageFilter {
     }
 }
 
-extension UIImage {
-    public func gaussianBlurImage(_ blur: CGFloat = 10) -> UIImage {
+public extension UIImage {
+    func gaussianBlurImage(_ blur: CGFloat = 10) -> UIImage {
         guard blur > 0 else {
             return self
         }

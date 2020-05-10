@@ -27,11 +27,11 @@ public struct AttributedStringInterpolation: StringInterpolationProtocol {
         self.value.append(NSAttributedString(string: string, attributes: attributes))
     }
 }
-extension AttributedStringInterpolation {
-    public func appendInterpolation(image: UIImage, scale: CGFloat = 1.0) {
+public extension AttributedStringInterpolation {
+    func appendInterpolation(image: UIImage, scale: CGFloat = 1.0) {
         self.value.append(image.scaleTo(scale))
     }
-    public func appendInterpolation(wrap string: AttributedString) {
+    func appendInterpolation(wrap string: AttributedString) {
         self.value.append(string)
     }
 }

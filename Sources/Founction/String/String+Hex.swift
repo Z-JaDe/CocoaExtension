@@ -7,30 +7,30 @@
 
 import Foundation
 
-extension String {
-    public init?(hex: String) {
+public extension String {
+    init?(hex: String) {
         self.init(bytes: [UInt8](hex: hex), encoding: .utf8)
     }
-    public var bytes: [UInt8] {
-        return data(using: .utf8, allowLossyConversion: true)?.bytes ?? Array(utf8)
+    var bytes: [UInt8] {
+        data(using: .utf8, allowLossyConversion: true)?.bytes ?? Array(utf8)
     }
-    public var hexString: String {
-        return bytes.hexString
+    var hexString: String {
+        bytes.hexString
     }
 }
-extension Data {
-    public init(hex: String) {
+public extension Data {
+    init(hex: String) {
         self.init([UInt8](hex: hex))
     }
-    public var bytes: [UInt8] {
-        return Array(self)
+    var bytes: [UInt8] {
+        Array(self)
     }
-    public var hexString: String {
-        return bytes.hexString
+    var hexString: String {
+        bytes.hexString
     }
 }
-extension Array where Element == UInt8 {
-    public init(hex: String) {
+public extension Array where Element == UInt8 {
+    init(hex: String) {
         self.init()
         self.reserveCapacity(hex.unicodeScalars.lazy.underestimatedCount)
         var buffer: UInt8?
@@ -68,8 +68,8 @@ extension Array where Element == UInt8 {
             append(b)
         }
     }
-    public var hexString: String {
-        return lazy.reduce(into: "") {
+    var hexString: String {
+        lazy.reduce(into: "") {
             var s = String.init($1, radix: 16)
             if s.count == 1 {
                 s = "0" + s

@@ -38,9 +38,9 @@ public enum FontName: String {
     case seravek = "Seravek"
 }
 
-extension UIFont {
+public extension UIFont {
     /// ZJaDe:
-    public class func printFontFamily(_ font: FontName) {
+    class func printFontFamily(_ font: FontName) {
         let arr = UIFont.fontNames(forFamilyName: font.rawValue)
         for name in arr {
             print(name)
@@ -48,7 +48,7 @@ extension UIFont {
     }
 
     /// ZJaDe:
-    public class func font(_ name: FontName, type: FontType, size: CGFloat) -> UIFont! {
+    class func font(_ name: FontName, type: FontType, size: CGFloat) -> UIFont! {
       //Using type
       let fontName = name.rawValue + "-" + type.rawValue
       if let font = UIFont(name: fontName, size: size) {
@@ -71,22 +71,22 @@ extension UIFont {
     }
 
     /// ZJaDe:
-    public class func helveticaNeue(type: FontType, size: CGFloat) -> UIFont {
+    class func helveticaNeue(type: FontType, size: CGFloat) -> UIFont {
         return font(.helveticaNeue, type: type, size: size)
     }
 
     /// ZJaDe:
-    public class func avenirNext(type: FontType, size: CGFloat) -> UIFont {
+    class func avenirNext(type: FontType, size: CGFloat) -> UIFont {
         return font(.avenirNext, type: type, size: size)
     }
 
     /// ZJaDe:
-    public class func avenirNextDemiBold(size: CGFloat) -> UIFont {
+    class func avenirNextDemiBold(size: CGFloat) -> UIFont {
         return font(.avenirNext, type: .demiBold, size: size)
     }
 
     /// ZJaDe:
-    public class func avenirNextRegular(size: CGFloat) -> UIFont {
+    class func avenirNextRegular(size: CGFloat) -> UIFont {
         return font(.avenirNext, type: .regular, size: size)
     }
 }

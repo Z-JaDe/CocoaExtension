@@ -1,5 +1,5 @@
 import UIKit
 
-extension Error {
-    public var toString: String { String(describing: self) }
+public extension Error {
+    var string: String { String(describing: self) }
 }

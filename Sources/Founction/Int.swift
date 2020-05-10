@@ -1,34 +1,40 @@
 import UIKit
 
-extension Int {
-    public init?(any: Any?) {
+public extension Int {
+    init?(any: Any?) {
         switch any {
         case let value as String:
             if let intValue = Int(value) {
                 self = intValue
             }
+        case let value as NSNumber:
+            self = value.intValue
         case let value as Int:
             self = value
+        case let value as Double:
+            self = Int(value)
+        case let value as Float:
+            self = Int(value)
         default: break
         }
         return nil
     }
     /// ZJaDe: Checks if the integer is even.
-    public var isEven: Bool { (self % 2 == 0) }
+    var isEven: Bool { (self % 2 == 0) }
 
     /// ZJaDe: Checks if the integer is odd.
-    public var isOdd: Bool { (self % 2 != 0) }
+    var isOdd: Bool { (self % 2 != 0) }
 
     /// ZJaDe: Checks if the integer is positive.
-    public var isPositive: Bool { (self > 0) }
+    var isPositive: Bool { (self > 0) }
 
     /// ZJaDe: Checks if the integer is negative.
-    public var isNegative: Bool { (self < 0) }
+    var isNegative: Bool { (self < 0) }
 
     /// ZJaDe: Converts integer value to a 0..<Int range. Useful in for loops.
-    public var range: CountableRange<Int> { 0..<self }
+    var range: CountableRange<Int> { 0..<self }
 
-    public var toChinese: String {
+    var toChinese: String {
         let number = NSNumber(value: self)
         let formatter = NumberFormatter()
         formatter.numberStyle = .spellOut
@@ -36,7 +42,7 @@ extension Int {
     }
 
     /// ZJaDe: Returns number of digits in the integer.
-    public var digits: Int {
+    var digits: Int {
         if self == 0 {
             return 1
         } else if Int(fabs(Double(self))) <= LONG_MAX {
@@ -46,9 +52,9 @@ extension Int {
         }
     }
 }
-extension FixedWidthInteger {
+public extension FixedWidthInteger {
     /// ZJaDe: 返回随机数
-    public static func random(min: Self = 0, max: Self = 50) -> Self {
+    static func random(min: Self = 0, max: Self = 50) -> Self {
         random(in: min...max)
     }
 }

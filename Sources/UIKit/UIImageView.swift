@@ -1,8 +1,8 @@
 import UIKit
 
-extension UIImageView {
+public extension UIImageView {
     /// ZJaDe:  scales this ImageView size to fit the given width
-    public func scaleImageFrameToWidth(width: CGFloat) {
+    func scaleImageFrameToWidth(width: CGFloat) {
         guard let image = image else {
             print("ZJaDe Error：没设置图片")
             return
@@ -14,7 +14,7 @@ extension UIImageView {
     }
 
     /// ZJaDe:  scales this ImageView size to fit the given height
-    public func scaleImageFrameToHeight(height: CGFloat) {
+    func scaleImageFrameToHeight(height: CGFloat) {
         guard let image = image else {
             print("ZJaDe Error：没设置图片")
             return

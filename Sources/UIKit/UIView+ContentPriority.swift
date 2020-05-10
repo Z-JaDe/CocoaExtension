@@ -8,41 +8,41 @@
 
 import UIKit
 
-extension UIView {
-    public func contentPriority(_ priority: UILayoutPriority) {
+public extension UIView {
+    func contentPriority(_ priority: UILayoutPriority) {
         self.contentHuggingPriority(priority)
         self.contentCompressionResistancePriority(priority)
     }
-    public func contentVerticalPriority(_ priority: UILayoutPriority) {
+    func contentVerticalPriority(_ priority: UILayoutPriority) {
         self.contentHuggingVerticalPriority = priority
         self.contentCompressionResistanceVerticalPriority = priority
     }
-    public func contentHorizontalPriority(_ priority: UILayoutPriority) {
+    func contentHorizontalPriority(_ priority: UILayoutPriority) {
         self.contentCompressionResistanceHorizontalPriority = priority
         self.contentHuggingHorizontalPriority = priority
     }
-    public func contentHuggingPriority(_ priority: UILayoutPriority) {
+    func contentHuggingPriority(_ priority: UILayoutPriority) {
         self.contentHuggingVerticalPriority = priority
         self.contentHuggingHorizontalPriority = priority
     }
-    public func contentCompressionResistancePriority(_ priority: UILayoutPriority) {
+    func contentCompressionResistancePriority(_ priority: UILayoutPriority) {
         self.contentCompressionResistanceHorizontalPriority = priority
         self.contentCompressionResistanceVerticalPriority = priority
     }
     // MARK: -
-    public var contentHuggingHorizontalPriority: UILayoutPriority {
+    var contentHuggingHorizontalPriority: UILayoutPriority {
         get { self.contentHuggingPriority(for: .horizontal) }
         set { self.setContentHuggingPriority(newValue, for: .horizontal) }
     }
-    public var contentHuggingVerticalPriority: UILayoutPriority {
+    var contentHuggingVerticalPriority: UILayoutPriority {
         get { self.contentHuggingPriority(for: .vertical) }
         set { self.setContentHuggingPriority(newValue, for: .vertical) }
     }
-    public var contentCompressionResistanceHorizontalPriority: UILayoutPriority {
+    var contentCompressionResistanceHorizontalPriority: UILayoutPriority {
         get { self.contentCompressionResistancePriority(for: .horizontal) }
         set { self.setContentCompressionResistancePriority(newValue, for: .horizontal) }
     }
-    public var contentCompressionResistanceVerticalPriority: UILayoutPriority {
+    var contentCompressionResistanceVerticalPriority: UILayoutPriority {
         get { self.contentCompressionResistancePriority(for: .vertical) }
         set { self.setContentCompressionResistancePriority(newValue, for: .vertical) }
     }

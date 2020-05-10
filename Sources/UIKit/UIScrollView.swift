@@ -9,7 +9,4 @@
 import UIKit
 
 extension UIScrollView {
-    open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
 }

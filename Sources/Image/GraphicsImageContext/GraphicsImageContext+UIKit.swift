@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension CALayer {
-    public func toImage(_ size: CGSize? = nil) -> UIImage {
+public extension CALayer {
+    func toImage(_ size: CGSize? = nil) -> UIImage {
         var size = size ?? self.frame.size
         if size.width <= 0 {size.width = 1}
         if size.height <= 0 {size.height = 1}
@@ -20,8 +20,8 @@ extension CALayer {
     }
 }
 
-extension UIView {
-    public func toImage() -> UIImage {
+public extension UIView {
+    func toImage() -> UIImage {
         var size = bounds.size
         if size.width <= 0 {size.width = 1}
         if size.height <= 0 {size.height = 1}

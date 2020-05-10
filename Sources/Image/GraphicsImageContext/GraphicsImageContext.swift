@@ -49,12 +49,12 @@ public struct GraphicsImageContext {
         UIGraphicsEndImageContext()
     }
 }
-extension UIImage {
+public extension UIImage {
     // If drawing a CGImage, we need to make context flipped.
-    public func imageContext(inverting: Bool = false) -> GraphicsImageContext {
+    func imageContext(inverting: Bool = false) -> GraphicsImageContext {
         return GraphicsImageContext(size, scale: scale, inverting: inverting)
     }
-    public func imageRenderer(size: CGSize? = nil, format: UIGraphicsImageRendererFormat? = nil) -> UIGraphicsImageRenderer {
+    func imageRenderer(size: CGSize? = nil, format: UIGraphicsImageRendererFormat? = nil) -> UIGraphicsImageRenderer {
         let size = size ?? self.size
         if let format = format {
             return UIGraphicsImageRenderer(size: size, format: format)

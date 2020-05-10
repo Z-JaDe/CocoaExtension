@@ -50,20 +50,20 @@ import Foundation
  kCGBlendModePlusDarker: R = MAX(0, (1 - D) + (1 - S)
  kCGBlendModePlusLighter: R = MIN(1, S + D)（最后一种混合模式）
  */
-extension UIImage {
-    public func blend(_ overlayImage: UIImage, cropRect: CGRect, _ blendMode: CGBlendMode = .normal, _ alpha: CGFloat = 1) -> UIImage {
+public extension UIImage {
+    func blend(_ overlayImage: UIImage, cropRect: CGRect, _ blendMode: CGBlendMode = .normal, _ alpha: CGFloat = 1) -> UIImage {
         return imageRenderer().image { (_) in
             self.draw(in: CGRect(origin: CGPoint.zero, size: self.size))
             overlayImage.draw(in: cropRect, blendMode: blendMode, alpha: alpha)
         }
     }
-    public func blend(_ overlayImage: UIImage, cropPoint: CGPoint, _ blendMode: CGBlendMode = .normal, _ alpha: CGFloat = 1) -> UIImage {
+    func blend(_ overlayImage: UIImage, cropPoint: CGPoint, _ blendMode: CGBlendMode = .normal, _ alpha: CGFloat = 1) -> UIImage {
         return imageRenderer().image { (_) in
             self.draw(in: CGRect(origin: CGPoint.zero, size: self.size))
             overlayImage.draw(at: cropPoint, blendMode: blendMode, alpha: alpha)
         }
     }
-    public static func + (lhs: UIImage, rhs: UIImage) -> UIImage {
+    static func + (lhs: UIImage, rhs: UIImage) -> UIImage {
         let lhsRect = CGRect(origin: CGPoint.zero, size: lhs.size)
         var rhsRect = CGRect(origin: CGPoint.zero, size: rhs.size)
         if lhsRect.contains(rhsRect) {

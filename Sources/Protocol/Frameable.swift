@@ -12,77 +12,77 @@ public protocol Frameable: class {
     var frame: CGRect {get set}
     var bounds: CGRect {get set}
 }
-extension Frameable {
+public extension Frameable {
     @inline(__always)
-    public var origin: CGPoint {
+    var origin: CGPoint {
         get { frame.origin }
         set { frame.origin = newValue }
     }
     @inline(__always)
-    public var size: CGSize {
+    var size: CGSize {
         get { frame.size }
         set { frame.size = newValue }
     }
 }
-extension Frameable {
+public extension Frameable {
     @inline(__always)
-    public var width: CGFloat {
+    var width: CGFloat {
         get { size.width }
         set { size.width = newValue }
     }
     @inline(__always)
-    public var height: CGFloat {
+    var height: CGFloat {
         get { size.height }
         set { size.height = newValue }
     }
 
     @inline(__always)
-    public var x: CGFloat {
+    var x: CGFloat {
         get { origin.x }
         set { origin.x = newValue }
     }
     @inline(__always)
-    public var y: CGFloat {
+    var y: CGFloat {
         get { origin.y }
         set { origin.y = newValue }
     }
 
     @inline(__always)
-    public var innerCenter: CGPoint {
+    var innerCenter: CGPoint {
         CGPoint(x: width / 2, y: height / 2)
     }
 }
-extension Frameable {
+public extension Frameable {
     @inline(__always)
-    public var top: CGFloat {
+    var top: CGFloat {
         get { y }
         set { y = newValue }
     }
     @inline(__always)
-    public var left: CGFloat {
+    var left: CGFloat {
         get { x }
         set { x = newValue }
     }
     @inline(__always)
-    public var bottom: CGFloat {
+    var bottom: CGFloat {
         get { top + height }
         set { top = newValue - height }
     }
     @inline(__always)
-    public var right: CGFloat {
+    var right: CGFloat {
         get { left + width }
         set { left = newValue - width }
     }
 }
 // MARK: - center
-extension Frameable where Self: UIView {
+public extension Frameable where Self: UIView {
     @inline(__always)
-    public var centerX: CGFloat {
+    var centerX: CGFloat {
         get { center.x }
         set { center.x = newValue }
     }
     @inline(__always)
-    public var centerY: CGFloat {
+    var centerY: CGFloat {
         get { center.y }
         set { center.y = newValue }
     }

@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension Comparable {
+public extension Comparable {
     /// ZJaDe: 找到3个数中间的那个
-    public func clamp(min: Self, max: Self) -> Self {
+    func clamp(min: Self, max: Self) -> Self {
         return Swift.max(min, Swift.min(max, self))
     }
 }

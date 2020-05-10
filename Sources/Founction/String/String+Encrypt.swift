@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension String {
-    public func encrypt(preFixLen: Int = 3, suffixLen: Int = 4) -> String {
-        return "\(self.prefix(preFixLen))***\(self.suffix(suffixLen))"
+public extension String {
+    func encrypt(preFixLen: Int = 3, suffixLen: Int = 4) -> String {
+        "\(self.prefix(preFixLen))***\(self.suffix(suffixLen))"
     }
 }

@@ -12,52 +12,52 @@ extension Int {
     private func mathForUnit(unit: Calendar.Component) -> CalendarMath {
         return CalendarMath(unit: unit, value: self)
     }
-    public var seconds: CalendarMath {
+    var seconds: CalendarMath {
         return mathForUnit(unit: .second)
     }
-    public var second: CalendarMath {
+    var second: CalendarMath {
         return seconds
     }
 
-    public var minutes: CalendarMath {
+    var minutes: CalendarMath {
         return mathForUnit(unit: .minute)
     }
-    public var minute: CalendarMath {
+    var minute: CalendarMath {
         return minutes
     }
 
-    public var hours: CalendarMath {
+    var hours: CalendarMath {
         return mathForUnit(unit: .hour)
     }
-    public var hour: CalendarMath {
+    var hour: CalendarMath {
         return hours
     }
 
-    public var days: CalendarMath {
+    var days: CalendarMath {
         return mathForUnit(unit: .day)
     }
-    public var day: CalendarMath {
+    var day: CalendarMath {
         return days
     }
 
-    public var weeks: CalendarMath {
+    var weeks: CalendarMath {
         return mathForUnit(unit: .weekOfYear)
     }
-    public var week: CalendarMath {
+    var week: CalendarMath {
         return weeks
     }
 
-    public var months: CalendarMath {
+    var months: CalendarMath {
         return mathForUnit(unit: .month)
     }
-    public var month: CalendarMath {
+    var month: CalendarMath {
         return months
     }
 
-    public var years: CalendarMath {
+    var years: CalendarMath {
         return mathForUnit(unit: .year)
     }
-    public var year: CalendarMath {
+    var year: CalendarMath {
         return years
     }
 }

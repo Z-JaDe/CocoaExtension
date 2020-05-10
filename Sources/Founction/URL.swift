@@ -1,10 +1,10 @@
 import Foundation
 
-extension URL {
-    public var urlComponents: URLComponents? {
+public extension URL {
+    var urlComponents: URLComponents? {
         return URLComponents(url: self, resolvingAgainstBaseURL: true)
     }
-    public var queryParameters: [String: String]? {
+    var queryParameters: [String: String]? {
         guard let components = self.urlComponents, let queryItems = components.queryItems else {
             return nil
         }
@@ -17,7 +17,7 @@ extension URL {
         return parameters
     }
 
-    public mutating func addQueryParameter(withName name: String, value: String) {
+    mutating func addQueryParameter(withName name: String, value: String) {
         guard var urlComponents = self.urlComponents else {
             return
         }
@@ -33,9 +33,9 @@ extension URL {
     }
 }
 
-extension String {
+public extension String {
     /// ZJaDe: 提取所有URl
-    public var extractURLs: [URL] {
+    var extractURLs: [URL] {
         var urls: [URL] = []
         let detector: NSDataDetector?
         do {

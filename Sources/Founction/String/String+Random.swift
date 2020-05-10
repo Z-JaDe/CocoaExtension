@@ -8,23 +8,23 @@
 
 import Foundation
 
-extension String {
-    public static let uppercaseLetters: String = "ABCDEFGHIGKLMNOPQRSTUVWXYZ"
-    public static let lowercaseLetters: String = "abcdefghigklmnopqrstuvwxyz"
-    public static let decimalDigits: String = "0123456789"
+public extension String {
+    static let uppercaseLetters: String = "ABCDEFGHIGKLMNOPQRSTUVWXYZ"
+    static let lowercaseLetters: String = "abcdefghigklmnopqrstuvwxyz"
+    static let decimalDigits: String = "0123456789"
 
-    public static func random(min: Int, max: Int) -> String {
+    static func random(min: Int, max: Int) -> String {
         guard max >= min && min >= 0 else {return ""}
         let count = Int.random(in: min...max)
         return self.random(count: count)
     }
     /// ZJaDe: 随机数字加字母
-    public static func random(count: Int) -> String {
+    static func random(count: Int) -> String {
         let source = self.uppercaseLetters + self.lowercaseLetters + self.decimalDigits
         return _random(source: source, count: count)
     }
     /// ZJaDe: 随机数字
-    public static func randomNumber(count: Int) -> String {
+    static func randomNumber(count: Int) -> String {
         let source = self.decimalDigits
         return _random(source: source, count: count)
     }

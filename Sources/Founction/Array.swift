@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension Array {
-    public mutating func countIsEqual(
+public extension Array {
+    mutating func countIsEqual(
         count: Int,
         append appendClosure: (Int) -> Element,
         remove removeClosure: (Element) -> Void
@@ -25,7 +25,7 @@ extension Array {
         }
     }
 
-    public mutating func countIsEqual<T, C>(
+    mutating func countIsEqual<T, C>(
         _ otherArray: C,
         bind bindClosure: (Element, T, Int) -> Void,
         append appendClosure: (T) -> Element,
@@ -38,18 +38,18 @@ extension Array {
         }
     }
 }
-extension Array {
-    public func indexCanBound(_ index: Int) -> Bool {
+public extension Array {
+    func indexCanBound(_ index: Int) -> Bool {
         return (startIndex..<endIndex).contains(index)
     }
-    public func indexCanInsert(_ index: Int) -> Bool {
+    func indexCanInsert(_ index: Int) -> Bool {
         return (startIndex...endIndex).contains(index)
     }
 }
 
-extension Array where Element: Equatable {
+public extension Array where Element: Equatable {
     @discardableResult
-    public mutating func remove(_ element: Element) -> Int? {
+    mutating func remove(_ element: Element) -> Int? {
         if let index = self.firstIndex(of: element) {
             self.remove(at: index)
             return index

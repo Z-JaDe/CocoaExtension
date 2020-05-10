@@ -212,12 +212,12 @@ extension ImageDrawer {
         return (rect, imageSize)
     }
 }
-extension ImageDrawer {
-    public func color(_ color: UIColor?) -> Self {
+public extension ImageDrawer {
+    func color(_ color: UIColor?) -> Self {
         self.colors = [color ?? UIColor.clear]
         return self
     }
-    public func color(
+    func color(
         gradient: [UIColor],
         locations: [CGFloat] = Defaults.gradientLocations,
         from startPoint: CGPoint = Defaults.gradientFrom,
@@ -230,27 +230,27 @@ extension ImageDrawer {
         return self
     }
 }
-extension ImageDrawer {
-    public func corner(radius: CGFloat) -> Self {
+public extension ImageDrawer {
+    func corner(radius: CGFloat) -> Self {
         return self.corner(topLeft: radius, topRight: radius, bottomLeft: radius, bottomRight: radius)
     }
-    public func corner(topLeft: CGFloat) -> Self {
+    func corner(topLeft: CGFloat) -> Self {
         setCornerRadius(.topLeft, topLeft)
         return self
     }
-    public func corner(topRight: CGFloat) -> Self {
+    func corner(topRight: CGFloat) -> Self {
         setCornerRadius(.topRight, topRight)
         return self
     }
-    public func corner(bottomLeft: CGFloat) -> Self {
+    func corner(bottomLeft: CGFloat) -> Self {
         setCornerRadius(.bottomLeft, bottomLeft)
         return self
     }
-    public func corner(bottomRight: CGFloat) -> Self {
+    func corner(bottomRight: CGFloat) -> Self {
         setCornerRadius(.bottomRight, bottomRight)
         return self
     }
-    public func corner(topLeft: CGFloat, topRight: CGFloat, bottomLeft: CGFloat, bottomRight: CGFloat) -> Self {
+    func corner(topLeft: CGFloat, topRight: CGFloat, bottomLeft: CGFloat, bottomRight: CGFloat) -> Self {
         return self
             .corner(topLeft: topLeft)
             .corner(topRight: topRight)
@@ -258,17 +258,17 @@ extension ImageDrawer {
             .corner(bottomRight: bottomRight)
     }
 }
-extension ImageDrawer {
-    public struct Defaults {
+public extension ImageDrawer {
+    struct Defaults {
         public static let gradientLocations: [CGFloat] = [0, 1]
         public static let gradientFrom: CGPoint = .zero
         public static let gradientTo: CGPoint = CGPoint(x: 0, y: 1)
     }
-    public func border(color: UIColor) -> Self {
+    func border(color: UIColor) -> Self {
         self.borderColors = [color]
         return self
     }
-    public func border(
+    func border(
         gradient: [UIColor],
         locations: [CGFloat] = Defaults.gradientLocations,
         from startPoint: CGPoint = Defaults.gradientFrom,
@@ -281,12 +281,12 @@ extension ImageDrawer {
         return self
     }
 
-    public func border(width: CGFloat) -> Self {
+    func border(width: CGFloat) -> Self {
         self.borderWidth = width
         return self
     }
 
-    public func border(alignment: BorderAlignment) -> Self {
+    func border(alignment: BorderAlignment) -> Self {
         self.borderAlignment = alignment
         return self
     }

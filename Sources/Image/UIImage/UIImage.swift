@@ -1,39 +1,39 @@
 import Foundation
 import UIKit
-extension UIImage {
-    public var automaticImage: UIImage {
+public extension UIImage {
+    var automaticImage: UIImage {
         return self.withRenderingMode(.automatic)
     }
-    public var templateImage: UIImage {
+    var templateImage: UIImage {
         return self.withRenderingMode(.alwaysTemplate)
     }
-    public var originalImage: UIImage {
+    var originalImage: UIImage {
         return self.withRenderingMode(.alwaysOriginal)
     }
 }
 
-extension UIImage {
-    public func data(compressionQuality: Float = 1.0) -> Data? {
+public extension UIImage {
+    func data(compressionQuality: Float = 1.0) -> Data? {
         let hasAlpha = self.hasAlpha()
         let data = hasAlpha ? self.pngData() : self.jpegData(compressionQuality: CGFloat(compressionQuality))
         return data
     }
     /// ZJaDe: Returns compressed image to rate from 0 to 1
-    public func compressImage(rate: CGFloat) -> Data? {
+    func compressImage(rate: CGFloat) -> Data? {
         return self.jpegData(compressionQuality: rate)
     }
     /// ZJaDe: Returns Image size in Bytes
-    public func getSizeAsBytes() -> Int {
+    func getSizeAsBytes() -> Int {
         return self.jpegData(compressionQuality: 1)?.count ?? 0
     }
     /// ZJaDe: Returns Image size in Kylobites
-    public func getSizeAsKilobytes() -> Int {
+    func getSizeAsKilobytes() -> Int {
         let sizeAsBytes = getSizeAsBytes()
         return sizeAsBytes != 0 ? sizeAsBytes / 1024 : 0
     }
     // MARK: -
     /// ZJaDe: Returns the image associated with the URL
-    public convenience init?(urlString: String) {
+    convenience init?(urlString: String) {
         guard let url = URL(string: urlString) else {
             self.init(data: Data())
             return
@@ -46,12 +46,12 @@ extension UIImage {
         self.init(data: data)
     }
     /// ZJaDe: 高除以宽
-    public var sizeScale: CGFloat {
+    var sizeScale: CGFloat {
         return self.size.height / self.size.width
     }
 }
-extension UIImage {
-    public static func dataWithImage(_ image: UIImage, expectedSize: Int = 1024 * 1024) -> Data? {
+public extension UIImage {
+    static func dataWithImage(_ image: UIImage, expectedSize: Int = 1024 * 1024) -> Data? {
         var scale: CGFloat = 1.0
         var data: Data?
         repeat {
@@ -63,7 +63,7 @@ extension UIImage {
         } while (data?.count ?? 0) > expectedSize && scale >= 0
         return data ?? image.pngData()
     }
-    public func scaleData(_ scale: CGFloat) -> Data? {
+    func scaleData(_ scale: CGFloat) -> Data? {
         //        if let tempData = UIImageHEICRepresentation(self, scale) {
         //            return tempData
         //        } else
