@@ -16,8 +16,7 @@ public extension Dictionary {
     /// ZJaDe: 字典转json
     func formatJSON() -> String? {
         if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: []) {
-            let jsonStr = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)
-            return String(jsonStr ?? "")
+            return String(data: jsonData, encoding: String.Encoding.utf8) ?? nil
         }
         return nil
     }

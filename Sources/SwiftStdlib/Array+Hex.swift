@@ -1,34 +1,13 @@
 //
-//  String+Hex.swift
-//  Alamofire
+//  Array+Hex.swift
+//  CocoaExtension
 //
-//  Created by Apple on 2019/5/28.
+//  Created by 郑军铎 on 2020/5/10.
+//  Copyright © 2020 zjade. All rights reserved.
 //
 
 import Foundation
 
-public extension String {
-    init?(hex: String) {
-        self.init(bytes: [UInt8](hex: hex), encoding: .utf8)
-    }
-    var bytes: [UInt8] {
-        data(using: .utf8, allowLossyConversion: true)?.bytes ?? Array(utf8)
-    }
-    var hexString: String {
-        bytes.hexString
-    }
-}
-public extension Data {
-    init(hex: String) {
-        self.init([UInt8](hex: hex))
-    }
-    var bytes: [UInt8] {
-        Array(self)
-    }
-    var hexString: String {
-        bytes.hexString
-    }
-}
 public extension Array where Element == UInt8 {
     init(hex: String) {
         self.init()

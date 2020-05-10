@@ -1,21 +1,33 @@
 import UIKit
 
 public extension UITextView {
-    #if os(iOS)
-    
-    /// ZJaDe: Automatically adds a toolbar with a done button to the top of the keyboard. Tapping the button will dismiss the keyboard.
-    func addDoneButton(_ barStyle: UIBarStyle = .default, title: String? = nil) {
-        let keyboardToolbar = UIToolbar()
-        keyboardToolbar.items = [
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: title ?? "完成", style: .done, target: self, action: #selector(resignFirstResponder))
-        ]
-
-        keyboardToolbar.barStyle = barStyle
-        keyboardToolbar.sizeToFit()
-
-        inputAccessoryView = keyboardToolbar
+    /// Clear text.
+    func clear() {
+        text = ""
+        attributedText = NSAttributedString(string: "")
     }
-    
-    #endif
+
+    /// Scroll to the bottom of text view
+    func scrollToBottom() {
+        // swiftlint:disable:next legacy_constructor
+        let range = NSMakeRange((text as NSString).length - 1, 1)
+        scrollRangeToVisible(range)
+    }
+
+    /// Scroll to the top of text view
+    func scrollToTop() {
+        // swiftlint:disable:next legacy_constructor
+        let range = NSMakeRange(0, 1)
+        scrollRangeToVisible(range)
+    }
+
+    /// Wrap to the content (Text / Attributed Text).
+    func wrapToContent() {
+        contentInset = .zero
+        scrollIndicatorInsets = .zero
+        contentOffset = .zero
+        textContainerInset = .zero
+        textContainer.lineFragmentPadding = 0
+        sizeToFit()
+    }
 }

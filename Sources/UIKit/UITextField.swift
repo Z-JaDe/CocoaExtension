@@ -8,5 +8,14 @@ public extension UITextField {
         self.textColor = color
         self.font = font
     }
-
+    var trimmedText: String? {
+        return text?.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    func addPaddingLeftIcon(_ image: UIImage, padding: CGFloat) {
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .center
+        leftView = imageView
+        leftView?.frame.size = CGSize(width: image.size.width + padding, height: image.size.height)
+        leftViewMode = .always
+    }
 }

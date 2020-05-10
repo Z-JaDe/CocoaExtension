@@ -16,16 +16,24 @@ public extension UIViewController {
     func dismissVC(animated: Bool = true, completion: (() -> Void)? = nil) {
         dismiss(animated: animated, completion: completion)
     }
-
-//    @discardableResult
-//    public func popToVC<T: UIViewController>(_ vcType: T.Type) -> T? {
-//        if let viewCon = navigationController?.viewControllers.filter({$0 is T}).last {
-//            _ = navigationController?.popToViewController(viewCon, animated: true)
-//            return viewCon as? T
-//        } else {
-//            return nil
-//        }
-//    }
+    
+    #if os(iOS)
+    func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
+        popoverContent.modalPresentationStyle = .popover
+        
+        if let size = size {
+            popoverContent.preferredContentSize = size
+        }
+        
+        if let popoverPresentationVC = popoverContent.popoverPresentationController {
+            popoverPresentationVC.sourceView = view
+            popoverPresentationVC.sourceRect = CGRect(origin: sourcePoint, size: .zero)
+            popoverPresentationVC.delegate = delegate
+        }
+        
+        present(popoverContent, animated: animated, completion: completion)
+    }
+    #endif
 }
 public extension UIViewController {
     func addAsChildViewController(_ vc: UIViewController, toView: UIView? = nil) {
@@ -39,8 +47,8 @@ public extension UIViewController {
         vc.removeFromParentVC()
     }
     func removeAsFromParentViewController() {
-        self.view.removeFromSuperview()
         self.removeFromParentVC()
+        self.view.removeFromSuperview()
     }
 
     func addChildVC(_ childVC: UIViewController) {
