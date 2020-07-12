@@ -74,15 +74,13 @@ public extension UIImage {
 import AVFoundation
 public func UIImageHEICRepresentation(_ image: UIImage, _ compressionQuality: CGFloat) -> Data? {
     var imageData: Data?
-    if #available(iOS 11, *) {
-        let destinationData = NSMutableData()
-        let destination: CGImageDestination? = CGImageDestinationCreateWithData(destinationData, AVFileType.jpg as CFString, 1, nil)
-        if let destination = destination {
-            let options: [String: Any] = [kCGImageDestinationLossyCompressionQuality as String: compressionQuality]
-            CGImageDestinationAddImage(destination, image.cgImage!, options as CFDictionary)
-            CGImageDestinationFinalize(destination)
-            imageData = destinationData as Data
-        }
+    let destinationData = NSMutableData()
+    let destination: CGImageDestination? = CGImageDestinationCreateWithData(destinationData, AVFileType.jpg as CFString, 1, nil)
+    if let destination = destination {
+        let options: [String: Any] = [kCGImageDestinationLossyCompressionQuality as String: compressionQuality]
+        CGImageDestinationAddImage(destination, image.cgImage!, options as CFDictionary)
+        CGImageDestinationFinalize(destination)
+        imageData = destinationData as Data
     }
     return imageData
 }

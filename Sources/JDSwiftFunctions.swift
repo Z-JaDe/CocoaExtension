@@ -110,11 +110,7 @@ extension jd {
 }
 extension jd {
     public static var keyWindow: UIWindow? {
-        if #available(iOS 13.0, macCatalyst 13.0, *) {
-            return UIApplication.shared.windows.first(where: { $0.isKeyWindow && $0.windowScene?.activationState == .foregroundActive})
-        } else {
-            return UIApplication.shared.keyWindow
-        }
+        UIApplication.shared.windows.first(where: { $0.isKeyWindow && $0.windowScene?.activationState == .foregroundActive})
     }
     public static var rootWindow: UIWindow {
         return UIApplication.shared.delegate!.window!!
@@ -281,12 +277,7 @@ extension jd {
     }
     /// ZJaDe: 打开url
     public static func openUrl(url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any] = [: ], completionHandler: ((Bool) -> Swift.Void)? = nil) {
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: options, completionHandler: completionHandler)
-        } else {
-            let result = UIApplication.shared.openURL(url)
-            completionHandler?(result)
-        }
+        UIApplication.shared.open(url, options: options, completionHandler: completionHandler)
     }
     /// ZJaDe: 打开url
     public static func openUrl(_ urlStr: String, options: [UIApplication.OpenExternalURLOptionsKey: Any] = [: ], completionHandler: ((Bool) -> Swift.Void)? = nil) {
