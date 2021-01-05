@@ -80,7 +80,7 @@ extension ImageDrawer {
         context.saveGState()
         if self.colors.count > 1 {
             let colorSpace = CGColorSpaceCreateDeviceRGB()
-            let colors = self.colors.map { $0.cgColor } as CFArray
+            let colors = self.colors.map(\.cgColor) as CFArray
             if let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: self.colorLocations) {
                 let startPoint = CGPoint(
                     x: self.colorStartPoint.x * imageSize.width,
@@ -104,7 +104,7 @@ extension ImageDrawer {
         context.saveGState()
         if self.borderColors.count > 1 {
             let colorSpace = CGColorSpaceCreateDeviceRGB()
-            let colors = self.borderColors.map { $0.cgColor } as CFArray
+            let colors = self.borderColors.map(\.cgColor) as CFArray
             if let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: self.borderColorLocations) {
                 let startPoint = CGPoint(
                     x: self.borderColorStartPoint.x * imageSize.width,
