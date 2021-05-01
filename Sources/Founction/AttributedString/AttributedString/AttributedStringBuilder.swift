@@ -8,7 +8,7 @@
 
 import Foundation
 
-@_functionBuilder
+@resultBuilder
 struct AttributedStringBuilder<Element: AttributedStringAppendable & AttributedStringCreater> {
     static func buildBlock(_ content: Element...) -> Element {
         content.reduce(into: Element()) { (result, attrStr) in

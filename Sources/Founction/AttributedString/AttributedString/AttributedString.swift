@@ -38,32 +38,26 @@ extension AttributedString: CustomStringConvertible {
     }
 }
 public extension AttributedString {
-    @inline(__always)
     var string: String {
         _boxForReading.string
     }
-    @inline(__always)
     func finalize() -> NSAttributedString {
         _boxForReading.finalize()
     }
-    @inline(__always)
     var defaultRange: NSRange {
         _boxForReading.defaultRange
     }
 }
 // MARK: -
 extension AttributedString: AttributedStringCreater {
-    @inline(__always)
     public func createMutableAttributedString() -> NSMutableAttributedString {
         self._boxForReading.createMutableAttributedString()
     }
-    @inline(__always)
     public func unsafeGetAttributedString() -> NSAttributedString {
         self._boxForReading.unsafeGetAttributedString()
     }
 }
 extension AttributedString: AttributedStringAppendable {
-    @inline(__always)
     public mutating func append<T: AttributedStringCreater>(_ value: T) {
         _boxForWriting.append(value)
     }
@@ -81,19 +75,15 @@ extension AttributedString: AttributedStringAppendable {
 }
 // MARK: -
 extension AttributedString {
-    @inline(__always)
     mutating func setAttribute(_ key: NSAttributedString.Key, value: Any?, range: NSRange?) {
         _boxForWriting.setAttribute(key, value: value, range: range)
     }
-    @inline(__always)
     mutating func setAttributes(_ attrs: [NSAttributedString.Key: Any], range: NSRange?) {
         _boxForWriting.setAttributes(attrs, range: range)
     }
-    @inline(__always)
     mutating func paragraphStyle(_ style: NSParagraphStyle?, range: NSRange?) {
         _boxForWriting.paragraphStyle(style, range: range)
     }
-    @inline(__always)
     mutating func paragraphStyleKeyPath<T: Equatable>(_ keyPath: ReferenceWritableKeyPath<NSMutableParagraphStyle, T>, _ value: T, range: NSRange?) {
         _boxForWriting.paragraphStyleKeyPath(keyPath, value, range: range)
     }

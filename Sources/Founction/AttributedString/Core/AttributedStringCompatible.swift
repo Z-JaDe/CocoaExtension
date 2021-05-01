@@ -58,60 +58,49 @@ extension AttributedString: AttributedStringCompatible {
 }
 // MARK: -
 extension String {
-    @inline(__always)
     public func asAttributedString() -> AttributedString {
         AttributedString(value: self)
     }
-    @inline(__always)
     public func asAttributedStringClass() -> AttributedStringClass {
         AttributedStringClass(value: self)
     }
 }
 extension UIImage {
-    @inline(__always)
     public func asAttributedString() -> AttributedString {
         AttributedString(value: self)
     }
-    @inline(__always)
     public func asAttributedStringClass() -> AttributedStringClass {
         AttributedStringClass(value: self)
     }
 }
 extension NSTextAttachment {
-    @inline(__always)
     public func asAttributedString() -> AttributedString {
         AttributedString(value: self)
     }
-    @inline(__always)
     public func asAttributedStringClass() -> AttributedStringClass {
         AttributedStringClass(value: self)
     }
 }
 extension NSAttributedString {
-    @inline(__always)
     public func asAttributedString() -> AttributedString {
         AttributedString(value: self)
     }
-    @inline(__always)
     public func asAttributedStringClass() -> AttributedStringClass {
         AttributedStringClass(value: self)
     }
 }
 
 extension NSAttributedString {
-    @inline(__always)
     public static func build(content: () -> AttributedString) -> NSAttributedString {
         content().finalize()
     }
 }
 extension AttributedString {
-    @inline(__always)
     public static func build(content: () -> AttributedString) -> AttributedString {
         content()
     }
 }
 extension UILabel {
-    @inline(__always)
     public func makeAttrStr(content: () -> AttributedString) {
         self.attributedText = NSAttributedString.build(content: content)
     }

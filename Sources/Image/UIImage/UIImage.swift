@@ -111,12 +111,10 @@ extension UIImage {
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
         return context
     }
-    @inline(__always)
     func drawToContext() -> CGContext? {
         guard let cgImage = self.cgImage else { return nil }
         return drawToContext(size: nil, colorSpace: cgImage.colorSpace ?? CGColorSpaceCreateDeviceRGB(), bitmapInfo: cgImage.bitmapInfo.rawValue)
     }
-    @inline(__always)
     func drawToContextGray(size: CGSize? = nil) -> CGContext? {
         drawToContext(
             size: size,
@@ -124,7 +122,6 @@ extension UIImage {
             bitmapInfo: CGBitmapInfo().rawValue | CGImageAlphaInfo.alphaOnly.rawValue
         )
     }
-    @inline(__always)
     func drawToContextRGB(size: CGSize? = nil, bitmapInfo: UInt32) -> CGContext? {
         drawToContext(
             size: size,
@@ -136,7 +133,6 @@ extension UIImage {
      顺序 + argb = argb
      kCGImageByteOrder32Big | kCGImageAlphaPremultipliedFirst
      */
-    @inline(__always)
     func drawToContextARGB(size: CGSize? = nil) -> CGContext? {
         drawToContextRGB(
             size: size,
@@ -147,7 +143,6 @@ extension UIImage {
      顺序 + rgba = rgba
      kCGImageByteOrder32Big | kCGImageAlphaPremultipliedLast
      */
-    @inline(__always)
     func drawToContextRGBA(size: CGSize? = nil) -> CGContext? {
         drawToContextRGB(
             size: size,
@@ -158,7 +153,6 @@ extension UIImage {
      倒序 + argb = bgra;
      kCGImageByteOrder32Little | kCGImageAlphaPremultipliedFirst
      */
-    @inline(__always)
     func drawToContextBGRA(size: CGSize? = nil) -> CGContext? {
         drawToContextRGB(
             size: size,
@@ -169,7 +163,6 @@ extension UIImage {
      倒序 + rgba = abgr
      kCGImageByteOrder32Little | kCGImageAlphaPremultipliedLast
      */
-    @inline(__always)
     func drawToContextABGR(size: CGSize? = nil) -> CGContext? {
         drawToContextRGB(
             size: size,

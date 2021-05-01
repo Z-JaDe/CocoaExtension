@@ -36,16 +36,13 @@ extension AttributedStringClass: CustomStringConvertible {
     }
 }
 public extension AttributedStringClass {
-    @inline(__always)
     var string: String {
         self._value.string
     }
-    @inline(__always)
     func finalize() -> NSAttributedString {
         // swiftlint:disable force_cast
         return _value.copy() as! NSAttributedString
     }
-    @inline(__always)
     var defaultRange: NSRange {
         let string = self.string
         return NSRange(string.startIndex..<string.endIndex, in: string)
@@ -53,11 +50,9 @@ public extension AttributedStringClass {
 }
 // MARK: -
 extension AttributedStringClass: AttributedStringCreater {
-    @inline(__always)
     public func createMutableAttributedString() -> NSMutableAttributedString {
         self._value.createMutableAttributedString()
     }
-    @inline(__always)
     public func unsafeGetAttributedString() -> NSAttributedString {
         self._value.unsafeGetAttributedString()
     }
@@ -81,13 +76,11 @@ extension AttributedStringClass {
             _value.removeAttribute(key, range: range)
         }
     }
-    @inline(__always)
     func setAttributes(_ attrs: [NSAttributedString.Key: Any], range: NSRange?) {
         attrs.forEach({setAttribute($0.key, value: $0.value, range: range)})
     }
 }
 extension AttributedStringClass {
-    @inline(__always)
     func paragraphStyle(_ style: NSParagraphStyle?, range: NSRange?) {
         setAttribute(.paragraphStyle, value: style, range: range)
     }

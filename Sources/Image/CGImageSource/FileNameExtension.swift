@@ -22,12 +22,10 @@ struct FileNameExtension {
             self.name = name
         }
     }
-    @inline(__always)
     func getData(_ path: String?) -> Data? {
         guard let path = path else { return nil }
         return try? Data(contentsOf: URL(fileURLWithPath: path))
     }
-    @inline(__always)
     func getPath() -> String? {
         _getPath(name: name)
     }
@@ -42,7 +40,6 @@ struct FileNameExtension {
         }
         return _getPath(name: name)
     }
-    @inline(__always)
     private func _getPath(name: String) -> String? {
         Bundle.main.path(forResource: name, ofType: exten)
     }
