@@ -7,6 +7,7 @@
 //
 
 import UIKit
+// swiftlint:disable type_name
 public struct jd {}
 extension jd {
     /// ZJaDe: 返回命名空间
@@ -323,7 +324,7 @@ extension jd {
             return 0
         }
         let fileArr = FileManager.default.subpaths(atPath: cachePath) ?? []
-        //快速枚举出所有文件名 计算文件大小
+        // 快速枚举出所有文件名 计算文件大小
         var size: UInt = 0
         for file in fileArr {
             // 把文件名拼接到路径中

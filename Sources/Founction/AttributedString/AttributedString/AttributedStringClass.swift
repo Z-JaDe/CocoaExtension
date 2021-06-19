@@ -9,14 +9,14 @@
 import Foundation
 
 public final class AttributedStringClass {
-    public typealias V = NSMutableAttributedString
-    let _value: V
+    public typealias Value = NSMutableAttributedString
+    let _value: Value
     init() {
-        self._value = V()
+        self._value = Value()
     }
     init<T: AttributedStringCreater>(value: T?) {
         guard let value = value else {
-            self._value = V()
+            self._value = Value()
             return
         }
         self._value = value.createMutableAttributedString()

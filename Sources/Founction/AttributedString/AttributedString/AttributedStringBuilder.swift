@@ -26,18 +26,20 @@ struct AttributedStringBuilder<Element: AttributedStringAppendable & AttributedS
     }
 }
 
-//extension UILabel {
-//    func makeAttrStr(@AttributedStringBuilder<AttributedStringClass> content: () -> AttributedStringClass) {
-//        self.attributedText = content().finalize()
-//    }
-//}
-//extension NSAttributedString {
-//    static func build(@AttributedStringBuilder<AttributedStringClass> content: () -> AttributedStringClass) -> NSAttributedString {
-//        content().finalize()
-//    }
-//}
-//extension AttributedString {
-//    static func build(@AttributedStringBuilder<AttributedStringClass> content: () -> AttributedStringClass) -> AttributedString {
-//        AttributedString(value: content())
-//    }
-//}
+/*
+ extension UILabel {
+     func makeAttrStr(@AttributedStringBuilder<AttributedStringClass> content: () -> AttributedStringClass) {
+         self.attributedText = content().finalize()
+     }
+ }
+ extension NSAttributedString {
+     static func build(@AttributedStringBuilder<AttributedStringClass> content: () -> AttributedStringClass) -> NSAttributedString {
+         content().finalize()
+     }
+ }
+ extension AttributedString {
+     static func build(@AttributedStringBuilder<AttributedStringClass> content: () -> AttributedStringClass) -> AttributedString {
+         AttributedString(value: content())
+     }
+ }
+ */

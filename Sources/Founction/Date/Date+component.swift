@@ -26,7 +26,7 @@ public extension Date {
         get { getComponent(.year) }
         set { changing(.year, newValue) }
     }
-    
+
     var month: Int {
         get { getComponent(.month) }
         set { changing(.month, newValue) }
@@ -88,4 +88,3 @@ public extension Date {
         calendar.isDate(self, equalTo: Date(), toGranularity: component)
     }
 }
-

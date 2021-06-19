@@ -32,7 +32,7 @@ public extension String {
     var trimmed: String {
         trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
     }
-    
+
     /// CamelCase of string.
     ///
     ///        "sOme vAriable naMe".camelCased -> "someVariableName"

@@ -96,7 +96,7 @@ extension UIImage {
                     let a = (data + offSet + 3).pointee
                     guard a > 0 else { continue }
 //                    if r >= 240 && g >= 240 && b >= 240 { continue }
-                    ///不是纯色时或者允许解析纯色时
+                    /// 不是纯色时或者允许解析纯色时
                     guard parsePureColor || !(r == g && g == b) else { continue }
                     colors.add([r, g, b, a])
                 }
@@ -116,11 +116,11 @@ extension UIImage {
     }
 }
 extension UIImage {
-    ///会根据传入尺寸 缩放
+    /// 会根据传入尺寸 缩放
     private func getBitData(_ imgWidth: Int, _ imgHeight: Int) -> UnsafeMutablePointer<CUnsignedChar>? {
         guard let context = drawToContextRGBA(size: CGSize(width: imgWidth, height: imgHeight)) else { return nil }
         guard let contextData = context.data else { return nil }
-        //获取位图数据 位图的大小＝位图的每一行要使用的内存字节数＊图片高
+        // 获取位图数据 位图的大小＝位图的每一行要使用的内存字节数＊图片高
         return contextData.bindMemory(to: CUnsignedChar.self, capacity: context.bytesPerRow * imgHeight)
     }
 }

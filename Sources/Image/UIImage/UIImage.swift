@@ -107,7 +107,7 @@ extension UIImage {
         let width: size_t = size_t(size.width)
         let height: size_t = size_t(size.height)
         guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo) else { return nil }
-        //将图片画到位图中
+        // 将图片画到位图中
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
         return context
     }

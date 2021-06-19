@@ -79,8 +79,8 @@ public extension UIView {
     }
     /// 根据尺寸 计算高度 自动布局
     func calculateAutoLayoutHeight(_ targetSize: CGSize,
-                                          withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority = .fittingSizeLevel,
-                                          verticalFittingPriority: UILayoutPriority = .fittingSizeLevel) -> CGSize {
+                                   withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority = .fittingSizeLevel,
+                                   verticalFittingPriority: UILayoutPriority = .fittingSizeLevel) -> CGSize {
         let _translates = self.translatesAutoresizingMaskIntoConstraints
         self.translatesAutoresizingMaskIntoConstraints = false
         defer {

@@ -42,13 +42,13 @@ let morphological_kernel: [CUnsignedChar] = [
     1, 1, 1,
     1, 1, 1
 ]
-//let morphological_kernel: CUnsignedChar = [
+// let morphological_kernel: CUnsignedChar = [
 //    0, 1, 1, 1, 0,
 //    1, 1, 1, 1, 1,
 //    1, 1, 1, 1, 1,
 //    1, 1, 1, 1, 1,
 //    0, 1, 1, 1, 0
-//]
+// ]
 
 public extension UIImage {
     func accelerateBlurShort(withRadius radius: CGFloat) -> UIImage? {

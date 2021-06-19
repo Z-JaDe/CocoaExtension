@@ -9,9 +9,9 @@
 import Foundation
 
 public protocol AttributedStringCreater {
-    ///创建一个可变字符串
+    /// 创建一个可变字符串
     func createMutableAttributedString() -> NSMutableAttributedString
-    ///获取属性字符串，如果当前已经是属性字符串(无论是否可变) 则直接返回
+    /// 获取属性字符串，如果当前已经是属性字符串(无论是否可变) 则直接返回
     func unsafeGetAttributedString() -> NSAttributedString
 }
 public extension AttributedStringCreater {

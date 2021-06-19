@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 // MARK: - Properties
 public extension Locale {
 

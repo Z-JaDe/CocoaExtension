@@ -16,21 +16,21 @@ public extension UIViewController {
     func dismissVC(animated: Bool = true, completion: (() -> Void)? = nil) {
         dismiss(animated: animated, completion: completion)
     }
-    
+
     #if os(iOS)
     func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
         popoverContent.modalPresentationStyle = .popover
-        
+
         if let size = size {
             popoverContent.preferredContentSize = size
         }
-        
+
         if let popoverPresentationVC = popoverContent.popoverPresentationController {
             popoverPresentationVC.sourceView = view
             popoverPresentationVC.sourceRect = CGRect(origin: sourcePoint, size: .zero)
             popoverPresentationVC.delegate = delegate
         }
-        
+
         present(popoverContent, animated: animated, completion: completion)
     }
     #endif

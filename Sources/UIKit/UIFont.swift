@@ -49,19 +49,19 @@ public extension UIFont {
 
     /// ZJaDe:
     class func font(_ name: FontName, type: FontType, size: CGFloat) -> UIFont! {
-      //Using type
+      // Using type
       let fontName = name.rawValue + "-" + type.rawValue
       if let font = UIFont(name: fontName, size: size) {
           return font
       }
 
-      //That font doens't have that type, try .None
+      // That font doens't have that type, try .None
       let fontNameNone = name.rawValue
       if let font = UIFont(name: fontNameNone, size: size) {
           return font
       }
 
-      //That font doens't have that type, try .Regular
+      // That font doens't have that type, try .Regular
       let fontNameRegular = name.rawValue + "-" + "Regular"
       if let font = UIFont(name: fontNameRegular, size: size) {
           return font
