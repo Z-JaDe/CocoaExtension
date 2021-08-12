@@ -2,19 +2,12 @@ import UIKit
 
 public extension UIViewController {
     // MARK: - VC Flow
-//    func pushVC(_ vc: UIViewController) {
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
     func popVC(popCount: Int = 1, animated: Bool = true) {
         if popCount <= 1 {
             _ = navigationController?.popViewController(animated: animated)
         } else {
             navigationController?.pop(count: popCount, animated: animated)
         }
-    }
-
-    func dismissVC(animated: Bool = true, completion: (() -> Void)? = nil) {
-        dismiss(animated: animated, completion: completion)
     }
 
     #if os(iOS)
@@ -36,28 +29,16 @@ public extension UIViewController {
     #endif
 }
 public extension UIViewController {
-    func addAsChildViewController(_ vc: UIViewController, toView: UIView? = nil) {
-        let toView: UIView = toView ?? self.view
-        toView.addSubview(vc.view)
-        self.addChildVC(vc)
-    }
-    func removeAsChildViewController(_ vc: UIViewController, needRemoveItem: UIView? = nil) {
-        let needRemoveItem: UIView = needRemoveItem ?? vc.view
-        needRemoveItem.removeFromSuperview()
-        vc.removeFromParentVC()
-    }
-    func removeAsFromParentViewController() {
-        self.removeFromParentVC()
-        self.view.removeFromSuperview()
-    }
-
-    func addChildVC(_ childVC: UIViewController) {
+    func addAsChildViewController(_ childVC: UIViewController, toView: UIView? = nil) {
         self.addChild(childVC)
+        let toView: UIView = toView ?? self.view
+        toView.addSubview(childVC.view)
         childVC.didMove(toParent: self)
     }
-    func removeFromParentVC() {
+    func removeAsFromParentViewController() {
         // ZJaDe: 当我们向我们的视图控制器容器中调用removeFromParentViewController方法时，必须要先调用该方法，且parent参数为nil：
         self.willMove(toParent: nil)
+        self.view.removeFromSuperview()
         self.removeFromParent()
     }
 }
