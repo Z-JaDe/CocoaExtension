@@ -44,34 +44,7 @@ public extension UIView {
         }
     }
 }
-public extension UIView {
-    func resizeToFitSubviews(_ tagsToIgnore: [Int]) {
-        var width: CGFloat = 0
-        var height: CGFloat = 0
-        for someView in self.subviews {
-            let aView = someView
-            if !tagsToIgnore.contains(someView.tag) {
-                let newWidth = aView.x + aView.width
-                let newHeight = aView.y + aView.height
-                width = max(width, newWidth)
-                height = max(height, newHeight)
-            }
-        }
-        frame = CGRect(x: x, y: y, width: width, height: height)
-    }
-    func reorderSubViews(_ reorder: Bool = false, tagsToIgnore: [Int] = []) -> CGFloat {
-        var currentHeight: CGFloat = 0
-        for someView in subviews {
-            if !tagsToIgnore.contains(someView.tag) && !(someView ).isHidden {
-                if reorder {
-                    someView.top = currentHeight
-                }
-                currentHeight += someView.frame.height
-            }
-        }
-        return currentHeight
-    }
-}
+
 public extension UIView {
     /// 根据宽度 计算高度 自动布局
     func calculateAutoLayoutHeight(_ targetWidth: CGFloat) -> CGFloat {
