@@ -39,14 +39,14 @@ public extension UINavigationController {
             self.setViewControllers(viewConArr, animated: animated)
         }
     }
-    func popViewController(animated: Bool = true, _ completion: (() -> Void)? = nil) {
+    func popViewController(animated: Bool, _ completion: @escaping () -> Void) {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
         popViewController(animated: animated)
         CATransaction.commit()
     }
-    func pushViewController(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
+    func pushViewController(_ viewController: UIViewController, completion: @escaping () -> Void) {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
