@@ -170,3 +170,62 @@ extension UIImage {
         )
     }
 }
+
+extension UIImage {
+    func compress(with lengthLimit: UInt) -> Data? {
+        guard let data = compressMidQuality(with: lengthLimit) else {
+            return nil
+        }
+        if data.count <= lengthLimit {
+            return data
+        }
+        return UIImage(data: data)?.compressBySize(with: lengthLimit)
+    }
+    func compressBySize(with lengthLimit: UInt) -> Data? {
+        var resultImage = self
+        guard var data = resultImage.jpegData(compressionQuality: 1) else {
+            return nil
+        }
+        var lastDataLength = 0
+        while data.count > lengthLimit && data.count != lastDataLength {
+            lastDataLength = data.count
+            let ratio = CGFloat(lengthLimit) / CGFloat(data.count)
+            let size = CGSize(width: Int(resultImage.size.width * Darwin.sqrt(ratio)),
+                              height: Int(resultImage.size.height * Darwin.sqrt(ratio)))
+            resultImage = UIGraphicsImageRenderer(size: size).image { _ in
+                resultImage.draw(in: CGRect(origin: .zero, size: size))
+            }
+            if let _data = resultImage.jpegData(compressionQuality: 1) {
+                data = _data
+            } else {
+                break
+            }
+        }
+        return data
+    }
+    func compressMidQuality(with lengthLimit: UInt) -> Data? {
+        var compression: CGFloat = 1
+        guard var data = self.jpegData(compressionQuality: compression) else {
+            return nil
+        }
+        if data.count <= lengthLimit {
+            return data
+        }
+        var max: CGFloat = compression
+        var min: CGFloat = 0
+        for _ in 0..<6 {
+            compression = (max + min) / 2
+            if let _data = self.jpegData(compressionQuality: compression) {
+                data = _data
+                if CGFloat(data.count) < CGFloat(lengthLimit) * 0.9 {
+                    min = compression
+                } else if data.count > lengthLimit {
+                    max = compression
+                }
+            } else {
+                break
+            }
+        }
+        return data
+    }
+}
