@@ -22,11 +22,11 @@ public extension CGSize {
 
 // MARK: - Methods
 public extension CGSize {
-    func aspectFit(to boundingSize: CGSize) -> CGSize {
+    func scaleAspectFit(to boundingSize: CGSize) -> CGSize {
         let minRatio = min(boundingSize.width / width, boundingSize.height / height)
         return CGSize(width: width * minRatio, height: height * minRatio)
     }
-    func aspectFill(to boundingSize: CGSize) -> CGSize {
+    func scaleAspectFill(to boundingSize: CGSize) -> CGSize {
         let minRatio = max(boundingSize.width / width, boundingSize.height / height)
         let aWidth = min(width * minRatio, boundingSize.width)
         let aHeight = min(height * minRatio, boundingSize.height)
